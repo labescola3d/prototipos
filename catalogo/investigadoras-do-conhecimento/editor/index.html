@@ -64,6 +64,7 @@ button{font:600 16px var(--texto);border:0;border-radius:999px;padding:11px 20px
 .carta .pe{font-size:8pt;color:#828383;display:flex;justify-content:space-between}
 .rodape{position:absolute;left:12mm;right:12mm;bottom:6mm;font-size:7.5pt;line-height:1.35;color:var(--cinza);border-top:.3mm solid #DDD;padding-top:2mm}
 .rodape b{color:var(--preto)}
+.rodape-img{display:none;width:100%;height:auto}
 .vazio{color:#AAA;font-style:italic}
 /* pop-up */
 dialog{border:0;border-radius:18px;padding:24px;max-width:520px;width:calc(100% - 32px)}
@@ -74,11 +75,15 @@ dialog ul{margin:10px 0 18px 20px;display:grid;gap:6px}
 @page{size:A4 landscape;margin:0}
 @media print{
   body{background:#fff}
-  .topo,.form,.previa>h2,.previa>.dica,.licenca{display:none!important}
+  .alfa,.topo,.form,.previa>h2,.previa>.dica,.licenca{display:none!important}
+  html,body{margin:0;padding:0}
+  .rodape-txt{display:none}
+  .rodape-img{display:block}
   main{display:block;padding:0}
   .palco{overflow:visible}
-  .folha{zoom:1;margin:0;box-shadow:none;page-break-after:always;break-after:page}
-  .folha:last-child{page-break-after:auto;break-after:auto}
+  .previa,.palco{margin:0;padding:0;border:0}
+  .folha{zoom:1;margin:0;box-shadow:none;height:209mm;page-break-after:auto;break-after:auto}
+  .folha + .folha{page-break-before:always;break-before:page}
   dialog{display:none}
   .face,.carta.revela{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
@@ -140,6 +145,7 @@ dialog ul{margin:10px 0 18px 20px;display:grid;gap:6px}
       <button type="button" class="principal" id="imprimir" disabled>Imprimir (A4 deitado)</button>
       <button type="button" class="secundario" id="limpar">Limpar</button>
     </div>
+    <p class="dica">No celular, na tela de impressão, escolha o papel <b>A4</b> e a orientação <b>paisagem</b> (deitado).</p>
     <p class="dica" id="falta">Para imprimir, preencha o nome da investigadora e o seu nome.</p>
   </form>
 
@@ -250,9 +256,9 @@ dialog ul{margin:10px 0 18px 20px;display:grid;gap:6px}
   function rodape(v){
     var quem = v.autoria || "[seu nome]";
     var onde = v.escola ? " (" + v.escola + ")" : "";
-    return "Material adaptado de <i>Investigadoras do Conhecimento</i>, do <b>Lab Escola 3D</b> (UFRJ) — original em " + ORIGINAL +
+    return "<span class=\"rodape-txt\">Material adaptado de <i>Investigadoras do Conhecimento</i>, do <b>Lab Escola 3D</b> (UFRJ) — original em " + ORIGINAL +
       ". Licença CC BY-NC-SA 4.0. Esta versão foi editada por <b></b>" +
-      ", responsável pelo seu conteúdo; o Lab Escola 3D não revisou as alterações.";
+      ", responsável pelo seu conteúdo; o Lab Escola 3D não revisou as alterações.</span>";
   }
 
   function atualizar(){
@@ -278,7 +284,35 @@ dialog ul{margin:10px 0 18px 20px;display:grid;gap:6px}
   }
 
   campos.forEach(function(k){ $(k).addEventListener("input", atualizar); });
-  $("imprimir").addEventListener("click", function(){ if(!$("imprimir").disabled){ window.print(); } });
+  /* rodapé de licença impresso como imagem: no PDF (e no Canva) ele não vira texto editável */
+  function rodapeImagem(textoPlano){
+    var esc = 12, fs = 2.65 * esc, w = 273 * esc, linhas = [], linha = "";
+    var c = document.createElement("canvas"), ctx = c.getContext("2d");
+    var fonte = fs + 'px "Source Sans 3", system-ui, sans-serif';
+    ctx.font = fonte;
+    textoPlano.split(/\s+/).forEach(function(pal){
+      var teste = linha ? linha + " " + pal : pal;
+      if(ctx.measureText(teste).width > w && linha){ linhas.push(linha); linha = pal; } else { linha = teste; }
+    });
+    if(linha){ linhas.push(linha); }
+    c.width = w; c.height = Math.ceil(linhas.length * fs * 1.35 + fs * 0.4);
+    ctx.font = fonte; ctx.fillStyle = "#4A4A4A"; ctx.textBaseline = "top";
+    linhas.forEach(function(l, i){ ctx.fillText(l, 0, i * fs * 1.35); });
+    return c.toDataURL("image/png");
+  }
+  function prepararRodapes(){
+    document.querySelectorAll("[data-rodape]").forEach(function(r){
+      var txt = r.querySelector(".rodape-txt").textContent;
+      var img = r.querySelector(".rodape-img") || document.createElement("img");
+      img.className = "rodape-img"; img.alt = txt; img.src = rodapeImagem(txt);
+      r.appendChild(img);
+    });
+  }
+  $("imprimir").addEventListener("click", function(){
+    if($("imprimir").disabled){ return; }
+    var pronto = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    pronto.then(function(){ prepararRodapes(); setTimeout(function(){ window.print(); }, 50); });
+  });
   atualizar();
 })();
 </script>
