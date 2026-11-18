@@ -8,4 +8,8 @@ Elementos gráficos candidatos e gabaritos do professor do Lab Escola 3D, public
 - `elementos/canva-2026/` — 15 formas recorrentes das artes do Canva (dois lotes, 18/11/2026), reconstruídas em vetor.
 - `gabaritos-professor/` — 14 gabaritos A4 em preto e branco (benchmark: Oficina de Gamificação).
 
-**Status:** candidatos, não oficiais. **Fonte da verdade:** o design system do LE3D (frente Claude Design), onde cada SVG é gerado por código. Não edite os arquivos aqui; regere lá e espelhe de novo.
+- `geradores/` — o código que gera cada SVG, a geometria do logo e a paleta (ver `geradores/README.md`).
+
+**Status:** candidatos, não oficiais; o que entra no brandbook é decisão da ID Visual. Para mudar um SVG, mude o gerador e rode de novo.
+
+**Documentos da equipe** (roteiro da reunião de 18/11, pranchas, SVGs em .zip): pasta *03 Comunicação* no Google Drive do Lab — https://drive.google.com/drive/folders/10zIkXrBwYcwBtfVTcGe9w5ZvdXt5d_rD
