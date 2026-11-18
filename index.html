@@ -4,13 +4,50 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Protótipos do site LE3D</title>
+<title>Lab Escola 3D (protótipo)</title>
+<link rel="stylesheet" href="_base/site.css">
 <style>
-  body { font-family: system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; line-height: 1.5; color: #222; background: #fff; }
+.faixa { position: relative; }
+.numeros { display: grid; }
+.numero b { display: block; font-family: var(--titulo); font-weight: 900; color: var(--laranja); text-transform: uppercase; }
+.numero span { font-size: 14px; line-height: 20px; }
+.filtros { display: flex; flex-wrap: wrap; gap: 10px; }
+.filtros button { font-family: var(--corpo); font-size: 13px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 16px;
+                  background: var(--fundo); color: var(--roxo); border: 1px solid var(--roxo); cursor: pointer; }
+.filtros button.ativo { background: var(--roxo); color: var(--fundo); }
+.cards { display: grid; }
+.card.externo { border-style: dashed; }
+.card .capa { display: block; padding-top: 70px; text-align: center; color: var(--roxo); font-size: 13px; }
+.passos-home { display: grid; }
+.passo b { display: block; font-family: var(--titulo); font-size: 28px; color: var(--roxo); text-transform: uppercase; }
+.tela--pc .faixa { padding: 100px 160px 40px; }
+.tela--pc .faixa p { font-size: 20px; line-height: 30px; max-width: 760px; margin: 16px 0 28px; }
+.tela--pc .numeros { grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 0 160px; }
+.tela--pc .numero b { font-size: 48px; line-height: 48px; }
+.tela--pc .bloco { padding: 64px 160px 0; }
+.tela--pc .bloco h2 { margin-bottom: 24px; }
+.tela--pc .filtros { margin-bottom: 28px; }
+.tela--pc .cards { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.tela--pc .cards.quatro { grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.tela--pc .passos-home { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.tela--pc .rodape { margin-top: 80px; padding: 32px 160px 48px; display: flex; justify-content: space-between; }
+.tela--cel .faixa { padding: 60px 20px 28px; }
+.tela--cel .faixa p { font-size: 17px; line-height: 26px; margin: 12px 0 22px; }
+.tela--cel .numeros { grid-template-columns: 1fr 1fr; gap: 16px; padding: 0 20px; }
+.tela--cel .numero b { font-size: 34px; line-height: 36px; }
+.tela--cel .bloco { padding: 44px 20px 0; }
+.tela--cel .bloco h2 { margin-bottom: 16px; }
+.tela--cel .filtros { margin-bottom: 20px; }
+.tela--cel .cards, .tela--cel .cards.quatro { grid-template-columns: 1fr; gap: 16px; }
+.tela--cel .passos-home { grid-template-columns: 1fr; gap: 24px; }
+.tela--cel .rodape { margin-top: 56px; padding: 28px 20px 40px; }
+.tela--cel .rodape .redes { margin-top: 16px; }
 </style>
 </head>
 <body>
-<h1>Protótipos do site LE3D</h1>
-<p>Telas em desenho do site do Lab Escola 3D, em teste. O site oficial é <a href="https://labescola3d.rio.br">labescola3d.rio.br</a>.</p>
+<section class="tela tela--pc" data-document-role="page" data-label="Home · computador (1440)"><header class="topo"><a href="./"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><nav class="menu"><a href="acervo/">Acervo</a><a href="">Sobre o Lab</a><a href="">Contato</a><img class="icone" src="_base/icones/lupa.svg" alt="Buscar no acervo"></nav></header><div class="onda"></div><div class="faixa"><span class="selo">Lab Escola 3D · extensão da UFRJ</span><h1 style="margin-top:16px">Materiais para usar na sua aula</h1><p>Jogos, formações e manuais criados com professoras e professores da rede pública do Rio. Gratuitos, para baixar, imprimir e adaptar à sua turma.</p><a class="botao botao--grande" href="acervo/">Ver o acervo</a></div><div class="numeros"><div class="numero"><b>5 jogos</b><span>para baixar e jogar</span></div><div class="numero"><b>2 formações</b><span>para professores</span></div><div class="numero"><b>9 atividades</b><span>no catálogo</span></div><div class="numero"><b>6 manuais</b><span>de cultura maker</span></div></div><div class="bloco"><h2>Em destaque</h2><div class="cards quatro"><a class="card" href="acervo/investigadoras-do-conhecimento/" data-tipo="jogo" data-ano="2026"><span class="capa reservada">Área reservada · imagem do material</span><div class="corpo"><span class="tipo">Jogo · 2026</span><h3>Investigadoras do conhecimento</h3><p>Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.</p></div></a><a class="card" href="acervo/expedicao-sonora/" data-tipo="jogo" data-ano="2026"><span class="capa reservada">Área reservada · imagem do material</span><div class="corpo"><span class="tipo">Jogo · 2026</span><h3>Expedição Sonora</h3><p>Uma viagem pelo Brasil de ouvido: a turma escuta uma música e descobre de que região ela vem.</p></div></a><a class="card" href="acervo/oficina-de-gamificacao/" data-tipo="formacao" data-ano="2026"><span class="capa reservada">Área reservada · imagem do material</span><div class="corpo"><span class="tipo">Oficina · 2026</span><h3>Oficina de Gamificação</h3><p>Uma oficina para professores vivenciarem dois jogos do LE3D e adaptarem a mecânica para a própria turma.</p></div></a><a class="card" href="acervo/antropolojogo/" data-tipo="jogo" data-ano="2022"><span class="capa reservada">Área reservada · imagem do material</span><div class="corpo"><span class="tipo">Jogo · 2022</span><h3>Antropolojogo</h3><p>Um jogo de tabuleiro de ciências sociais, criado com o LabES/UFRJ para a Olimpíada de Sociologia do Rio.</p></div></a></div></div><div class="bloco"><h2>O que é o Lab Escola 3D</h2><p>Um projeto de extensão da UFRJ que leva a cultura maker, o design e as tecnologias digitais para a escola pública. Trabalhamos junto com o professor, a partir das necessidades reais da sala de aula, e devolvemos tudo o que criamos como material aberto.</p></div><div class="bloco"><h2>Como fazemos</h2><div class="passos-home"><div class="passo"><b>1 · Visita</b><p>Vamos à escola, ouvimos os professores e conhecemos o colaboratório.</p></div><div class="passo"><b>2 · Produto</b><p>Criamos juntos jogos, oficinas e roteiros, testados com as turmas.</p></div><div class="passo"><b>3 · Material aberto</b><p>Publicamos tudo aqui, para qualquer professora baixar e adaptar.</p></div></div></div><footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · protótipo de tela</span><div class="redes"><img src="_base/icones/instagram.svg" alt="Instagram"><img src="_base/icones/facebook.svg" alt="Facebook"><img src="_base/icones/youtube.svg" alt="YouTube"><img src="_base/icones/linkedin.svg" alt="LinkedIn"></div></footer></section>
+
+<section class="tela tela--cel" data-document-role="page" data-label="Home · celular (375)"><header class="topo"><a href="./"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><img class="icone" src="_base/icones/menu.svg" alt="Abrir o menu"></header><div class="onda"></div><div class="faixa"><span class="selo">Lab Escola 3D · extensão da UFRJ</span><h1 style="margin-top:16px">Materiais para usar na sua aula</h1><p>Jogos, formações e manuais criados com professoras e professores da rede pública do Rio. Gratuitos, para baixar, imprimir e adaptar à sua turma.</p><a class="botao botao--grande" href="acervo/">Ver o acervo</a></div><div class="numeros"><div class="numero"><b>5 jogos</b><span>para baixar e jogar</span></div><div class="numero"><b>2 formações</b><span>para professores</span></div><div class="numero"><b>9 atividades</b><span>no catálogo</span></div><div class="numero"><b>6 manuais</b><span>de cultura maker</span></div></div><div class="bloco"><h2>Em destaque</h2><div class="cards quatro"><a class="card" href="acervo/investigadoras-do-conhecimento/" data-tipo="jogo" data-ano="2026"><span class="capa reservada">Área reservada · imagem do material</span><div class="corpo"><span class="tipo">Jogo · 2026</span><h3>Investigadoras do conhecimento</h3><p>Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.</p></div></a><a class="card" href="acervo/expedicao-sonora/" data-tipo="jogo" data-ano="2026"><span class="capa reservada">Área reservada · imagem do material</span><div class="corpo"><span class="tipo">Jogo · 2026</span><h3>Expedição Sonora</h3><p>Uma viagem pelo Brasil de ouvido: a turma escuta uma música e descobre de que região ela vem.</p></div></a><a class="card" href="acervo/oficina-de-gamificacao/" data-tipo="formacao" data-ano="2026"><span class="capa reservada">Área reservada · imagem do material</span><div class="corpo"><span class="tipo">Oficina · 2026</span><h3>Oficina de Gamificação</h3><p>Uma oficina para professores vivenciarem dois jogos do LE3D e adaptarem a mecânica para a própria turma.</p></div></a><a class="card" href="acervo/antropolojogo/" data-tipo="jogo" data-ano="2022"><span class="capa reservada">Área reservada · imagem do material</span><div class="corpo"><span class="tipo">Jogo · 2022</span><h3>Antropolojogo</h3><p>Um jogo de tabuleiro de ciências sociais, criado com o LabES/UFRJ para a Olimpíada de Sociologia do Rio.</p></div></a></div></div><div class="bloco"><h2>O que é o Lab Escola 3D</h2><p>Um projeto de extensão da UFRJ que leva a cultura maker, o design e as tecnologias digitais para a escola pública. Trabalhamos junto com o professor, a partir das necessidades reais da sala de aula, e devolvemos tudo o que criamos como material aberto.</p></div><div class="bloco"><h2>Como fazemos</h2><div class="passos-home"><div class="passo"><b>1 · Visita</b><p>Vamos à escola, ouvimos os professores e conhecemos o colaboratório.</p></div><div class="passo"><b>2 · Produto</b><p>Criamos juntos jogos, oficinas e roteiros, testados com as turmas.</p></div><div class="passo"><b>3 · Material aberto</b><p>Publicamos tudo aqui, para qualquer professora baixar e adaptar.</p></div></div></div><footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · protótipo de tela</span><div class="redes"><img src="_base/icones/instagram.svg" alt="Instagram"><img src="_base/icones/facebook.svg" alt="Facebook"><img src="_base/icones/youtube.svg" alt="YouTube"><img src="_base/icones/linkedin.svg" alt="LinkedIn"></div></footer></section>
+
 </body>
 </html>
