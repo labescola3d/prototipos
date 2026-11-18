@@ -82,6 +82,16 @@ LICENCA = f"""<p class="crumb"><a href="../">Início</a> › Licença e como usa
 {perg("Pode", "", "Se eu mudar, preciso compartilhar a minha versão?", "<b>Só se você distribuir.</b> Se passar adiante, compartilhe também de graça e com a mesma licença.")}
 {perg("A confirmar", " nao", "Posso usar em escola particular ou em curso pago?", "Usar na aula, sim; vender o material, não. Os casos de curso pago ainda estão em análise pela coordenação do projeto: [a confirmar]. Na dúvida, use só na sua aula e cite a fonte.")}
 {perg("Pode", "", "Posso postar foto da atividade?", "<b>Sim, se a sua escola permitir.</b> Cite o Lab Escola 3D. <b>Não publique foto, nome ou dado de estudante</b>: mostre só os materiais.")}
+<h2 id="canva">Quer mexer mais? Leve ao Canva (opcional)</h2>
+<p>O jeito principal é editar aqui no site e imprimir. Se você usa o Canva, dá para levar o material para lá — funciona até na conta gratuita.</p>
+<div class="cartao"><ol>
+<li>No editor do material, clique em <b>Imprimir</b> e, em vez da impressora, escolha <b>Salvar como PDF</b>.</li>
+<li>No Canva, crie um design em branco e <b>arraste o PDF</b> para dentro (ou use <b>Upload</b> e escolha o arquivo).</li>
+<li>Os textos viram caixas editáveis. As fontes e a posição podem mudar um pouco: confira antes de imprimir.</li>
+<li><b>O rodapé de crédito vem como imagem</b>, para não ser alterado por engano. Mantenha-o: é ele que cumpre a licença.</li>
+<li>Baixe de novo em PDF e imprima em <b>A4</b>.</li>
+</ol></div>
+<p class="pequeno">Nenhum material do Lab depende do Canva: tudo funciona só com o navegador.</p>
 <h2>Copie e cole o crédito</h2>
 <p>Use esta frase na sua versão adaptada:</p>
 <span class="copiar">Adaptado de material do Lab Escola 3D (UFRJ) — CC BY-NC-SA 4.0 — labescola3d.rio.br</span>
