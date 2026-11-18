@@ -12,7 +12,7 @@ BOA = """<!doctype html><html><head>
 <style>.x{}</style></head><body>
 <section class="tela tela--pc" data-document-role="page" data-label="pc">
   <img src="../_base/icones/lupa.svg" alt="Buscar">
-  <a href="../acervo/">Acervo</a>
+  <a href="../catalogo/">Catálogo</a>
   <a class="botao baixar" href="arquivos/kit.pdf">Baixar</a>
   <a class="card externo" data-autoria="Raiane" href="https://ludopedia.com.br/jogo/x">X</a>
 </section>
@@ -54,7 +54,7 @@ class TestChecar(unittest.TestCase):
             "</head>", '<link rel="stylesheet" href="https://x/font-awesome/all.css"></head>')))
 
     def test_link_interno_absoluto_falha(self):
-        self.assertIn("relativo", rodar(BOA.replace('href="../acervo/"', 'href="/acervo/x/"')))
+        self.assertIn("relativo", rodar(BOA.replace('href="../catalogo/"', 'href="/catalogo/x/"')))
 
     def test_link_para_drive_ou_instagram_como_download_falha(self):
         html = BOA.replace('href="arquivos/kit.pdf"', 'href="https://drive.google.com/file/d/1"')

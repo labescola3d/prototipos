@@ -1,4 +1,4 @@
-"""Gera as páginas de produto do Acervo (Fase 1) a partir dos dados abaixo.
+"""Gera as páginas de produto do Catálogo (Fase 1) a partir dos dados abaixo.
 
 Uso: py -I -X utf8 _ferramentas/gerar_produtos.py
 Cada página tem 2 telas (computador 1440 e celular 375) para o Canva.
@@ -200,8 +200,8 @@ def _tela(p, tela):
     pc = tela == "pc"
     rotulo = "computador (1440)" if pc else "celular (375)"
     if pc:
-        nav = ('<nav class="menu"><a class="ativo" href="../">Acervo</a><a href="../../">Sobre o Lab</a>'
-               '<a href="../../">Contato</a><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no acervo"></nav>')
+        nav = ('<nav class="menu"><a class="ativo" href="../">Catálogo</a><a href="../../">Sobre o Lab</a>'
+               '<a href="../../">Contato</a><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no catálogo"></nav>')
     else:
         nav = '<img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu">'
     fatos = "".join(f'<div class="fato"><b>{E(b)}</b><span>{E(s)}</span></div>' for b, s in p["fatos"])
@@ -239,7 +239,7 @@ def _tela(p, tela):
 def pagina(p) -> str:
     return (f'<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n'
-            f'<title>{E(p["titulo"])} · Acervo LE3D (protótipo)</title>\n'
+            f'<title>{E(p["titulo"])} · Catálogo LE3D (protótipo)</title>\n'
             f'{estilo("site.css", "produto.css")}\n'
             f'</head>\n<body>\n{faixa_alfa("../../")}\n{_tela(p, "pc")}\n\n{_tela(p, "cel")}\n</body>\n</html>\n')
 
@@ -247,7 +247,7 @@ def pagina(p) -> str:
 def gerar_todos(raiz: str) -> list[str]:
     saidas = []
     for p in PRODUTOS:
-        pasta = os.path.join(raiz, "acervo", p["slug"])
+        pasta = os.path.join(raiz, "catalogo", p["slug"])
         os.makedirs(pasta, exist_ok=True)
         arq = os.path.join(pasta, "index.html")
         with open(arq, "w", encoding="utf-8", newline="\n") as f:

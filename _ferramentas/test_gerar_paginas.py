@@ -5,7 +5,7 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(__file__))
 from checar import checar  # noqa: E402
-from gerar_paginas import CARDS, gerar_acervo, gerar_home  # noqa: E402
+from gerar_paginas import CARDS, gerar_catalogo, gerar_home  # noqa: E402
 
 RAIZ = os.path.join(os.path.dirname(__file__), "..")
 
@@ -15,20 +15,20 @@ def ler(arq):
         return f.read()
 
 
-class TestAcervo(unittest.TestCase):
+class TestCatalogo(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.arq = gerar_acervo(RAIZ)
+        cls.arq = gerar_catalogo(RAIZ)
         cls.html = ler(cls.arq)
         cls.pc = cls.html.split('<section class="tela tela--cel"')[0]
 
-    def test_acervo_passa_no_validador(self):
+    def test_catalogo_passa_no_validador(self):
         self.assertEqual(checar(self.arq), [])
 
-    def test_acervo_tem_duas_telas(self):
+    def test_catalogo_tem_duas_telas(self):
         self.assertEqual(self.html.count('data-document-role="page"'), 2)
 
-    def test_acervo_tem_9_cards_por_tela(self):
+    def test_catalogo_tem_9_cards_por_tela(self):
         self.assertEqual(len(CARDS), 9)
         self.assertEqual(self.pc.count('<a class="card'), 9)
 
@@ -62,8 +62,8 @@ class TestHome(unittest.TestCase):
     def test_home_tem_duas_telas(self):
         self.assertEqual(self.html.count('data-document-role="page"'), 2)
 
-    def test_home_leva_ao_acervo(self):
-        self.assertIn('href="acervo/"', self.pc)
+    def test_home_leva_ao_catálogo(self):
+        self.assertIn('href="catalogo/"', self.pc)
         self.assertIn("Materiais para usar na sua aula", self.pc)
 
     def test_home_tem_os_4_destaques(self):

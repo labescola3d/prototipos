@@ -17,7 +17,7 @@ class TestGerarProdutos(unittest.TestCase):
         cls.arquivos = gerar_todos(RAIZ)
 
     def ler(self, slug):
-        with open(os.path.join(RAIZ, "acervo", slug, "index.html"), encoding="utf-8") as f:
+        with open(os.path.join(RAIZ, "catalogo", slug, "index.html"), encoding="utf-8") as f:
             return f.read()
 
     def test_gera_as_7_paginas_da_fase_1(self):

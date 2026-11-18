@@ -1,4 +1,4 @@
-"""Gera o Acervo (acervo/index.html) e a home (index.html) da Fase 1.
+"""Gera o Catálogo (catalogo/index.html) e a home (index.html) da Fase 1.
 
 Uso: py -I -X utf8 _ferramentas/gerar_paginas.py
 Os números da faixa de volume são texto à mão (desenho §6), contados no inventário.
@@ -111,8 +111,8 @@ def card(c, prefixo=""):
 def _topo(tela, raiz, ativo):
     if tela == "pc":
         a = lambda nome, href: f'<a class="ativo" href="{href}">{nome}</a>' if nome == ativo else f'<a href="{href}">{nome}</a>'
-        nav = (f'<nav class="menu">{a("Acervo", raiz + "acervo/")}{a("Sobre o Lab", raiz)}{a("Contato", raiz)}'
-               f'<img class="icone" src="{raiz}_base/icones/lupa.svg" alt="Buscar no acervo"></nav>')
+        nav = (f'<nav class="menu">{a("Catálogo", raiz + "catalogo/")}{a("Sobre o Lab", raiz)}{a("Contato", raiz)}'
+               f'<img class="icone" src="{raiz}_base/icones/lupa.svg" alt="Buscar no catálogo"></nav>')
     else:
         nav = f'<img class="icone" src="{raiz}_base/icones/menu.svg" alt="Abrir o menu">'
     return (f'<header class="topo"><a href="{raiz or "./"}"><img class="logo" src="{LOGO}" alt="Lab Escola 3D"></a>{nav}</header>'
@@ -144,7 +144,7 @@ def _escrever(arq, texto):
     return arq
 
 
-def gerar_acervo(raiz: str) -> str:
+def gerar_catalogo(raiz: str) -> str:
     telas = []
     for tela, rot in (("pc", "computador (1440)"), ("cel", "celular (375)")):
         filtros = "".join(f'<button type="button" data-filtro="{v}"{" class=\"ativo\"" if v == "todos" else ""}>{n}</button>'
@@ -152,16 +152,16 @@ def gerar_acervo(raiz: str) -> str:
                                        ("atividade", "Atividades"), ("manual", "Manuais"), ("2026", "2026"),
                                        ("2025", "2025"), ("2022", "2022")])
         telas.append(
-            f'<section class="tela tela--{tela}" data-document-role="page" data-label="Acervo · {rot}">'
-            + _topo(tela, "../", "Acervo")
-            + '<div class="faixa"><span class="selo">Acervo aberto</span><h1 style="margin-top:16px">Materiais para usar na sua aula</h1>'
+            f'<section class="tela tela--{tela}" data-document-role="page" data-label="Catálogo · {rot}">'
+            + _topo(tela, "../", "Catálogo")
+            + '<div class="faixa"><span class="selo">Catálogo aberto</span><h1 style="margin-top:16px">Materiais para usar na sua aula</h1>'
               '<p>Jogos, formações, atividades e manuais criados pelo Lab Escola 3D com escolas públicas do Rio. Tudo gratuito, para baixar e adaptar.</p></div>'
             + _numeros()
             + f'<div class="bloco"><div class="filtros">{filtros}</div><div class="cards">'
             + "".join(card(c) for c in CARDS) + "</div></div>"
             + _rodape("../") + "</section>")
-    return _escrever(os.path.join(raiz, "acervo", "index.html"),
-                     _doc("Acervo · Lab Escola 3D (protótipo)", "../", telas, FILTRO_JS))
+    return _escrever(os.path.join(raiz, "catalogo", "index.html"),
+                     _doc("Catálogo · Lab Escola 3D (protótipo)", "../", telas, FILTRO_JS))
 
 
 def gerar_home(raiz: str) -> str:
@@ -175,10 +175,10 @@ def gerar_home(raiz: str) -> str:
             + '<div class="faixa"><span class="selo">Lab Escola 3D · extensão da UFRJ</span>'
               '<h1 style="margin-top:16px">Materiais para usar na sua aula</h1>'
               '<p>Jogos, formações e manuais criados com professoras e professores da rede pública do Rio. Gratuitos, para baixar, imprimir e adaptar à sua turma.</p>'
-              '<a class="botao botao--grande" href="acervo/">Ver o acervo</a></div>'
+              '<a class="botao botao--grande" href="catalogo/">Ver o catálogo</a></div>'
             + _numeros()
             + '<div class="bloco"><h2>Em destaque</h2><div class="cards quatro">'
-            + "".join(card(c, "acervo/") for c in destaques) + "</div></div>"
+            + "".join(card(c, "catalogo/") for c in destaques) + "</div></div>"
             + '<div class="bloco"><h2>O que é o Lab Escola 3D</h2>'
               '<p>Um projeto de extensão da UFRJ que leva a cultura maker, o design e as tecnologias digitais para a escola pública. '
               'Trabalhamos junto com o professor, a partir das necessidades reais da sala de aula, e devolvemos tudo o que criamos como material aberto.</p></div>'
@@ -192,5 +192,5 @@ def gerar_home(raiz: str) -> str:
 
 if __name__ == "__main__":
     base = os.path.join(os.path.dirname(__file__), "..")
-    print(gerar_acervo(base))
+    print(gerar_catalogo(base))
     print(gerar_home(base))

@@ -2,7 +2,7 @@
 
 Protótipo (18/11/2026) da edição online do jogo: a professora parte de uma homenageada ou do zero, troca nome, pistas, fato curioso e imagem, e imprime o card e as cartas-pista em A4.
 
-- **No ar:** https://labescola3d.github.io/prototipos/acervo/investigadoras-do-conhecimento/editor/
+- **No ar:** https://labescola3d.github.io/prototipos/catalogo/investigadoras-do-conhecimento/editor/
 - **Por que e como foi pensado:** `labescola3d/site-le3d`, `docs/superpowers/specs/2026-11-18-editor-investigadoras-design.md`
 
 | Arquivo | O que é |
