@@ -9,6 +9,7 @@ import sys
 from html.parser import HTMLParser
 
 EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+")
+EMAIL_INSTITUCIONAL = {"labescola3d@gmail.com"}  # canal oficial do Lab: não é dado pessoal
 TELEFONE = re.compile(r"\(?\b\d{2}\)?\s?9?\d{4}-?\d{4}\b")
 PROIBIDO_NO_DOWNLOAD = ("drive.google.com", "docs.google.com", "instagram.com")
 VAZIOS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
@@ -65,7 +66,10 @@ class _Leitor(HTMLParser):
             self.pilha.pop()
 
     def handle_data(self, data):
-        if self.fora_de_script and (EMAIL.search(data) or TELEFONE.search(data)):
+        texto = data
+        for e in EMAIL_INSTITUCIONAL:
+            texto = texto.replace(e, "")
+        if self.fora_de_script and (EMAIL.search(texto) or TELEFONE.search(texto)):
             self._p(f"dado pessoal no texto: {data.strip()[:40]}")
 
 

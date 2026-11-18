@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Monte suas cartas — Expedição Sonora · Lab Escola 3D</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Source+Sans+3:wght@400;700&display=swap">
+<style>
+:root{--roxo:#3026AD;--laranja:#E3630D;--preto:#150E1F;--cinza:#4A4A4A;--fundo:#F2F2F2;--branco:#FFFFFF}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fundo);color:var(--preto);font:16px/1.5 'Source Sans 3',system-ui,sans-serif}
+h1,h2{font-family:'Big Shoulders Display',sans-serif;font-weight:700;color:var(--roxo);line-height:1.05;margin:0 0 8px}
+a{color:var(--roxo)}
+.topo{max-width:1400px;margin:auto;padding:18px 16px 4px}
+.topo h1{font-size:40px}
+main{max-width:1400px;margin:auto;padding:8px 16px 32px;display:grid;grid-template-columns:minmax(300px,440px) 1fr;gap:20px;align-items:start}
+.form{background:var(--branco);border-radius:12px;padding:16px}
+label{display:block;font-weight:700;font-size:14px;margin:10px 0 3px}
+input,select,textarea{width:100%;font:inherit;padding:8px 10px;border:2px solid #DDD;border-radius:8px;background:#fff}
+textarea{min-height:58px;resize:vertical}
+fieldset{border:2px solid var(--fundo);border-radius:10px;margin:10px 0;padding:6px 12px 12px}
+legend{font-weight:700;color:var(--roxo)}
+.linha{display:flex;gap:8px;align-items:end}.linha>*{flex:1}
+button{font:inherit;font-weight:700;border-radius:99px;padding:11px 18px;cursor:pointer;border:2px solid var(--roxo)}
+.principal{background:var(--laranja);border-color:var(--laranja);color:#fff}
+.principal:disabled{opacity:.45;cursor:not-allowed}
+.secundario{background:#fff;color:var(--roxo)}
+.botoes{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.dica{font-size:14px;color:var(--cinza);margin:8px 0 0}
+.previa{min-width:0}
+.palco{overflow:auto}
+/* folha A4 em pé com 9 cartas de 63 × 88 mm (o tamanho das cartas do jogo) */
+.folha{width:210mm;height:297mm;background:#fff;position:relative;box-shadow:0 2px 10px rgba(0,0,0,.12);zoom:.6;overflow:hidden;padding:9mm 7.5mm 0}
+@media(max-width:900px){main{grid-template-columns:1fr}.folha{zoom:.4}}
+.grade{display:grid;grid-template-columns:repeat(3,63mm);grid-auto-rows:88mm;gap:3mm;justify-content:center}
+.carta{border:.3mm dashed #999;border-radius:3mm;overflow:hidden;display:flex;flex-direction:column}
+.carta .faixa{background:var(--roxo);color:#fff;padding:2.5mm 3mm;display:flex;justify-content:space-between;align-items:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.carta .faixa b{font-family:'Big Shoulders Display',sans-serif;font-size:13pt;letter-spacing:.3pt}
+.carta .faixa span{background:var(--laranja);border-radius:9mm;padding:.4mm 2.2mm;font-size:8pt;font-weight:700}
+.carta .corpo{padding:3mm;flex:1;display:flex;flex-direction:column}
+.carta .artista{font-family:'Big Shoulders Display',sans-serif;font-size:17pt;color:var(--roxo);line-height:1}
+.carta .musica{font-size:9pt;font-weight:700;color:var(--laranja);margin:1mm 0 2mm}
+.carta .texto{font-size:8.6pt;line-height:1.3}
+.carta .pe{margin-top:auto;font-size:6.5pt;color:var(--cinza);border-top:.2mm solid #DDD;padding-top:1mm}
+.carta.vazia{border-color:#DDD}.carta.vazia *{visibility:hidden}
+.rodape{position:absolute;left:10mm;right:10mm;bottom:5mm;font-size:7.5pt;line-height:1.35;color:var(--cinza);border-top:.3mm solid #DDD;padding-top:2mm}
+.rodape b{color:var(--preto)}
+.rodape-img{display:none;width:100%;height:auto}
+dialog{border:0;border-radius:14px;max-width:560px;padding:22px}
+dialog::backdrop{background:rgba(21,14,31,.6)}
+dialog ul{margin:10px 0 18px 20px;display:grid;gap:6px;padding:0}
+@page{size:A4 portrait;margin:0}
+@media print{
+  html,body{margin:0;padding:0;background:#fff}
+  .alfa,.topo,.form,.previa>h2,.previa>.dica{display:none!important}
+  main{display:block;padding:0}
+  .previa,.palco{margin:0;padding:0;overflow:visible}
+  .folha{zoom:1;box-shadow:none;height:296mm}
+  .rodape-txt{display:none}.rodape-img{display:block}
+  dialog{display:none}
+}
+</style>
+</head>
+<body>
+<div class="alfa" style="background:#150E1F;color:#FFFFFF;font:14px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Protótipo em <b style="color:#E3630D">versão alfa</b> · Lab Escola 3D · <a href="../../../sobre/" style="color:#FFFFFF">o que é este protótipo</a></div>
+<div class="topo">
+  <p class="dica" style="margin:0"><a href="../../../">Início</a> › <a href="../../">Catálogo</a> › <a href="../">Expedição Sonora</a></p>
+  <h1>Monte suas cartas</h1>
+  <p style="margin:0">Parta das cartas do jogo ou escreva as suas — com as músicas da sua turma. Imprime 9 cartas numa folha A4, no tamanho do jogo.</p>
+</div>
+<main>
+  <form class="form" onsubmit="return false">
+    <div class="linha">
+      <div><label for="regiao-base">Começar com as cartas de</label>
+        <select id="regiao-base"><option value="">Em branco</option></select></div>
+      <button type="button" class="secundario" id="carregar">Carregar</button>
+    </div>
+    <div id="cartas-form"></div>
+    <label for="autoria">Seu nome (quem editou) *</label>
+    <input id="autoria" maxlength="60" autocomplete="off">
+    <label for="escola">Escola (opcional)</label>
+    <input id="escola" maxlength="80" autocomplete="off">
+    <div class="botoes">
+      <button type="button" class="principal" id="imprimir" disabled>Imprimir (A4 em pé)</button>
+      <button type="button" class="secundario" id="limpar">Limpar</button>
+    </div>
+    <p class="dica">No celular, na tela de impressão, escolha o papel <b>A4</b> e a orientação <b>retrato</b> (em pé).</p>
+    <p class="dica" id="falta">Para imprimir, preencha pelo menos uma carta (artista e região) e o seu nome.</p>
+  </form>
+  <section class="previa" aria-label="Prévia da impressão">
+    <h2>Prévia</h2>
+    <p class="dica">Recorte na linha tracejada. As cartas têm 63 × 88 mm, o tamanho das cartas do jogo.</p>
+    <div class="palco"><section class="folha" aria-label="Folha de cartas"><div class="grade" id="grade"></div>
+      <footer class="rodape" data-rodape></footer></section></div>
+  </section>
+</main>
+
+<dialog id="aviso" aria-labelledby="aviso-titulo">
+  <h2 id="aviso-titulo">Antes de editar</h2>
+  <ul>
+    <li><b>Você é responsável</b> pelo conteúdo que criar. As cartas impressas saem com o seu nome como responsável.</li>
+    <li><b>Nada de nome ou dado de estudante</b> nas cartas.</li>
+    <li><b>Nada do que você digitar sai do seu computador.</b> Ao fechar a página, a edição se perde; imprima ou salve em PDF antes.</li>
+  </ul>
+  <button type="button" class="principal" id="entendi">Entendi, quero editar</button>
+</dialog>
+
+<script>
+(function(){
+  var ORIGINAL = "https://labescola3d.github.io/prototipos/catalogo/expedicao-sonora/";
+  var REGIOES = [["N","Norte"],["NE","Nordeste"],["CO","Centro-Oeste"],["SE","Sudeste"],["S","Sul"]];
+  var N = 9, base = [], aceitou = false;
+  function $(id){ return document.getElementById(id); }
+  function el(tag, cls){ var e = document.createElement(tag); if(cls){ e.className = cls; } return e; }
+
+  /* formulário: 9 cartas */
+  var form = $("cartas-form");
+  for(var i = 0; i < N; i++){
+    var fs = el("fieldset"); var lg = el("legend"); lg.textContent = "Carta " + (i + 1); fs.appendChild(lg);
+    fs.innerHTML += '<label for="r' + i + '">Região</label><select id="r' + i + '"><option value=""></option></select>' +
+      '<label for="a' + i + '">Artista</label><input id="a' + i + '" maxlength="40" autocomplete="off">' +
+      '<label for="m' + i + '">Música</label><input id="m' + i + '" maxlength="50" autocomplete="off">' +
+      '<label for="t' + i + '">Texto da carta</label><textarea id="t' + i + '" maxlength="240"></textarea>';
+    form.appendChild(fs);
+    var sel = fs.querySelector("select");
+    REGIOES.forEach(function(r){ var o = el("option"); o.value = r[1]; o.textContent = r[1]; sel.appendChild(o); });
+  }
+  REGIOES.forEach(function(r){ var o = el("option"); o.value = r[1]; o.textContent = r[1]; $("regiao-base").appendChild(o); });
+
+  /* prévia: 9 cartas */
+  var grade = $("grade"), cartas = [];
+  for(var j = 0; j < N; j++){
+    var c = el("div", "carta vazia");
+    var fx = el("div", "faixa"); var b = el("b"); var s = el("span"); fx.appendChild(b); fx.appendChild(s);
+    var corpo = el("div", "corpo"); var ar = el("div", "artista"); var mu = el("div", "musica"); var tx = el("div", "texto");
+    var pe = el("div", "pe"); pe.textContent = "Expedição Sonora · Lab Escola 3D · CC BY-NC-SA 4.0";
+    corpo.appendChild(ar); corpo.appendChild(mu); corpo.appendChild(tx); corpo.appendChild(pe);
+    c.appendChild(fx); c.appendChild(corpo); grade.appendChild(c);
+    cartas.push({c: c, b: b, s: s, ar: ar, mu: mu, tx: tx});
+  }
+
+  function sigla(nome){ var r = REGIOES.filter(function(x){ return x[1] === nome; })[0]; return r ? r[0] : ""; }
+
+  function rodape(){
+    var quem = ($("autoria").value.trim() || "[seu nome]") + ($("escola").value.trim() ? " (" + $("escola").value.trim() + ")" : "");
+    document.querySelectorAll("[data-rodape]").forEach(function(r){
+      r.innerHTML = '<span class="rodape-txt">Cartas adaptadas de <i>Expedição Sonora</i>, do <b>Lab Escola 3D</b> (UFRJ) — original em ' + ORIGINAL +
+        '. Licença CC BY-NC-SA 4.0. Esta versão foi editada por <b></b>, responsável pelo seu conteúdo; o Lab Escola 3D não revisou as alterações.</span>';
+      r.querySelector("b:last-of-type").textContent = quem; // nome entra como texto, nunca como HTML
+    });
+  }
+
+  function atualizar(){
+    var alguma = false;
+    for(var k = 0; k < N; k++){
+      var reg = $("r" + k).value, art = $("a" + k).value.trim(), mus = $("m" + k).value.trim(), txt = $("t" + k).value.trim();
+      var p = cartas[k], cheia = !!(reg && art);
+      p.c.className = "carta" + (cheia ? "" : " vazia");
+      p.b.textContent = reg; p.s.textContent = sigla(reg); p.ar.textContent = art; p.mu.textContent = mus; p.tx.textContent = txt;
+      if(cheia){ alguma = true; }
+    }
+    rodape();
+    var pronto = aceitou && alguma && $("autoria").value.trim();
+    $("imprimir").disabled = !pronto; $("falta").hidden = !!pronto;
+  }
+
+  function preencher(lista){
+    for(var k = 0; k < N; k++){
+      var x = lista[k] || {regiao: "", artista: "", musica: "", texto: ""};
+      $("r" + k).value = x.regiao; $("a" + k).value = x.artista; $("m" + k).value = x.musica; $("t" + k).value = x.texto;
+    }
+    atualizar();
+  }
+
+  fetch("cartas.json").then(function(r){ return r.json(); }).then(function(d){ base = d.cartas || []; })
+    .catch(function(){ $("regiao-base").disabled = true; });
+
+  $("carregar").addEventListener("click", function(){
+    var reg = $("regiao-base").value;
+    preencher(reg ? base.filter(function(x){ return x.regiao === reg; }) : []);
+  });
+  $("limpar").addEventListener("click", function(){ preencher([]); $("autoria").value = ""; $("escola").value = ""; atualizar(); });
+  document.querySelector(".form").addEventListener("input", atualizar);
+  document.querySelector(".form").addEventListener("change", atualizar);
+
+  /* aviso antes da primeira edição; só fecha pelo botão */
+  var aviso = $("aviso");
+  document.querySelector(".form").addEventListener("focusin", function(){ if(!aceitou && !aviso.open){ aviso.showModal(); } });
+  aviso.addEventListener("cancel", function(e){ e.preventDefault(); });
+  $("entendi").addEventListener("click", function(){ aceitou = true; aviso.close(); atualizar(); });
+
+  /* rodapé de licença impresso como imagem: no PDF (e no Canva) ele não vira texto editável */
+  function rodapeImagem(textoPlano){
+    var esc = 12, fs = 2.65 * esc, w = 190 * esc, linhas = [], linha = "";
+    var cv = document.createElement("canvas"), ctx = cv.getContext("2d");
+    var fonte = fs + 'px "Source Sans 3", system-ui, sans-serif';
+    ctx.font = fonte;
+    textoPlano.split(/\s+/).forEach(function(pal){
+      var teste = linha ? linha + " " + pal : pal;
+      if(ctx.measureText(teste).width > w && linha){ linhas.push(linha); linha = pal; } else { linha = teste; }
+    });
+    if(linha){ linhas.push(linha); }
+    cv.width = w; cv.height = Math.ceil(linhas.length * fs * 1.35 + fs * 0.4);
+    ctx.font = fonte; ctx.fillStyle = "#4A4A4A"; ctx.textBaseline = "top";
+    linhas.forEach(function(l, i){ ctx.fillText(l, 0, i * fs * 1.35); });
+    return cv.toDataURL("image/png");
+  }
+  $("imprimir").addEventListener("click", function(){
+    if($("imprimir").disabled){ return; }
+    var pronto = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    pronto.then(function(){
+      document.querySelectorAll("[data-rodape]").forEach(function(r){
+        var txt = r.querySelector(".rodape-txt").textContent;
+        var img = r.querySelector(".rodape-img") || document.createElement("img");
+        img.className = "rodape-img"; img.alt = txt; img.src = rodapeImagem(txt); r.appendChild(img);
+      });
+      setTimeout(function(){ window.print(); }, 50);
+    });
+  });
+
+  atualizar();
+})();
+</script>
+</body>
+</html>

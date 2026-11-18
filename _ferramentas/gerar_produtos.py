@@ -43,7 +43,8 @@ PRODUTOS = [
         "frase": "Uma viagem pelo Brasil de ouvido: a turma escuta uma música e descobre de que região ela vem.",
         "reservada": "foto do mapa do Brasil e dos peões impressos em 3D",
         "baixar": {"titulo": "Material para levar à sua turma",
-                   "aviso": "O manual do jogo para o professor está em preparação. Enquanto isso, a Apostila da Oficina de Gamificação traz o passo a passo e os modelos."},
+                   "aviso": "O manual do jogo para o professor está em preparação. Enquanto isso, a Apostila da Oficina de Gamificação traz o passo a passo e os modelos.",
+                   "editor": ("Monte suas cartas", "editor/", "Parta das 41 cartas do jogo ou escreva as suas e imprima 9 por folha A4")},
         "fatos": [("2 a 4 pessoas", "por grupo"), ("cerca de 10 min", "por rodada"), ("30 músicas", "6 por região"), ("5 regiões", "do Brasil")],
         "o_que_e": "Um jogo que transforma um tema abstrato em experiência: a turma vira “Exploradores dos Ritmos” e viaja pelo território brasileiro conectando identidades, instrumentos e artistas regionais. A música afina a escuta crítica e estimula a colaboração entre estudantes e famílias.",
         "como": ("Como se joga", [
@@ -177,7 +178,7 @@ def estilo(*nomes, extra=""):
 
 def _baixar(p, tela):
     b = p["baixar"]
-    meta = f'<p class="meta">{E(LICENCA)}</p>'
+    meta = f'<p class="meta">{E(LICENCA)} <a href="../../licenca/" style="color:inherit">Como usar →</a></p>'
     if "arquivos" in b and len(b["arquivos"]) == 1:
         rot, url, info = b["arquivos"][0]
         botao = (f'<a class="botao botao--grande baixar" href="{E(url)}">'
@@ -192,8 +193,13 @@ def _baixar(p, tela):
         links = "".join(f'<a class="baixar" href="{E(u)}">{E(r)} <span>· {E(i)}</span></a>' for r, u, i in b["arquivos"])
         return (f'<div class="baixar-bloco"><div><h2>{E(b["titulo"])}</h2>{meta}</div>'
                 f'<div class="lista">{links}</div></div>')
+    editor = ""
+    if "editor" in b:  # editor no navegador, mesmo sem arquivo para baixar
+        er, eu, ei = b["editor"]
+        editor = (f'<p class="meta" style="margin-top:12px"><a class="editor" href="{E(eu)}" '
+                  f'style="color:inherit;font-weight:700">{E(er)} →</a><br>{E(ei)}</p>')
     return (f'<div class="baixar-bloco"><div><h2>{E(b["titulo"])}</h2>{meta}</div>'
-            f'<div><p class="aviso">{E(b["aviso"])}</p></div></div>')
+            f'<div><p class="aviso">{E(b["aviso"])}</p>{editor}</div></div>')
 
 
 def _tela(p, tela):

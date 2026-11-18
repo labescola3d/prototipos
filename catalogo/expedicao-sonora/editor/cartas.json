@@ -1,0 +1,292 @@
+{
+ "fonte": "Expedição Sonora — 41 cartas do jogo (Lab Escola 3D)",
+ "cartas": [
+  {
+   "regiao": "Centro-Oeste",
+   "sigla": "CO",
+   "artista": "Almir Sater",
+   "musica": "Tocando Em Frente",
+   "texto": "Almir Sater é um dos maiores expoentes da viola caipira, unindo a tradição a outros ritmos. A moda de viola é um gênero musical caipira enraizado na região Centro-Oeste do Brasil."
+  },
+  {
+   "regiao": "Centro-Oeste",
+   "sigla": "CO",
+   "artista": "Marília Mendonça",
+   "musica": "Graveto",
+   "texto": "A nossa eterna Rainha da Sofrência! Marília Mendonça tinha o dom mágico de transformar qualquer dor de cotovelo em poesia pura."
+  },
+  {
+   "regiao": "Centro-Oeste",
+   "sigla": "CO",
+   "artista": "Jorge e Matheus",
+   "musica": "Seu Astral",
+   "texto": "A dupla mudou o sertanejo para sempre e fez os jovens começarem a amar o estilo no final dos anos 2000. e romance que a garotada sabe de cor."
+  },
+  {
+   "regiao": "Centro-Oeste",
+   "sigla": "CO",
+   "artista": "Legião Urbana",
+   "musica": "Tempo Perdido",
+   "texto": "Quatro amigos de Brasília que transformaram o rock em poesia. A Legião Urbana contava histórias e fez o país inteiro cantar abraçado a plenos pulmões."
+  },
+  {
+   "regiao": "Centro-Oeste",
+   "sigla": "CO",
+   "artista": "Menos é Mais",
+   "musica": "Vai Me Dando Corda",
+   "texto": "O grupo revolucionou o estilo do pagode e transforma em pop o ritmo do pandeiro, tendo suas raízes em Brasília, misturam com sertanejo, forró, MPB e transformaram o pagode."
+  },
+  {
+   "regiao": "Centro-Oeste",
+   "sigla": "CO",
+   "artista": "Ana Castela",
+   "musica": "Olha Onde Eu Tô",
+   "texto": "Com seu chapéu marcante e refrões chiclete, Ana Castela trouxe o universo da fazenda para as paradas de sucesso de um jeito superanimado."
+  },
+  {
+   "regiao": "Centro-Oeste",
+   "sigla": "CO",
+   "artista": "Ney Matogrosso",
+   "musica": "Poema",
+   "texto": "Dono de uma voz afinadíssima e inconfundível, Ney Matogrosso ensinou que ter personalidade é ser livre para brilhar do seu próprio jeito, quebrando barreiras com muita arte e coragem."
+  },
+  {
+   "regiao": "Centro-Oeste",
+   "sigla": "CO",
+   "artista": "Luan Santana",
+   "musica": "Te Vivo",
+   "texto": "O astro que faz multidões cantarem apaixonadas! Luan Santana modernizou o sertanejo com shows de cinema, muito carisma e sucessos que não param de tocar."
+  },
+  {
+   "regiao": "Nordeste",
+   "sigla": "NE",
+   "artista": "João Gomes",
+   "musica": "Dengo",
+   "texto": "O pernambucano é um dos maiores nomes do piseiro e do forró atualmente, conhecido por sua voz grave e hits que exaltam a cultura do Nordeste. O cantor possui seus principais ritmos cantados no ritmo do piseiro e do forró de"
+  },
+  {
+   "regiao": "Nordeste",
+   "sigla": "NE",
+   "artista": "Alceu Valença",
+   "musica": "Bom Demais",
+   "texto": "Ícone do frevo e do Carnaval de Pernambuco, Alceu Valença uniu a tradição nordestina — como maracatus, cocos e repentes — à sonoridade moderna da guitarra e do baixo elétrico."
+  },
+  {
+   "regiao": "Nordeste",
+   "sigla": "NE",
+   "artista": "PSIRICO",
+   "musica": "Lepo Lepo",
+   "texto": "O Psirico é um dos grupos de pagode baiano mais influentes do Brasil, a banda é famosa por sua percussão pulsante e por arrastar multidões em trios elétricos no Carnaval."
+  },
+  {
+   "regiao": "Nordeste",
+   "sigla": "NE",
+   "artista": "LUIZ GONZAGA",
+   "musica": "Sala De Reboco",
+   "texto": "Do coração árido do sertão pernambucano ecoou a voz que redefiniu a alma do Brasil: Luiz Gonzaga, o eterno e soberano Rei do Baião."
+  },
+  {
+   "regiao": "Nordeste",
+   "sigla": "NE",
+   "artista": "GILBERTO GIL",
+   "musica": "Esperando Na Janela",
+   "texto": "Direto da Bahia, Gilberto Gil é um mestre da nossa música e do Tropicalismo! Com seu violão e guitarra, ele mistura ritmos brasileiros com rock e reggae em canções cheias de cor, energia e alegria!"
+  },
+  {
+   "regiao": "Nordeste",
+   "sigla": "NE",
+   "artista": "DJAVAN",
+   "musica": "Oceano",
+   "texto": "Djavan une poesia e música com uma voz suave que encanta o mundo inteiro, tocando direto no coração de quem escuta com pura sensibilidade e beleza!"
+  },
+  {
+   "regiao": "Nordeste",
+   "sigla": "NE",
+   "artista": "OLODUM",
+   "musica": "Vem Meu Amor",
+   "texto": "Maior bloco afro do mundo, o Olodum enche a Bahia e o planeta de cor, orgulho e alegria com os tambores contagiantes do seu samba-reggae!"
+  },
+  {
+   "regiao": "Nordeste",
+   "sigla": "NE",
+   "artista": "Chico Science",
+   "musica": "Maracatu Atômico",
+   "texto": "Direto de Pernambuco, Chico Science liderou o movimento Manguebeat, misturando a batida pesada do maracatu com o rock e o hip-hop para fazer todo mundo dançar e pensar!"
+  },
+  {
+   "regiao": "Nordeste",
+   "sigla": "NE",
+   "artista": "MATUÊ",
+   "musica": "Maria",
+   "texto": "Direto do Ceará, Matuê é o grande nome do trap brasileiro, conquistando o país com suas batidas modernas, rimas marcantes e recordes de sucesso!"
+  },
+  {
+   "regiao": "Norte",
+   "sigla": "N",
+   "artista": "Caprichoso",
+   "musica": "Brinquedo Que Canta Seu Chão",
+   "texto": "O Boi-Bumbá Caprichoso é um dos dois bois folclóricos do Festival de Parintins, no Amazonas desde 1913. Suas cores são azul e branco, seu símbolo é uma estrela"
+  },
+  {
+   "regiao": "Norte",
+   "sigla": "N",
+   "artista": "Banda Calypso",
+   "musica": "A Lua Me Traiu",
+   "texto": "Pode preparar o fôlego para rodopiar! Com coreografias elétricas, botas de cano alto e o famoso \"bate-cabelo”. O ritmo agitado da banda Calypso e de Joelma não deixa ninguém parado."
+  },
+  {
+   "regiao": "Norte",
+   "sigla": "N",
+   "artista": "Dona Onete",
+   "musica": "Tambor Do Norte",
+   "texto": "A grande Rainha do Carimbó Chamegado! Mesmo sentadinha em sua cadeira no palco, Dona Onete levanta a plateia inteira com seu sorriso doce."
+  },
+  {
+   "regiao": "Norte",
+   "sigla": "N",
+   "artista": "Garantido",
+   "musica": "Vermelho",
+   "texto": "Garantido é um grupo folclórico tradicional de Parintins, Amazonas, região norte do país. Representado pela cor vermelha e pelo coração, o Garantido compete anualmente no Festival Folclórico de Parintins."
+  },
+  {
+   "regiao": "Norte",
+   "sigla": "N",
+   "artista": "Gaby Amarantos",
+   "musica": "Foguinho",
+   "texto": "Conhecida como a musa do tecnobrega, Gaby Amarantos mistura as batidas eletrônicas com os ritmos contagiantes do Norte, botando todo mundo para pular com uma voz forte e muita alegria."
+  },
+  {
+   "regiao": "Norte",
+   "sigla": "N",
+   "artista": "Anavitoria",
+   "musica": "Trevo",
+   "texto": "Vindas do Tocantins, a dupla Anavitória mistura a suavidade da MPB com o pop em canções doces, cheias de afeto, violão e melodias que abraçam quem escuta!"
+  },
+  {
+   "regiao": "Norte",
+   "sigla": "N",
+   "artista": "Fafá de Belém",
+   "musica": "Nuvem De Lágrimas",
+   "texto": "Voz potente, coração gigante e uma risada inconfundível! Fafá de Belém é pura festa paraense, cantando com uma emoção tão forte que arrepia todo mundo."
+  },
+  {
+   "regiao": "Norte",
+   "sigla": "N",
+   "artista": "Beto Barbosa",
+   "musica": "Preta",
+   "texto": "Misturando o calor do Pará com ritmos caribenhos, Beto Barbosa transformou a lambada em uma festa de praia contagiante que não deixa ninguém parado!"
+  },
+  {
+   "regiao": "Sudeste",
+   "sigla": "SE",
+   "artista": "Furacão 2000",
+   "musica": "Techno Boxe",
+   "texto": "A Furacão 2000 é a principal produtora, gravadora e equipe de som responsável pela popularização do funk carioca no Brasil."
+  },
+  {
+   "regiao": "Sudeste",
+   "sigla": "SE",
+   "artista": "G.R.E.S Estação Primeira de Mangueira",
+   "musica": "História Para Ninar Gente Grande",
+   "texto": "Fundada por Cartola no Morro da Mangueira, é o coração da tradição carnavalesca. Unindo elegância e resistência, transformou o desfile em uma narrativa potente sobre a história do povo brasileiro e suas raízes ancestrais."
+  },
+  {
+   "regiao": "Sudeste",
+   "sigla": "SE",
+   "artista": "Ferrugem",
+   "musica": "Pirata E Tesouro",
+   "texto": "Com sua voz potente e produção moderna, resgata o romantismo do pagode noventista, provando que o gênero é atemporal e mantendo o ritmo vivo nos fones e nos corações dos jovens de hoje."
+  },
+  {
+   "regiao": "Sudeste",
+   "sigla": "SE",
+   "artista": "Racionais MC’s",
+   "musica": "O Mau E O Bem",
+   "texto": "Racionais MC 's é um grupo brasielrio de rap fundado em São Paulo. Com letras que são crônicas sociais brutas e reais, o grupo deu dignidade e consciência à periferia. Transformando o hip hop em uma ferramenta de resistência política."
+  },
+  {
+   "regiao": "Sudeste",
+   "sigla": "SE",
+   "artista": "Milton Nascimento",
+   "musica": "Maria Maria",
+   "texto": "Sua obra redefiniu a MPB ao unir sofisticação harmônica, sensibilidade popular e profundidade espiritual, influenciando gerações no Brasil e no mundo. Mais que um artista, é um patrimônio cultural vivo do país."
+  },
+  {
+   "regiao": "Sudeste",
+   "sigla": "SE",
+   "artista": "Roberto Carlos",
+   "musica": "Como É Grande O Meu Amor Por Você",
+   "texto": "Se o amor tivesse um nome, seria Roberto Carlos, o homem que construiu os conceitos de amor na mente do brasileiro, suas letras românticas marcam no coração dos apaixonados."
+  },
+  {
+   "regiao": "Sudeste",
+   "sigla": "SE",
+   "artista": "Falamansa",
+   "musica": "Xote Dos Milagres",
+   "texto": "Grupo que resgatou o forró tradicional nos anos 2000, adaptando-o ao público jovem, com sanfona, zabumba e triângulo e letras sobre amor, alegria e positividade."
+  },
+  {
+   "regiao": "Sudeste",
+   "sigla": "SE",
+   "artista": "Cartola",
+   "musica": "O Mundo É Um Moinho",
+   "texto": "Seu nome ecoa como a grande raíz do Samba, fundador da Mangueira, cantava sobre o amor e o cotidiano de sua terra com uma poesia singular, transformando a rotina daquela comunidade em arte, em um canto"
+  },
+  {
+   "regiao": "Sul",
+   "sigla": "S",
+   "artista": "Grupo Manotaço",
+   "musica": "Floreando A Cordeona",
+   "texto": "Gaita roncando e poeira subindo, o Grupo Manotaço é pura energia sulista, fazendo todo mundo dançar vaneira com um ritmo"
+  },
+  {
+   "regiao": "Sul",
+   "sigla": "S",
+   "artista": "Os Araganos",
+   "musica": "Céu, Sol, Sul, Terra E Cor",
+   "texto": "Herdeiros da música missioneira, elevam o orgulho gaúcho através do fole da gaita e do canto galponeiro."
+  },
+  {
+   "regiao": "Sul",
+   "sigla": "S",
+   "artista": "Michel Teló",
+   "musica": "Aí Se Eu Te Pego",
+   "texto": "Com sua sanfona e a dança do \"Ai Se Eu Te Pego\", Michel Teló espalhou alegria e fez o mundo inteiro dançar a música brasileira"
+  },
+  {
+   "regiao": "Sul",
+   "sigla": "S",
+   "artista": "Kleiton e Kledir",
+   "musica": "Deu Pra Ti",
+   "texto": "Irmãos de sangue e de viola! Kleiton & Kledir conquistaram o país misturando o charme da fala gaúcha com melodias leves e contagiantes que encantam"
+  },
+  {
+   "regiao": "Sul",
+   "sigla": "S",
+   "artista": "Xuxa",
+   "musica": "Lua De Cristal",
+   "texto": "A \"Rainha dos Baixinhos\" é o maior ícone do pop infantil brasileiro. Suas músicas misturam batidas animadas com comandos de dança e refrões fáceis, virando clássicos de festas que atravessam gerações."
+  },
+  {
+   "regiao": "Sul",
+   "sigla": "S",
+   "artista": "Fresno",
+   "musica": "Alguém Que Te Fez Sorrir",
+   "texto": "Fresno é uma banda brasileira de rock formada em Porto Alegre, destaque da cena emo nacional nos anos 2000. O grupo se consolidou pelo som melódico e letras intensas, tornando-se um dos nomes mais populares do rock alternativo"
+  },
+  {
+   "regiao": "Sul",
+   "sigla": "S",
+   "artista": "Karol Conká",
+   "musica": "Tombei",
+   "texto": "Destaque do rap nacional que mistura hip-hop com batidas eletrônicas e pop. Suas letras focam em autoestima e poder, combinando rimas rápidas com uma estética moderna que conversa muito com o público jovem."
+  },
+  {
+   "regiao": "Sul",
+   "sigla": "S",
+   "artista": "Luiza Sonza",
+   "musica": "Chico",
+   "texto": "Um dos maiores nomes do pop brasileiro atual, mistura pop com funk e trap, trazendo letras sobre relacionamentos e fama que bombam nas redes sociais."
+  }
+ ]
+}
