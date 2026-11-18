@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Grade de 4 cartas com campos sugeridos · kit do professor LE3D · gerado por build/vetores/gerar_gabaritos_professor.py · não editar à mão -->
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect width="210" height="297" fill="#FFFFFF"/>
+<text x="12" y="18" font-family="'Big Shoulders Display', 'Bebas Neue', sans-serif" font-size="7" fill="#150E1F"><tspan font-weight="700">LAYOUT DE CARTAS</tspan> <tspan font-weight="400">(Nome da atividade)</tspan></text><path d="M169.96 11.00L171.77 11.74 M169.96 11.00L168.00 11.80 M181.19 11.00L183.00 11.75 M181.19 11.00L173.62 14.11 M171.77 11.74L169.81 12.55 M171.77 11.74L171.77 18.02 M183.00 11.75L175.43 14.86 M183.00 11.75L183.00 20.22 M168.00 11.80L169.81 12.55 M168.00 11.80L168.00 20.28 M169.81 12.55L169.81 18.82 M173.62 14.11L175.43 14.86 M173.62 14.11L173.62 16.32 M181.04 14.75L181.04 15.69 M181.04 14.75L177.23 16.32 M175.43 14.86L175.43 17.06 M181.04 15.69L178.37 16.79 M173.62 16.32L175.43 17.06 M177.23 16.32L176.41 16.66 M177.23 16.32L178.37 16.79 M176.41 16.66L175.43 17.06 M176.41 16.66L176.41 18.19 M178.37 16.79L178.37 18.99 M181.04 17.89L181.04 18.82 M181.04 17.89L178.37 18.99 M171.77 18.02L175.43 19.52 M176.41 18.19L177.55 18.65 M177.55 18.65L178.37 18.99 M177.55 18.65L175.43 19.52 M169.81 18.82L175.43 21.13 M181.04 18.82L175.43 21.13 M183.00 20.22L175.43 23.34 M168.00 20.28L175.43 23.34" stroke="#150E1F" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round"/><text x="185" y="14.2" font-family="'Big Shoulders Display', 'Bebas Neue', sans-serif" font-weight="700" font-size="3.4" letter-spacing="0.4" fill="#150E1F"><tspan x="185">LAB</tspan><tspan x="185" dy="3.6">ESCOLA</tspan><tspan x="191" dy="3.6">3D</tspan></text>
+<g fill="none" stroke="#150E1F" stroke-width="0.4" stroke-linejoin="round">
+<rect x="12.00" y="30.00" width="91.00" height="120.50" rx="2.5"/>
+<path d="M15.0 34.0 h22.8 M43.8 34.0 h54.6"/>
+<rect x="15.00" y="37.00" width="85.00" height="54.23" rx="1.5"/>
+<rect x="15.00" y="94.22" width="85.00" height="41.23" rx="1.5"/>
+<circle cx="95.0" cy="43.0" r="4.5"/>
+<text x="15.00" y="33.00" font-family="'Source Sans 3', 'Source Sans Pro', sans-serif" font-size="2.4" fill="#150E1F" stroke="none">Categoria</text>
+<text x="43.85" y="33.00" font-family="'Source Sans 3', 'Source Sans Pro', sans-serif" font-size="2.4" fill="#150E1F" stroke="none">Objeto / Lugar / Pessoa</text>
+<text x="18.00" y="42.00" font-family="'Source Sans 3', 'Source Sans Pro', sans-serif" font-size="2.6" fill="#150E1F" stroke="none">Imagem representativa</text>
+<text x="18.00" y="99.22" font-family="'Source Sans 3', 'Source Sans Pro', sans-serif" font-size="2.6" fill="#150E1F" stroke="none">Informações / Conteúdos</text>
+<rect x="107.00" y="30.00" width="91.00" height="120.50" rx="2.5"/>
+<path d="M110.0 34.0 h22.8 M138.8 34.0 h54.6"/>
+<rect x="110.00" y="37.00" width="85.00" height="54.23" rx="1.5"/>
+<rect x="110.00" y="94.22" width="85.00" height="41.23" rx="1.5"/>
+<circle cx="190.0" cy="43.0" r="4.5"/>
+<rect x="12.00" y="154.50" width="91.00" height="120.50" rx="2.5"/>
+<path d="M15.0 158.5 h22.8 M43.8 158.5 h54.6"/>
+<rect x="15.00" y="161.50" width="85.00" height="54.23" rx="1.5"/>
+<rect x="15.00" y="218.72" width="85.00" height="41.23" rx="1.5"/>
+<circle cx="95.0" cy="167.5" r="4.5"/>
+<rect x="107.00" y="154.50" width="91.00" height="120.50" rx="2.5"/>
+<path d="M110.0 158.5 h22.8 M138.8 158.5 h54.6"/>
+<rect x="110.00" y="161.50" width="85.00" height="54.23" rx="1.5"/>
+<rect x="110.00" y="218.72" width="85.00" height="41.23" rx="1.5"/>
+<circle cx="190.0" cy="167.5" r="4.5"/>
+</g>
+</svg>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Quadrados vazados LE3D — #E3620E, traço 1,2272 · extraído de labescola3d.rio.br em 17/11/2026 por build/vetores/extrair_elementos_site.py · não editar à mão -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="651" viewBox="0 0 1920 651" fill="none">
+  <g clip-path="url(#c)">
+    <path d="M1890 202.806H1855V226.623H1890V202.806Z" stroke="#E3620E" stroke-width="1.2272" stroke-miterlimit="10"></path>
+    <path d="M630 71H606V92H630V71Z" stroke="#E3620E" stroke-width="1.2272" stroke-miterlimit="10"></path>
+    <path d="M1050.55 89H1004V130.267H1050.55V89Z" stroke="#E3620E" stroke-width="1.2272" stroke-miterlimit="10"></path>
+  </g>
+  <defs><clipPath id="c"><rect width="1920" height="651"/></clipPath></defs>
+</svg>
