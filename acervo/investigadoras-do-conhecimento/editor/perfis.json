@@ -1,0 +1,346 @@
+{
+ "eixos": [
+  {
+   "id": "cie",
+   "nome": "Científico",
+   "perfis": [
+    {
+     "nome": "Sônia Guimarães",
+     "resumo": "Física · primeira mulher negra doutora em Física no Brasil e primeira professora negra do ITA",
+     "pistas": [
+      "Sou uma cientista brasileira da área da física.",
+      "Fui a primeira mulher negra a concluir o doutorado no Brasil.",
+      "Fui a primeira mulher negra professora do Instituto Tecnológico de Aeronáutica (ITA)."
+     ],
+     "curiosidade": "É uma voz ativa na luta contra o racismo e o sexismo na ciência."
+    },
+    {
+     "nome": "Ester Sabino",
+     "resumo": "Medicina · liderou o sequenciamento do genoma do SARS-CoV-2 no Brasil",
+     "pistas": [
+      "Sou uma cientista brasileira da área da medicina e pesquisa biomédica.",
+      "Trabalho com genética e estudo de vírus.",
+      "Coordenei a equipe que sequenciou o genoma do coronavírus no Brasil no início da pandemia."
+     ],
+     "curiosidade": "Liderou o sequenciamento em tempo recorde: 48 horas."
+    },
+    {
+     "nome": "Jaqueline Goes de Jesus",
+     "resumo": "Biomedicina · coordenou a equipe de bancada do sequenciamento do SARS-CoV-2",
+     "pistas": [
+      "Sou uma biomédica e cientista brasileira nascida em Salvador, Bahia.",
+      "Especializei-me em biotecnologia e atuo no monitoramento genético de epidemias e vírus tropicais como Zika e Dengue.",
+      "Fui uma das coordenadoras da equipe que sequenciou o genoma do SARS-CoV-2 no Brasil em apenas 48 horas após a confirmação do primeiro caso."
+     ],
+     "curiosidade": "Teve a trajetória homenageada pela Mattel e virou modelo de uma boneca Barbie na série que celebra mulheres na ciência."
+    },
+    {
+     "nome": "Bertha Lutz",
+     "resumo": "Zoologia e ativismo · líder do movimento pelos direitos civis e políticos das mulheres",
+     "pistas": [
+      "Sou uma cientista e ativista brasileira apaixonada pela natureza e pelos animais.",
+      "Trabalhei durante décadas no Museu Nacional estudando anfíbios, como sapos, rãs e pererecas.",
+      "Lutei pelos direitos das mulheres no Brasil e ajudei a conquistar o direito ao voto feminino em 1932."
+     ],
+     "curiosidade": "Foi uma das fundadoras da Federação Brasileira pelo Progresso Feminino e chegou a ser deputada federal."
+    },
+    {
+     "nome": "Tatiana Sampaio",
+     "resumo": "Biologia celular · desenvolveu a polilaminina, molécula que apoia a regeneração de neurônios",
+     "pistas": [
+      "Sou uma cientista brasileira formada em Ciências Biológicas pela UFRJ.",
+      "Minhas pesquisas investigam proteínas e moléculas que ajudam na regeneração do sistema nervoso.",
+      "Coordeno pesquisas na UFRJ e estudo substâncias como a polilaminina, que pode ajudar na recuperação de lesões na medula espinhal."
+     ],
+     "curiosidade": "É uma das maiores referências em biologia celular no Brasil."
+    }
+   ]
+  },
+  {
+   "id": "art",
+   "nome": "Artístico",
+   "perfis": [
+    {
+     "nome": "Tarsila do Amaral",
+     "resumo": "Pintura · figura central do Modernismo brasileiro",
+     "pistas": [
+      "Sou uma pintora e desenhista brasileira, considerada uma das figuras centrais do Modernismo.",
+      "Minhas obras usam cores vivas, formas geométricas e paisagens brasileiras, misturando a vanguarda europeia com a nossa cultura.",
+      "Pintei o quadro Abaporu, tela que inspirou a criação do Movimento Antropofágico no Brasil."
+     ],
+     "curiosidade": "O Abaporu foi presente para o marido; depois do término ficou com ela, que o vendeu em leilão. Hoje está no MALBA, em Buenos Aires."
+    },
+    {
+     "nome": "Carolina Maria de Jesus",
+     "resumo": "Literatura · retratou a vida nas periferias em Quarto de Despejo",
+     "pistas": [
+      "Sou uma escritora brasileira que viveu em uma favela de São Paulo.",
+      "Escrevi diários relatando a vida e a pobreza nas periferias.",
+      "Meu livro mais famoso é Quarto de Despejo, publicado em 1960."
+     ],
+     "curiosidade": "Seus manuscritos foram descobertos por um jornalista enquanto ela catava papel."
+    },
+    {
+     "nome": "Clarice Lispector",
+     "resumo": "Literatura · rompeu com o enredo linear e trouxe o fluxo de consciência",
+     "pistas": [
+      "Sou uma escritora e jornalista de origem ucraniana que construiu toda a minha vida e carreira no Brasil.",
+      "Rompi com o enredo tradicional para mergulhar no fluxo de consciência e nas epifanias do cotidiano.",
+      "Escrevi Perto do Coração Selvagem e A Hora da Estrela, que narra a história da retirante alagoana Macabéa."
+     ],
+     "curiosidade": "Sobreviveu a um incêndio no quarto em 1966, provocado por um cigarro aceso enquanto dormia, que deixou queimaduras profundas nas mãos."
+    },
+    {
+     "nome": "Anita Malfatti",
+     "resumo": "Pintura · pioneira da arte moderna no Brasil",
+     "pistas": [
+      "Sou uma pintora, desenhista e gravadora brasileira, considerada pioneira da arte moderna no país.",
+      "Minha exposição individual de 1917 chocou a elite conservadora e foi duramente criticada por Monteiro Lobato.",
+      "Fui uma das principais figuras da Semana de Arte Moderna de 1922, onde expus telas como O Homem Amarelo e A Boba."
+     ],
+     "curiosidade": "Nasceu com atrofia congênita no braço direito e aprendeu a desenhar e pintar com a mão esquerda, tornando isso parte do seu estilo."
+    },
+    {
+     "nome": "Fernanda Montenegro",
+     "resumo": "Teatro e cinema · grande dama da dramaturgia brasileira",
+     "pistas": [
+      "Sou uma atriz brasileira consagrada como a grande dama do teatro, do cinema e da televisão.",
+      "Construí uma carreira de mais de sete décadas, fundando companhias teatrais e dando vida a personagens icônicas da dramaturgia brasileira.",
+      "Protagonizei Central do Brasil no papel de Dora, que me rendeu o Urso de Prata em Berlim e uma indicação ao Oscar de Melhor Atriz."
+     ],
+     "curiosidade": "Seu nome de batismo é Arlette Pinheiro Esteves da Silva; escolheu o nome artístico inspirada em romances do século XIX."
+    }
+   ]
+  },
+  {
+   "id": "mus",
+   "nome": "Musical",
+   "perfis": [
+    {
+     "nome": "Elis Regina",
+     "resumo": "MPB · a voz feminina mais marcante do país durante a ditadura militar",
+     "pistas": [
+      "Sou uma cantora brasileira famosa pelo timbre potente, pela interpretação dramática e por dar visibilidade a novos compositores da MPB.",
+      "Fui a voz feminina mais marcante do país durante a ditadura militar, usando a música como crítica e resistência.",
+      "Interpretei Como Nossos Pais e eternizei O Bêbado e a Equilibrista, símbolo da luta pela anistia."
+     ],
+     "curiosidade": "No início da carreira liderou em São Paulo a Passeata contra a Guitarra Elétrica, em 1967."
+    },
+    {
+     "nome": "Dona Ivone Lara",
+     "resumo": "Samba · primeira mulher a assinar um samba-enredo de grande escola",
+     "pistas": [
+      "Sou uma cantora, compositora e instrumentista brasileira, consagrada como a Grande Dama do Samba.",
+      "Num meio dominado por homens, fui a primeira mulher a assinar um samba-enredo para uma grande escola de samba.",
+      "Minha voz e meu cavaquinho embalaram clássicos como Sonho Meu e Acreditando."
+     ],
+     "curiosidade": "Formada em Enfermagem e Serviço Social, trabalhou mais de três décadas no Instituto de Psiquiatria ao lado da Dra. Nise da Silveira, usando a música como terapia."
+    },
+    {
+     "nome": "Chiquinha Gonzaga",
+     "resumo": "Choro · primeira mulher a reger uma orquestra no Brasil",
+     "pistas": [
+      "Fui compositora, pianista e maestrina carioca do século XIX, pioneira em desafiar os padrões da sociedade imperial.",
+      "Misturei a polca europeia com a cadência do lundu e a síncope brasileira, ajudando a criar o choro ao piano.",
+      "Criei a primeira marchinha de Carnaval da história, Ó Abre Alas, em 1899."
+     ],
+     "curiosidade": "Vendeu partituras de porta em porta para comprar a alforria de pessoas escravizadas e fundou a primeira sociedade de direitos autorais do Brasil."
+    },
+    {
+     "nome": "Clara Nunes",
+     "resumo": "Samba · primeira brasileira a vender mais de 100 mil cópias de um disco",
+     "pistas": [
+      "Fui uma das maiores vozes do samba e pioneira do mercado fonográfico.",
+      "Minhas canções celebravam a ancestralidade afro-brasileira, a religiosidade e as matrizes culturais da identidade nacional.",
+      "Fiquei marcada pelos vestidos brancos e colares no palco, imortalizando O Mar Serenou, Canto das Três Raças e Feira de Mangaio."
+     ],
+     "curiosidade": "Começou cantando boleros; só encontrou sua identidade artística depois de uma viagem à Bahia, onde foi iniciada no Candomblé e decidiu cantar de pés descalços e trajes brancos."
+    },
+    {
+     "nome": "Elza Soares",
+     "resumo": "Samba experimental · eleita Cantora do Milênio pela BBC",
+     "pistas": [
+      "Sou uma cantora brasileira consagrada pela voz rouca inconfundível e por misturar samba, jazz, funk e rock experimental.",
+      "Minha trajetória é marcada pela resistência à fome, à violência de gênero e ao racismo, transformando dor em potência.",
+      "Fui eleita Cantora do Milênio pela BBC e me reinventei com álbuns como A Mulher do Fim do Mundo."
+     ],
+     "curiosidade": "Na primeira audição no rádio, aos 13 anos, Ary Barroso perguntou de que planeta ela vinha. Ela respondeu: “Do mesmo planeta seu, Seu Ary... do planeta fome”."
+    }
+   ]
+  },
+  {
+   "id": "pol",
+   "nome": "Político",
+   "perfis": [
+    {
+     "nome": "Dilma Rousseff",
+     "resumo": "Política · primeira mulher eleita presidenta do Brasil",
+     "pistas": [
+      "Sou uma economista brasileira cuja coragem foi forjada na juventude, sobrevivendo à prisão e à tortura durante a ditadura militar sem delatar companheiros.",
+      "Atuei como gestora em pastas como Minas e Energia e Casa Civil, comandando grandes programas de infraestrutura e inclusão social.",
+      "Quebrei séculos de hegemonia masculina ao ser eleita a 36ª Presidente do Brasil."
+     ],
+     "curiosidade": "Virou ícone de altivez ao encarar os próprios algozes: numa foto histórica de 1970 aparece de cabeça erguida diante de um tribunal militar, com os juízes cobrindo o rosto."
+    },
+    {
+     "nome": "Maria da Penha",
+     "resumo": "Direitos humanos · deu nome à lei brasileira contra a violência doméstica",
+     "pistas": [
+      "Sou uma farmacêutica e bioquímica cearense que transformou uma tragédia pessoal numa das maiores bandeiras de direitos humanos do país.",
+      "Sobrevivi a duas tentativas de assassinato cometidas pelo então marido, fiquei paraplégica e enfrentei décadas de negligência da Justiça.",
+      "Minha batalha levou à condenação do Estado brasileiro na OEA e inspirou a principal lei nacional contra a violência doméstica."
+     ],
+     "curiosidade": "O caso dela fez do Brasil o primeiro país condenado pela Comissão Interamericana de Direitos Humanos por tolerância à violência doméstica — o que forçou a criação da Lei 11.340/2006."
+    },
+    {
+     "nome": "Marielle Franco",
+     "resumo": "Política · socióloga e vereadora carioca nascida na Maré",
+     "pistas": [
+      "Sou uma socióloga carioca nascida no Complexo da Maré que transformou as vivências da periferia no motor da minha ação política.",
+      "Atuei na defesa de favelados, mães solo, pessoas negras e da comunidade LGBTQIA+, denunciando abusos policiais.",
+      "Fui a quinta vereadora mais votada da capital fluminense em 2016 e tive a trajetória interrompida por uma emboscada no centro do Rio."
+     ],
+     "curiosidade": "Seu assassinato em 2018 gerou protestos em dezenas de países e impulsionou uma geração recorde de mulheres negras a disputar espaços legislativos no Brasil."
+    },
+    {
+     "nome": "Zuzu Angel",
+     "resumo": "Moda e resistência · transformou a passarela em denúncia contra a ditadura",
+     "pistas": [
+      "Fui uma estilista brasileira pioneira que conquistou projeção internacional valorizando rendas, bordados e estampas do nosso país.",
+      "Minha vida mudou radicalmente após a prisão, tortura e desaparecimento forçado do meu filho Stuart Angel.",
+      "Transformei as passarelas num ato de denúncia política, com um desfile histórico em Nova Iorque com vestidos bordados com manchas de sangue, crucifixos e tanques de guerra."
+     ],
+     "curiosidade": "Sabendo que corria risco de vida, deixou uma carta avisando que, se morresse de forma violenta, a culpa seria da ditadura. Morreu em 1976 num acidente forjado no túnel carioca que hoje leva seu nome."
+    },
+    {
+     "nome": "Erika Hilton",
+     "resumo": "Política · primeira mulher trans eleita vereadora em São Paulo",
+     "pistas": [
+      "Sou uma ativista e política brasileira que superou a expulsão de casa na juventude e a vulnerabilidade social para me tornar voz central na defesa dos direitos humanos.",
+      "Comecei na luta pelo acesso de pessoas marginalizadas à educação e à dignidade cidadã.",
+      "Fiz história em 2020 como a vereadora mais votada da capital paulista e a primeira mulher trans eleita para a Câmara de São Paulo."
+     ],
+     "curiosidade": "Tornou-se a principal articuladora da PEC pelo fim da escala 6x1, levando o debate sobre jornada de trabalho ao centro da agenda política do país."
+    },
+    {
+     "nome": "Dona Orosina",
+     "resumo": "Liderança comunitária · mobilizações por saneamento, água e luz na favela",
+     "pistas": [],
+     "curiosidade": ""
+    }
+   ]
+  },
+  {
+   "id": "his",
+   "nome": "Histórico",
+   "perfis": [
+    {
+     "nome": "Tia Ciata",
+     "resumo": "Cultura afro-brasileira · sua casa abrigou o nascimento do samba",
+     "pistas": [
+      "Fui uma cozinheira e ialorixá baiana radicada no Rio de Janeiro, reconhecida na preservação das tradições afro-brasileiras.",
+      "Minha residência na Praça Onze funcionava como refúgio cultural e espiritual, acolhendo músicos quando o samba e a capoeira eram perseguidos pela polícia.",
+      "Foi nos fundos do meu quintal que nasceram os encontros que deram origem ao primeiro samba gravado em disco, Pelo Telefone."
+     ],
+     "curiosidade": "Curou uma ferida grave na perna do presidente Venceslau Brás com ervas e rezas. Em retribuição, ele garantiu proteção policial à casa dela e um emprego público ao marido."
+    },
+    {
+     "nome": "Princesa Isabel",
+     "resumo": "História · assinou a Lei Áurea em 1888",
+     "pistas": [
+      "Atuei no centro dos debates políticos do fim do século XIX, enfrentando a oposição da elite agrária ao apoiar causas sociais.",
+      "Assumi interinamente a regência do país por três vezes, sendo a primeira mulher a exercer esse poder no Brasil.",
+      "Herdeira do trono imperial, entrei para a história ao assinar a Lei Áurea em 1888."
+     ],
+     "curiosidade": "Financiou discretamente o Quilombo do Leblon, refúgio mantido por abolicionistas que cultivavam camélias brancas — flor que ela adotou nos vestidos como símbolo secreto de apoio à libertação."
+    },
+    {
+     "nome": "Maria Quitéria",
+     "resumo": "História · primeira mulher a assentar praça numa unidade militar no Brasil",
+     "pistas": [
+      "Desafiei a proibição da minha própria família e as leis que impediam a presença feminina nas forças armadas.",
+      "Cortei o cabelo, vesti as roupas do meu cunhado e alistei-me no exército sob a falsa identidade de Soldado Medeiros.",
+      "Destaquei-me pela bravura nas batalhas pela Independência do Brasil na Bahia."
+     ],
+     "curiosidade": "O disfarce foi descoberto pelo pai poucas semanas depois, mas o comandante recusou desmobilizá-la pela pontaria impecável. Foi condecorada por D. Pedro I e autorizada a usar um saiote sobre a farda."
+    },
+    {
+     "nome": "Maria Bonita",
+     "resumo": "História · primeira mulher a integrar o cangaço",
+     "pistas": [
+      "Abandonei um casamento infeliz e desafiei as normas sociais rígidas da minha época para seguir um rumo clandestino.",
+      "Enfrentei forças policiais e a vida hostil na caatinga, quebrando uma regra histórica que proibia a presença feminina num famoso grupo de foras da lei.",
+      "Tornei-me a companheira de Lampião e a primeira mulher a integrar o cangaço."
+     ],
+     "curiosidade": "Desenhava os próprios trajes de couro bordados com motivos geométricos e usava perfumes franceses e joias de ouro no meio da caatinga, definindo o imaginário visual do cangaço."
+    },
+    {
+     "nome": "Dandara dos Palmares",
+     "resumo": "História · liderança do Quilombo dos Palmares",
+     "pistas": [
+      "Fui uma líder destemida e uma das maiores referências na defesa do meu povo contra as forças coloniais no século XVII.",
+      "Dominava técnicas ancestrais de luta corporal e a agricultura, defendendo que a liberdade deveria ser direito absoluto de todas as pessoas.",
+      "Ao lado de Zumbi, liderei o Quilombo dos Palmares na Serra da Barriga, o maior refúgio de resistência negra das Américas."
+     ],
+     "curiosidade": "Quando o território foi cercado em 1694, recusou a submissão e a perda da própria dignidade, tornando-se um mito inspirador da história brasileira."
+    }
+   ]
+  },
+  {
+   "id": "esp",
+   "nome": "Esportes",
+   "perfis": [
+    {
+     "nome": "Rebeca Andrade",
+     "resumo": "Ginástica artística · maior medalhista olímpica da história do Brasil",
+     "pistas": [
+      "Cresci na periferia de Guarulhos e enfrentei longas caminhadas até os treinos e três cirurgias graves nos joelhos antes de atingir o auge mundial.",
+      "Conquistei o respeito do planeta ao som de clássicos da música brasileira nas apresentações de solo da ginástica artística.",
+      "Tornei-me a maior medalhista olímpica de toda a história do esporte brasileiro, com seis medalhas."
+     ],
+     "curiosidade": "Tem na música a grande paixão fora dos tablados: canta e compõe para controlar a ansiedade antes das competições."
+    },
+    {
+     "nome": "Marta",
+     "resumo": "Futebol · maior goleadora da história das Copas do Mundo",
+     "pistas": [
+      "Comecei a jogar descalça no sertão alagoano, superando o preconceito de quem dizia que o meu esporte não era coisa para meninas.",
+      "Vesti a camisa 10 da seleção em seis edições dos Jogos Olímpicos e me tornei a maior goleadora da história das Copas do Mundo, superando também todos os homens.",
+      "Fui eleita a Melhor Jogadora do Mundo pela FIFA seis vezes."
+     ],
+     "curiosidade": "Na infância em Dois Riachos, escondia a bola dos próprios irmãos e fabricava bolas caseiras de meias velhas e sacos plásticos para treinar escondida."
+    },
+    {
+     "nome": "Daiane dos Santos",
+     "resumo": "Ginástica artística · primeira brasileira campeã mundial",
+     "pistas": [
+      "Comecei na ginástica relativamente tarde, aos 11 anos, descoberta por um treinador enquanto brincava num clube em Porto Alegre.",
+      "Embalei torcidas ao som de chorinho nas apresentações de solo e eternizei dois movimentos acrobáticos inéditos batizados com o meu sobrenome.",
+      "Fui a primeira atleta brasileira da história a conquistar uma medalha de ouro em um Campeonato Mundial."
+     ],
+     "curiosidade": "Depois de encerrar a carreira, formou-se em Educação Física e Relações Públicas e fundou o projeto social Brasileirinhos."
+    },
+    {
+     "nome": "Rayssa Leal",
+     "resumo": "Skate · a Fadinha, mais jovem medalhista olímpica do Brasil",
+     "pistas": [
+      "Conquistei medalhas em edições consecutivas dos Jogos Olímpicos antes mesmo de atingir a maioridade, competindo em pistas com obstáculos urbanos.",
+      "Ganhei notoriedade internacional ainda criança quando um vídeo meu fazendo manobras vestida de fada correu o mundo.",
+      "Conhecida como Fadinha, tornei-me campeã mundial e a mais jovem medalhista olímpica da história do esporte brasileiro no skate de rua."
+     ],
+     "curiosidade": "O vídeo viral de 2015 foi compartilhado por Tony Hawk. Anos depois, os dois se reencontraram em Tóquio, com ele assistindo aos treinos dela na arquibancada."
+    },
+    {
+     "nome": "Jacqueline Silva e Sandra Pires",
+     "resumo": "Vôlei de praia · primeiro ouro olímpico feminino do Brasil",
+     "pistas": [
+      "Somos uma dupla.",
+      "Protagonizamos uma final 100% brasileira em solo norte-americano, enfrentando as compatriotas Adriana Samuel e Mônica Rodrigues.",
+      "Vencemos o torneio de vôlei de praia nos Jogos Olímpicos de Atlanta 1996, conquistando a primeira medalha de ouro feminina da história do esporte olímpico brasileiro."
+     ],
+     "curiosidade": "Na final, Sandra Pires tinha 23 anos e jogou com os dedos do pé enfaixados por causa de uma bolha. Mesmo com dor, foi eleita a melhor atleta de praia daquela edição."
+    }
+   ]
+  }
+ ]
+}

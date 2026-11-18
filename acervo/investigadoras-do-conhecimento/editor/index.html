@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crie sua investigadora — Investigadoras do Conhecimento · Lab Escola 3D</title>
+<meta name="description" content="Edite um perfil do jogo Investigadoras do Conhecimento e imprima o card e as cartas-pista. Tudo acontece no seu navegador.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Protótipo do editor (patamar A). Tudo roda no navegador: nenhum dado sai do computador de quem edita. */
+:root{--roxo:#3026AD;--roxo-claro:#ACA8DE;--laranja:#E3630D;--laranja-claro:#F9DFCE;--preto:#150E1F;--fundo:#F2F2F2;--branco:#FFFFFF;--cinza:#5E5A66;
+--titulo:"Big Shoulders Display","Arial Narrow",sans-serif;--texto:"Source Sans 3","Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--fundo);color:var(--preto);font:16px/1.45 var(--texto)}
+a{color:var(--roxo)}
+h1,h2,h3{font-family:var(--titulo);font-weight:700;color:var(--roxo);line-height:1.05}
+.topo{background:var(--roxo);color:var(--branco);padding:16px}
+.topo a{color:var(--branco)}
+.topo .migalha{font-size:14px;opacity:.85}
+.topo h1{color:var(--branco);font-size:36px;margin-top:6px}
+.topo p{max-width:760px;margin-top:6px}
+main{display:grid;gap:24px;padding:24px 16px;max-width:1400px;margin:auto}
+@media(min-width:1000px){main{grid-template-columns:420px 1fr;align-items:start}.form{position:sticky;top:16px}}
+.form{background:var(--branco);border-radius:16px;padding:20px;display:grid;gap:14px}
+.form h2{font-size:26px}
+label{display:grid;gap:4px;font-weight:600;font-size:15px}
+label small{font-weight:400;color:var(--cinza)}
+input,select,textarea{font:inherit;padding:9px 11px;border:1px solid #CFCBD8;border-radius:10px;background:var(--branco);color:var(--preto);width:100%}
+textarea{min-height:64px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--roxo);border-color:var(--roxo)}
+.obrig{color:var(--laranja)}
+.grupo{border-top:1px solid #E6E3EC;padding-top:12px;display:grid;gap:12px}
+.botoes{display:flex;gap:10px;flex-wrap:wrap}
+button{font:600 16px var(--texto);border:0;border-radius:999px;padding:11px 20px;cursor:pointer}
+.principal{background:var(--laranja);color:var(--branco)}
+.principal:disabled{background:#C9C5CF;cursor:not-allowed}
+.secundario{background:var(--fundo);color:var(--roxo)}
+.dica{font-size:14px;color:var(--cinza)}
+.alerta{font-size:14px;background:var(--laranja-claro);border-radius:10px;padding:10px 12px}
+.previa{min-width:0}
+.previa h2{font-size:26px;margin-bottom:8px}
+.palco{overflow-x:auto;padding-bottom:8px}
+/* folhas A4 paisagem; na tela, reduzidas */
+.folha{width:297mm;height:210mm;background:var(--branco);position:relative;margin:0 0 16px;box-shadow:0 2px 10px rgba(0,0,0,.12);zoom:.55;overflow:hidden}
+@media(max-width:700px){.folha{zoom:.3}}
+.card{display:grid;grid-template-columns:1fr 14mm 1fr;height:100%;padding:12mm 14mm 22mm}
+.face{border:.35mm solid var(--preto);border-radius:6mm;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6mm;padding:10mm;position:relative;background:var(--roxo);color:var(--branco);overflow:hidden}
+.face.verso{background:var(--branco);color:var(--preto)}
+.face .rotulo{position:absolute;top:5mm;left:6mm;font:600 9pt var(--texto);opacity:.8}
+.silhueta{width:62%;max-height:62%;}
+.foto{width:70%;aspect-ratio:1;object-fit:cover;border-radius:5mm;border:1.2mm solid var(--laranja)}
+.interroga{font:700 54pt var(--titulo);color:var(--laranja)}
+.nome-verso{font:700 30pt var(--titulo);color:var(--roxo);text-align:center;text-transform:none}
+.resumo-verso{font-size:12pt;text-align:center;max-width:110mm}
+.dobra{display:flex;align-items:center;justify-content:center;border-left:.35mm dashed #828383;margin-left:7mm}
+.dobra span{writing-mode:vertical-rl;transform:rotate(180deg);font:600 8pt var(--texto);color:#828383;letter-spacing:1px;margin-left:-14mm}
+.cartas{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2.5mm;height:100%;padding:10mm 12mm 22mm}
+.carta{border:.35mm dashed #828383;border-radius:3mm;padding:7mm 8mm;display:flex;flex-direction:column;gap:4mm}
+.carta .tit{font:700 22pt var(--titulo);color:var(--roxo)}
+.carta .nivel{font:600 10pt var(--texto);color:var(--laranja)}
+.carta .texto{font-size:14pt;line-height:1.35;flex:1}
+.carta.revela{background:#F4F3FB}
+.carta.revela .texto{font-size:12pt}
+.carta .pe{font-size:8pt;color:#828383;display:flex;justify-content:space-between}
+.rodape{position:absolute;left:12mm;right:12mm;bottom:6mm;font-size:7.5pt;line-height:1.35;color:var(--cinza);border-top:.3mm solid #DDD;padding-top:2mm}
+.rodape b{color:var(--preto)}
+.vazio{color:#AAA;font-style:italic}
+/* pop-up */
+dialog{border:0;border-radius:18px;padding:24px;max-width:520px;width:calc(100% - 32px)}
+dialog::backdrop{background:rgba(21,14,31,.6)}
+dialog h2{font-size:30px;margin-bottom:10px}
+dialog ul{margin:10px 0 18px 20px;display:grid;gap:6px}
+.licenca{font-size:14px;color:var(--cinza);padding:0 16px 32px;max-width:1400px;margin:auto}
+@page{size:A4 landscape;margin:0}
+@media print{
+  body{background:#fff}
+  .topo,.form,.previa>h2,.previa>.dica,.licenca{display:none!important}
+  main{display:block;padding:0}
+  .palco{overflow:visible}
+  .folha{zoom:1;margin:0;box-shadow:none;page-break-after:always;break-after:page}
+  .folha:last-child{page-break-after:auto;break-after:auto}
+  dialog{display:none}
+  .face,.carta.revela{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="migalha"><a href="../../../">Início</a> › <a href="../../">Acervo</a> › <a href="../">Investigadoras do Conhecimento</a> › Crie sua investigadora</div>
+  <h1>Crie sua investigadora</h1>
+  <p>Escolha uma homenageada do jogo como ponto de partida, ou comece do zero. Troque o nome, as pistas e a imagem, confira a prévia e imprima o card e as cartas-pista em A4.</p>
+</header>
+
+<main>
+  <form class="form" id="form" autocomplete="off" onsubmit="return false">
+    <h2>1 · Ponto de partida</h2>
+    <label>Partir de uma homenageada do jogo
+      <select id="base"><option value="">— Começar do zero —</option></select>
+    </label>
+
+    <div class="grupo">
+      <h2>2 · A investigadora</h2>
+      <label>Nome <span class="obrig">*</span>
+        <input id="nome" maxlength="60" required>
+      </label>
+      <label>Quem é, em uma linha <small>aparece no verso do card</small>
+        <input id="resumo" maxlength="140">
+      </label>
+      <label>Pista 1 · difícil <small>dá para responder, mas exige pensar</small>
+        <textarea id="p1" maxlength="260"></textarea>
+      </label>
+      <label>Pista 2 · média
+        <textarea id="p2" maxlength="260"></textarea>
+      </label>
+      <label>Pista 3 · fácil <small>quase entrega a resposta, sem dizer o nome</small>
+        <textarea id="p3" maxlength="260"></textarea>
+      </label>
+      <label>Fato curioso <small>lido na carta Revelação</small>
+        <textarea id="curiosidade" maxlength="300"></textarea>
+      </label>
+      <label>Imagem do verso <small>opcional; sem imagem, o card usa a silhueta</small>
+        <input id="imagem" type="file" accept="image/*">
+      </label>
+      <p class="alerta">Use só imagens que você tem direito de usar. A imagem fica no seu computador; ela não é enviada a lugar nenhum.</p>
+    </div>
+
+    <div class="grupo">
+      <h2>3 · Quem editou</h2>
+      <label>Seu nome <span class="obrig">*</span> <small>sai no rodapé: quem edita é responsável pelo conteúdo</small>
+        <input id="autoria" maxlength="80" required>
+      </label>
+      <label>Escola ou turma <small>opcional</small>
+        <input id="escola" maxlength="80">
+      </label>
+    </div>
+
+    <div class="botoes">
+      <button type="button" class="principal" id="imprimir" disabled>Imprimir (A4 deitado)</button>
+      <button type="button" class="secundario" id="limpar">Limpar</button>
+    </div>
+    <p class="dica" id="falta">Para imprimir, preencha o nome da investigadora e o seu nome.</p>
+  </form>
+
+  <section class="previa" aria-label="Prévia da impressão">
+    <h2>Prévia</h2>
+    <p class="dica">Folha 1: dobre na linha tracejada do meio, com o desenho para fora, e cole. Folha 2: recorte as quatro cartas.</p>
+    <div class="palco">
+      <section class="folha" aria-label="Folha 1 — Card">
+        <div class="card">
+          <div class="face frente">
+            <span class="rotulo">Frente · mostrar primeiro</span>
+            <svg class="silhueta" viewBox="0 0 100 110" aria-hidden="true"><circle cx="50" cy="32" r="22" fill="#ACA8DE"/><path d="M8 110c0-26 19-44 42-44s42 18 42 44Z" fill="#ACA8DE"/></svg>
+            <div class="interroga">?</div>
+          </div>
+          <div class="dobra"><span>DOBRE AQUI · DESENHO PARA FORA</span></div>
+          <div class="face verso">
+            <span class="rotulo">Verso · revelação</span>
+            <img class="foto" id="v-foto" alt="Imagem da investigadora" hidden>
+            <svg class="silhueta" id="v-silhueta" viewBox="0 0 100 110" aria-hidden="true"><circle cx="50" cy="32" r="22" fill="#3026AD"/><path d="M8 110c0-26 19-44 42-44s42 18 42 44Z" fill="#3026AD"/></svg>
+            <div class="nome-verso" id="v-nome"></div>
+            <div class="resumo-verso" id="v-resumo"></div>
+          </div>
+        </div>
+        <footer class="rodape" data-rodape></footer>
+      </section>
+
+      <section class="folha" aria-label="Folha 2 — Cartas-pista">
+        <div class="cartas">
+          <div class="carta"><div><div class="tit">Pista 1</div><div class="nivel">●○○ Difícil</div></div><div class="texto" id="c-p1"></div><div class="pe"><span>Investigadoras do Conhecimento</span><span>✂ corte na linha tracejada</span></div></div>
+          <div class="carta"><div><div class="tit">Pista 2</div><div class="nivel">●●○ Média</div></div><div class="texto" id="c-p2"></div><div class="pe"><span>Investigadoras do Conhecimento</span><span>✂ corte na linha tracejada</span></div></div>
+          <div class="carta"><div><div class="tit">Pista 3</div><div class="nivel">●●● Fácil</div></div><div class="texto" id="c-p3"></div><div class="pe"><span>Investigadoras do Conhecimento</span><span>✂ corte na linha tracejada</span></div></div>
+          <div class="carta revela"><div><div class="tit">Revelação</div><div class="nivel">★ Para ler depois de virar o card</div></div>
+            <div class="texto"><p><b id="c-nome"></b></p><p id="c-resumo"></p><p><b>Fato curioso:</b> <span id="c-curiosidade"></span></p></div>
+            <div class="pe"><span>Investigadoras do Conhecimento</span><span>✂ corte na linha tracejada</span></div></div>
+        </div>
+        <footer class="rodape" data-rodape></footer>
+      </section>
+    </div>
+  </section>
+</main>
+
+<p class="licenca">O jogo original <a href="../">Investigadoras do Conhecimento</a>, do Lab Escola 3D (projeto de extensão da UFRJ), é distribuído sob a licença <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.pt-br">Creative Commons Atribuição-NãoComercial-CompartilhaIgual 4.0 (CC BY-NC-SA 4.0)</a>, que permite adaptar o material para uso não comercial, citando o original e mantendo a mesma licença. Esta página não guarda nem envia nada do que você digita.</p>
+
+<dialog id="aviso" aria-labelledby="aviso-titulo">
+  <h2 id="aviso-titulo">Antes de editar</h2>
+  <ul>
+    <li><b>Você é responsável</b> pelo conteúdo que criar. O material impresso sai com o seu nome como responsável pela adaptação.</li>
+    <li>Use fotos <b>apenas com autorização</b> das pessoas retratadas, e <b>nunca de estudantes</b> sem o consentimento dos responsáveis (LGPD). Se preferir, deixe sem foto: o card usa a silhueta.</li>
+    <li><b>Nada do que você digitar sai do seu computador.</b> Ao fechar a página, a edição se perde; imprima ou salve em PDF.</li>
+  </ul>
+  <button type="button" class="principal" id="entendi">Entendi, quero editar</button>
+</dialog>
+
+<script>
+(function(){
+  "use strict";
+  var ORIGINAL = "https://labescola3d.github.io/prototipos/acervo/investigadoras-do-conhecimento/";
+  var $ = function(id){ return document.getElementById(id); };
+  var campos = ["nome","resumo","p1","p2","p3","curiosidade","autoria","escola"];
+  var perfis = [];
+  var fotoURL = null;
+  var aceitou = false;
+
+  // pop-up: aparece na primeira interação com o formulário
+  var aviso = $("aviso");
+  function pedirAceite(){ if(!aceitou && !aviso.open){ aviso.showModal(); } }
+  $("entendi").addEventListener("click", function(){ aceitou = true; aviso.close(); atualizar(); });
+  aviso.addEventListener("cancel", function(e){ e.preventDefault(); }); // só fecha pelo botão
+  $("form").addEventListener("focusin", pedirAceite);
+
+  // perfis do jogo (perfis.json, mesma pasta)
+  fetch("perfis.json").then(function(r){ return r.json(); }).then(function(dados){
+    var sel = $("base");
+    dados.eixos.forEach(function(eixo){
+      var g = document.createElement("optgroup"); g.label = eixo.nome;
+      eixo.perfis.forEach(function(p){
+        if(!p.pistas || p.pistas.length < 3){ return; } // perfil ainda sem pistas
+        var o = document.createElement("option"); o.value = perfis.length; o.textContent = p.nome;
+        perfis.push(p); g.appendChild(o);
+      });
+      sel.appendChild(g);
+    });
+  }).catch(function(){ $("base").disabled = true; });
+
+  $("base").addEventListener("change", function(){
+    var p = perfis[this.value];
+    var v = p ? {nome:p.nome,resumo:p.resumo,p1:p.pistas[0],p2:p.pistas[1],p3:p.pistas[2],curiosidade:p.curiosidade}
+              : {nome:"",resumo:"",p1:"",p2:"",p3:"",curiosidade:""};
+    Object.keys(v).forEach(function(k){ $(k).value = v[k]; });
+    atualizar();
+  });
+
+  $("imagem").addEventListener("change", function(){
+    if(fotoURL){ URL.revokeObjectURL(fotoURL); fotoURL = null; }
+    var f = this.files && this.files[0];
+    if(f && /^image\//.test(f.type)){ fotoURL = URL.createObjectURL(f); } // só local; nada é enviado
+    atualizar();
+  });
+
+  $("limpar").addEventListener("click", function(){
+    $("form").reset(); if(fotoURL){ URL.revokeObjectURL(fotoURL); fotoURL = null; } atualizar();
+  });
+
+  function texto(id, valor, vazio){
+    var el = $(id); el.textContent = valor || vazio || ""; el.classList.toggle("vazio", !valor);
+  }
+
+  function rodape(v){
+    var quem = v.autoria || "[seu nome]";
+    var onde = v.escola ? " (" + v.escola + ")" : "";
+    return "Material adaptado de <i>Investigadoras do Conhecimento</i>, do <b>Lab Escola 3D</b> (UFRJ) — original em " + ORIGINAL +
+      ". Licença CC BY-NC-SA 4.0. Esta versão foi editada por <b></b>" +
+      ", responsável pelo seu conteúdo; o Lab Escola 3D não revisou as alterações.";
+  }
+
+  function atualizar(){
+    var v = {}; campos.forEach(function(k){ v[k] = $(k).value.trim(); });
+    texto("v-nome", v.nome, "Nome da investigadora");
+    texto("v-resumo", v.resumo, "");
+    texto("c-p1", v.p1, "Escreva a pista 1");
+    texto("c-p2", v.p2, "Escreva a pista 2");
+    texto("c-p3", v.p3, "Escreva a pista 3");
+    texto("c-nome", v.nome, "Nome da investigadora");
+    texto("c-resumo", v.resumo, "");
+    texto("c-curiosidade", v.curiosidade, "—");
+    $("v-foto").hidden = !fotoURL; $("v-silhueta").style.display = fotoURL ? "none" : "";
+    if(fotoURL){ $("v-foto").src = fotoURL; }
+    var quem = (v.autoria || "[seu nome]") + (v.escola ? " (" + v.escola + ")" : "");
+    document.querySelectorAll("[data-rodape]").forEach(function(r){
+      r.innerHTML = rodape(v);
+      r.querySelector("b:last-of-type").textContent = quem; // nome entra como texto, nunca como HTML
+    });
+    var pronto = aceitou && v.nome && v.autoria;
+    $("imprimir").disabled = !pronto;
+    $("falta").hidden = !!pronto;
+  }
+
+  campos.forEach(function(k){ $(k).addEventListener("input", atualizar); });
+  $("imprimir").addEventListener("click", function(){ if(!$("imprimir").disabled){ window.print(); } });
+  atualizar();
+})();
+</script>
+</body>
+</html>

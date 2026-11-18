@@ -18,7 +18,8 @@ PRODUTOS = [
         "frase": "Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.",
         "reservada": "foto do kit (cartas e dado)",
         "baixar": {"titulo": "Baixe e jogue com a sua turma", "arquivos": [
-            ("Baixar o kit", SITE + "2026/11/Investigadoras_do_Conhecimento_PnP_v0.pdf", "Kit para imprimir (print and play) · PDF · 5 páginas · 1 MB")]},
+            ("Baixar o kit", SITE + "2026/11/Investigadoras_do_Conhecimento_PnP_v0.pdf", "Kit para imprimir (print and play) · PDF · 5 páginas · 1 MB")],
+            "editor": ("Crie sua investigadora", "editor/", "Troque o perfil e as pistas e imprima o card no navegador")},
         "fatos": [("[a confirmar]", "ano escolar"), ("5 a 10 pessoas", "por grupo"), ("5 a 10 min", "por rodada"), ("6 eixos", "33 homenageadas")],
         "o_que_e": "Um jogo que transforma o Método Científico em uma investigação. A figura de quem faz ciência não se resume ao “homem branco de jaleco”: com histórias reais, o jogo dá visibilidade às mulheres brasileiras que transformaram a ciência, a cultura e a sociedade, e fortalece a autoestima e a autonomia das estudantes.",
         "como": ("Como se joga", [
@@ -175,6 +176,10 @@ def _baixar(p, tela):
         botao = (f'<a class="botao botao--grande baixar" href="{E(url)}">'
                  f'<img src="../../_base/icones/baixar.svg" alt="">{E(rot)}</a>')
         texto = f'<h2>{E(b["titulo"])}</h2><p class="meta">{E(info)}</p>{meta}'
+        if "editor" in b:  # edição online do perfil (patamar A): link secundário sob o botão
+            er, eu, ei = b["editor"]
+            botao += (f'<p class="meta" style="margin-top:12px"><a class="editor" href="{E(eu)}" '
+                      f'style="color:inherit;font-weight:700">{E(er)} →</a><br>{E(ei)}</p>')
         return f'<div class="baixar-bloco"><div>{texto}</div><div>{botao}</div></div>'
     if "arquivos" in b:
         links = "".join(f'<a class="baixar" href="{E(u)}">{E(r)} <span>· {E(i)}</span></a>' for r, u, i in b["arquivos"])
