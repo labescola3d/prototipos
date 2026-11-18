@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Investigadoras do Conhecimento · Acervo LE3D (protótipo)</title>
+<link rel="stylesheet" href="../../_base/site.css">
+<style>
+  /* Página de produto — estrutura do desenho §6, reaproveitada por todos os produtos */
+  .heroi { position: relative; }
+  .frase { color: var(--laranja); font-size: 20px; line-height: 28px; margin-top: 12px; }
+  .baixar-bloco { background: var(--roxo); color: var(--fundo); }
+  .baixar-bloco h2 { color: var(--fundo); }
+  .baixar-bloco .meta { font-size: 14px; line-height: 22px; color: var(--roxo-claro); }
+  .baixar-bloco .botao { background: var(--laranja); color: var(--branco); }
+  .baixar-bloco img { width: 16px; height: 16px; display: inline-block; vertical-align: -3px; margin-right: 8px; }
+  .fatos { display: grid; }
+  .fato { background: var(--branco); border: 1px solid var(--laranja); border-radius: 20px; padding: 16px 20px; }
+  .fato b { display: block; font-family: var(--titulo); font-weight: 700; font-size: 28px; line-height: 30px; color: var(--roxo); text-transform: uppercase; }
+  .fato span { font-size: 14px; line-height: 20px; }
+  .passos { list-style: none; counter-reset: p; }
+  .passos li { counter-increment: p; position: relative; padding-left: 52px; margin-top: 16px; font-size: 16px; line-height: 26px; }
+  .passos li::before { content: counter(p); position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 18px;
+                       background: var(--roxo); color: var(--fundo); font-family: var(--titulo); font-size: 22px; line-height: 36px; text-align: center; }
+  .eixos { display: grid; }
+  .eixo { border-top: 3px solid var(--laranja); padding-top: 10px; }
+  .eixo b { font-family: var(--titulo); font-size: 24px; color: var(--roxo); text-transform: uppercase; }
+  .eixo p { font-size: 14px; line-height: 22px; }
+  .origem li { font-size: 15px; line-height: 26px; margin-left: 20px; }
+  .creditos { font-size: 14px; line-height: 22px; color: var(--cinza); }
+
+  .tela--pc .heroi { display: grid; grid-template-columns: 1fr 520px; gap: 60px; padding: 90px 160px 60px; }
+  .tela--pc .heroi .reservada { height: 400px; }
+  .tela--pc .baixar-bloco { margin: 0 160px; padding: 40px 48px; border-radius: 20px; display: grid; grid-template-columns: 1fr auto; gap: 32px; }
+  .tela--pc .baixar-bloco .botao { margin-top: 18px; }
+  .tela--pc .secao { padding: 60px 160px 0; }
+  .tela--pc .secao h2 { margin-bottom: 20px; }
+  .tela--pc .fatos { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .tela--pc .eixos { grid-template-columns: repeat(3, 1fr); gap: 24px 32px; }
+  .tela--pc .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .tela--pc .rodape { margin-top: 80px; padding: 32px 160px 48px; display: flex; justify-content: space-between; }
+
+  .tela--cel .heroi { padding: 60px 20px 32px; }
+  .tela--cel .heroi .reservada { height: 220px; margin-top: 24px; }
+  .tela--cel .baixar-bloco { margin: 0 20px; padding: 28px 24px; border-radius: 20px; }
+  .tela--cel .baixar-bloco .botao { margin-top: 16px; }
+  .tela--cel .secao { padding: 44px 20px 0; }
+  .tela--cel .secao h2 { margin-bottom: 16px; }
+  .tela--cel .fatos { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tela--cel .eixos { grid-template-columns: 1fr; gap: 16px; }
+  .tela--cel .duas > div + div { margin-top: 44px; }
+  .tela--cel .rodape { margin-top: 56px; padding: 28px 20px 40px; }
+  .tela--cel .rodape .redes { margin-top: 16px; }
+</style>
+</head>
+<body>
+
+<section class="tela tela--pc" data-document-role="page" data-label="Produto · Investigadoras · computador (1440)">
+  <header class="topo">
+    <a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a>
+    <nav class="menu"><a class="ativo" href="../">Acervo</a><a href="../../">Sobre o Lab</a><a href="../../">Contato</a><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no acervo"></nav>
+  </header>
+  <div class="onda"></div>
+
+  <div class="heroi">
+    <div>
+      <span class="selo">Jogo · 2026</span>
+      <h1 style="margin-top:16px">Investigadoras do conhecimento</h1>
+      <p class="frase">Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.</p>
+    </div>
+    <div class="reservada">Área reservada · foto do kit (cartas e dado)<br>sem pessoas</div>
+  </div>
+
+  <div class="baixar-bloco">
+    <div>
+      <h2>Baixe e jogue com a sua turma</h2>
+      <p class="meta">Kit para imprimir (print and play) · PDF · 5 páginas · 1 MB<br>Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores.</p>
+    </div>
+    <div><a class="botao botao--grande baixar" href="https://labescola3d.rio.br/wp-content/uploads/2026/11/Investigadoras_do_Conhecimento_PnP_v0.pdf"><img src="../../_base/icones/baixar.svg" alt="">Baixar o kit</a></div>
+  </div>
+
+  <div class="secao">
+    <h2>Para quem</h2>
+    <div class="fatos">
+      <div class="fato"><b>[a confirmar]</b><span>ano escolar</span></div>
+      <div class="fato"><b>5 a 10 pessoas</b><span>por grupo</span></div>
+      <div class="fato"><b>5 a 10 min</b><span>por rodada</span></div>
+      <div class="fato"><b>6 eixos</b><span>33 homenageadas</span></div>
+    </div>
+  </div>
+
+  <div class="secao duas">
+    <div>
+      <h2>O que é</h2>
+      <p>Um jogo que transforma o Método Científico em uma investigação. A figura de quem faz ciência não se resume ao “homem branco de jaleco”: com histórias reais, o jogo dá visibilidade às mulheres brasileiras que transformaram a ciência, a cultura e a sociedade, e fortalece a autoestima e a autonomia das estudantes.</p>
+    </div>
+    <div>
+      <h2>Como se joga</h2>
+      <ol class="passos">
+        <li>O grupo rola o dado especial, que revela um eixo e a silhueta de uma homenageada.</li>
+        <li>A mediadora lê até três pistas, da mais difícil para a mais fácil.</li>
+        <li>O grupo junta as evidências e dá um palpite.</li>
+        <li>Todo mundo ganha um incentivo por participar; quem acerta leva um prêmio extra.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="secao">
+    <h2>As homenageadas, por eixo</h2>
+    <div class="eixos">
+      <div class="eixo"><b>Científico</b><p>Sônia Guimarães, Ester Sabino, Jaqueline Goes de Jesus, Bertha Lutz, Tatiana Sampaio</p></div>
+      <div class="eixo"><b>Artístico</b><p>Tarsila do Amaral, Carolina Maria de Jesus, Clarice Lispector, Anita Malfatti, Fernanda Montenegro</p></div>
+      <div class="eixo"><b>Musical</b><p>Elis Regina, Dona Ivone Lara, Chiquinha Gonzaga, Clara Nunes, Elza Soares</p></div>
+      <div class="eixo"><b>Político</b><p>Dilma Rousseff, Maria da Penha, Marielle Franco, Zuzu Angel, Erika Hilton, Dona Orosina</p></div>
+      <div class="eixo"><b>Histórico</b><p>Tia Ciata, Princesa Isabel, Maria Quitéria, Maria Bonita, Dandara dos Palmares</p></div>
+      <div class="eixo"><b>Esportes</b><p>Rebeca Andrade, Marta, Daiane dos Santos, Rayssa Leal, Jacqueline Silva e Sandra Pires</p></div>
+    </div>
+  </div>
+
+  <div class="secao duas">
+    <div>
+      <h2>De onde veio</h2>
+      <ul class="origem">
+        <li>Criado a partir de uma demanda da SME-Rio para o Dia da Mulher (março de 2026).</li>
+        <li>Aplicado em dinâmica no GET Levy Neves, em 19/03/2026.</li>
+        <li>Apresentado na SIAC/UFRJ.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Créditos</h2>
+      <p class="creditos">Lab Escola 3D · extensão da UFRJ. Equipe: [a confirmar].</p>
+    </div>
+  </div>
+
+  <footer class="rodape">
+    <span>Lab Escola 3D · projeto de extensão da UFRJ · protótipo de tela</span>
+    <div class="redes"><img src="../../_base/icones/instagram.svg" alt="Instagram"><img src="../../_base/icones/facebook.svg" alt="Facebook"><img src="../../_base/icones/youtube.svg" alt="YouTube"><img src="../../_base/icones/linkedin.svg" alt="LinkedIn"></div>
+  </footer>
+</section>
+
+<section class="tela tela--cel" data-document-role="page" data-label="Produto · Investigadoras · celular (375)">
+  <header class="topo">
+    <a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a>
+    <img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu">
+  </header>
+  <div class="onda"></div>
+
+  <div class="heroi">
+    <span class="selo">Jogo · 2026</span>
+    <h1 style="margin-top:12px">Investigadoras do conhecimento</h1>
+    <p class="frase">Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.</p>
+    <div class="reservada">Área reservada · foto do kit<br>sem pessoas</div>
+  </div>
+
+  <div class="baixar-bloco">
+    <h2>Baixe e jogue</h2>
+    <p class="meta">Kit para imprimir · PDF · 5 páginas · 1 MB<br>Licença CC BY-NC-SA 4.0</p>
+    <a class="botao botao--grande baixar" href="https://labescola3d.rio.br/wp-content/uploads/2026/11/Investigadoras_do_Conhecimento_PnP_v0.pdf"><img src="../../_base/icones/baixar.svg" alt="">Baixar o kit</a>
+  </div>
+
+  <div class="secao">
+    <h2>Para quem</h2>
+    <div class="fatos">
+      <div class="fato"><b>[a confirmar]</b><span>ano escolar</span></div>
+      <div class="fato"><b>5 a 10</b><span>pessoas por grupo</span></div>
+      <div class="fato"><b>5 a 10 min</b><span>por rodada</span></div>
+      <div class="fato"><b>6 eixos</b><span>33 homenageadas</span></div>
+    </div>
+  </div>
+
+  <div class="secao duas">
+    <div>
+      <h2>O que é</h2>
+      <p>Um jogo que transforma o Método Científico em uma investigação. Com histórias reais, dá visibilidade às mulheres brasileiras que transformaram a ciência, a cultura e a sociedade.</p>
+    </div>
+    <div>
+      <h2>Como se joga</h2>
+      <ol class="passos">
+        <li>Role o dado: ele revela um eixo e uma silhueta.</li>
+        <li>Leia até três pistas, da mais difícil para a mais fácil.</li>
+        <li>O grupo dá um palpite.</li>
+        <li>Todos ganham um incentivo; quem acerta leva um prêmio extra.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="secao">
+    <h2>Os 6 eixos</h2>
+    <div class="eixos">
+      <div class="eixo"><b>Científico</b><p>Sônia Guimarães, Ester Sabino e mais 3</p></div>
+      <div class="eixo"><b>Artístico</b><p>Tarsila do Amaral, Carolina Maria de Jesus e mais 3</p></div>
+      <div class="eixo"><b>Musical</b><p>Elis Regina, Dona Ivone Lara e mais 3</p></div>
+      <div class="eixo"><b>Político</b><p>Maria da Penha, Marielle Franco e mais 4</p></div>
+      <div class="eixo"><b>Histórico</b><p>Tia Ciata, Dandara dos Palmares e mais 3</p></div>
+      <div class="eixo"><b>Esportes</b><p>Rebeca Andrade, Marta e mais 3</p></div>
+    </div>
+  </div>
+
+  <div class="secao duas">
+    <div>
+      <h2>De onde veio</h2>
+      <ul class="origem">
+        <li>Demanda da SME-Rio para o Dia da Mulher (março de 2026).</li>
+        <li>Aplicado no GET Levy Neves, em 19/03/2026.</li>
+        <li>Apresentado na SIAC/UFRJ.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Créditos</h2>
+      <p class="creditos">Lab Escola 3D · extensão da UFRJ. Equipe: [a confirmar].</p>
+    </div>
+  </div>
+
+  <footer class="rodape">
+    <span>Lab Escola 3D · extensão da UFRJ</span>
+    <div class="redes"><img src="../../_base/icones/instagram.svg" alt="Instagram"><img src="../../_base/icones/facebook.svg" alt="Facebook"><img src="../../_base/icones/youtube.svg" alt="YouTube"><img src="../../_base/icones/linkedin.svg" alt="LinkedIn"></div>
+  </footer>
+</section>
+
+</body>
+</html>
