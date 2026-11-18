@@ -140,28 +140,39 @@ p { font-size: 16px; line-height: 29.71px; }
 .tela--cel .duas > div + div { margin-top: 44px; }
 .tela--cel .rodape { margin-top: 56px; padding: 28px 20px 40px; }
 .tela--cel .rodape .redes { margin-top: 16px; }
+
+/* modo site: uma tela por aparelho (as duas seguem no código para o Canva) */
+@media (min-width: 1200px) { body { background: var(--fundo); } .tela--cel { display: none; }
+  .tela--pc { width: auto; max-width: 1440px; margin: 0 auto; } }
+@media (max-width: 1199px) { body { background: var(--fundo); } .tela--pc { display: none; }
+  .tela--cel { width: auto; margin: 0; } }
+.menu-cel { position: relative; } .menu-cel summary { list-style: none; cursor: pointer; } .menu-cel summary::-webkit-details-marker { display: none; }
+.menu-cel nav { position: absolute; right: 0; top: 44px; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.15); border-radius: 10px;
+  display: flex; flex-direction: column; min-width: 190px; z-index: 10; }
+.menu-cel nav a { padding: 14px 18px; color: var(--roxo); text-decoration: none; font-weight: 700; border-bottom: 1px solid #eee; }
+.menu-cel nav a.ativo { background: var(--roxo); color: #fff; }
 </style>
 </head>
 <body>
 <div class="alfa" style="background:#150E1F;color:#FFFFFF;font:14px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Protótipo em <b style="color:#E3630D">versão alfa</b> · Lab Escola 3D · <a href="../../sobre/" style="color:#FFFFFF">o que é este protótipo</a></div>
 <section class="tela tela--pc" data-document-role="page" data-label="Produto · Curso Maker de Férias 2025 · computador (1440)">
-<header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><nav class="menu"><a class="ativo" href="../">Catálogo</a><a href="../../">Sobre o Lab</a><a href="../../">Contato</a><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no catálogo"></nav></header>
+<header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><nav class="menu"><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a><a href="../../em-obras/"><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no catálogo (em obras)"></a></nav></header>
 <div class="onda"></div>
 <div class="heroi"><div><span class="selo">Formação · 2025</span><h1 style="margin-top:16px">Curso Maker de Férias 2025</h1><p class="frase">Um curso de férias para professores da rede municipal conhecerem a cultura maker na prática.</p></div><div class="reservada">Área reservada · imagem de uma aula<br>sem pessoas</div></div>
 <div class="baixar-bloco"><div><h2>As aulas do curso</h2><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><p class="aviso">As apresentações das aulas estão em revisão antes da publicação.</p></div></div>
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Fevereiro de 2025</b><span>edição</span></div><div class="fato"><b>Professores</b><span>da rede municipal</span></div><div class="fato"><b>[a confirmar]</b><span>número de aulas</span></div><div class="fato"><b>Certificado</b><span>para quem participou</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Uma formação de férias voltada à difusão da cultura maker entre professores da rede municipal do Rio, com aulas práticas que incluem jogos de tabuleiro modernos no ensino.</p></div><div><h2>Algumas aulas</h2><ol class="passos"><li>Jogos de tabuleiro modernos e o ensino.</li><li>Jogos de tabuleiro modernos: prática.</li><li>[demais aulas a confirmar]</li></ol></div></div>
 <div class="secao duas"><div><h2>De onde veio</h2><ul class="origem"><li>Realizado em fevereiro de 2025, pelo Lab Escola 3D.</li></ul></div><div><h2>Créditos</h2><p class="creditos">Lab Escola 3D · extensão da UFRJ. Equipe: [a confirmar].</p></div></div>
-<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · protótipo de tela</span><div class="redes"><img src="../../_base/icones/instagram.svg" alt="Instagram"><img src="../../_base/icones/facebook.svg" alt="Facebook"><img src="../../_base/icones/youtube.svg" alt="YouTube"><img src="../../_base/icones/linkedin.svg" alt="LinkedIn"></div></footer></section>
+<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · <a href="../../sobre/" style="color:inherit">sobre este protótipo</a> · <a href="../../contribuir/" style="color:inherit">contato</a></span><div class="redes"><img src="../../_base/icones/instagram.svg" alt="Instagram"><img src="../../_base/icones/facebook.svg" alt="Facebook"><img src="../../_base/icones/youtube.svg" alt="YouTube"><img src="../../_base/icones/linkedin.svg" alt="LinkedIn"></div></footer></section>
 
 <section class="tela tela--cel" data-document-role="page" data-label="Produto · Curso Maker de Férias 2025 · celular (375)">
-<header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu"></header>
+<header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><details class="menu-cel"><summary><img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu"></summary><nav><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a></nav></details></header>
 <div class="onda"></div>
 <div class="heroi"><div><span class="selo">Formação · 2025</span><h1 style="margin-top:16px">Curso Maker de Férias 2025</h1><p class="frase">Um curso de férias para professores da rede municipal conhecerem a cultura maker na prática.</p></div><div class="reservada">Área reservada · imagem de uma aula<br>sem pessoas</div></div>
 <div class="baixar-bloco"><div><h2>As aulas do curso</h2><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><p class="aviso">As apresentações das aulas estão em revisão antes da publicação.</p></div></div>
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Fevereiro de 2025</b><span>edição</span></div><div class="fato"><b>Professores</b><span>da rede municipal</span></div><div class="fato"><b>[a confirmar]</b><span>número de aulas</span></div><div class="fato"><b>Certificado</b><span>para quem participou</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Uma formação de férias voltada à difusão da cultura maker entre professores da rede municipal do Rio, com aulas práticas que incluem jogos de tabuleiro modernos no ensino.</p></div><div><h2>Algumas aulas</h2><ol class="passos"><li>Jogos de tabuleiro modernos e o ensino.</li><li>Jogos de tabuleiro modernos: prática.</li><li>[demais aulas a confirmar]</li></ol></div></div>
 <div class="secao duas"><div><h2>De onde veio</h2><ul class="origem"><li>Realizado em fevereiro de 2025, pelo Lab Escola 3D.</li></ul></div><div><h2>Créditos</h2><p class="creditos">Lab Escola 3D · extensão da UFRJ. Equipe: [a confirmar].</p></div></div>
-<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · protótipo de tela</span><div class="redes"><img src="../../_base/icones/instagram.svg" alt="Instagram"><img src="../../_base/icones/facebook.svg" alt="Facebook"><img src="../../_base/icones/youtube.svg" alt="YouTube"><img src="../../_base/icones/linkedin.svg" alt="LinkedIn"></div></footer></section>
+<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · <a href="../../sobre/" style="color:inherit">sobre este protótipo</a> · <a href="../../contribuir/" style="color:inherit">contato</a></span><div class="redes"><img src="../../_base/icones/instagram.svg" alt="Instagram"><img src="../../_base/icones/facebook.svg" alt="Facebook"><img src="../../_base/icones/youtube.svg" alt="YouTube"><img src="../../_base/icones/linkedin.svg" alt="LinkedIn"></div></footer></section>
 </body>
 </html>

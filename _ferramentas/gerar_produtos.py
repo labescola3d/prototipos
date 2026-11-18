@@ -163,6 +163,44 @@ FONTES = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family
           '&family=Roboto:wght@400;500;700&display=swap">')
 
 
+ITENS_MENU = [("Catálogo", "catalogo/"), ("Como usar", "licenca/"), ("Contribuir", "contribuir/"), ("Sobre o Lab", "em-obras/")]
+
+
+def menu(raiz, ativo="", cel=False):
+    """Menu igual em todo o site. No celular, abre e fecha sem JavaScript (<details>)."""
+    links = "".join(f'<a class="ativo" href="{raiz}{h}">{n}</a>' if n == ativo else f'<a href="{raiz}{h}">{n}</a>'
+                    for n, h in ITENS_MENU)
+    if cel:
+        return (f'<details class="menu-cel"><summary><img class="icone" src="{raiz}_base/icones/menu.svg" alt="Abrir o menu">'
+                f'</summary><nav>{links}</nav></details>')
+    return (f'<nav class="menu">{links}<a href="{raiz}em-obras/"><img class="icone" src="{raiz}_base/icones/lupa.svg" '
+            f'alt="Buscar no catálogo (em obras)"></a></nav>')
+
+
+def cabecalho_simples(raiz, ativo=""):
+    """Cabeçalho das páginas que não vêm do gerador de telas (Sobre, Licença, editores...): logo + o mesmo menu."""
+    links = "".join(f'<a href="{raiz}{h}" style="color:{"#fff" if n == ativo else "#3026AD"};background:{"#3026AD" if n == ativo else "transparent"};'
+                    f'text-decoration:none;font-weight:700;padding:8px 12px;border-radius:6px">{n}</a>' for n, h in ITENS_MENU)
+    return ('<header class="cab" style="background:#fff;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;'
+            'padding:10px 16px;font:15px/1.3 system-ui,sans-serif;border-bottom:1px solid #E5E5E5">'
+            f'<a href="{raiz}"><img src="{LOGO}" alt="Lab Escola 3D — início" style="height:44px;width:auto;display:block"></a>'
+            f'<nav style="display:flex;flex-wrap:wrap;gap:4px">{links}</nav></header>')
+
+
+CSS_SITE = """
+/* modo site: uma tela por aparelho (as duas seguem no código para o Canva) */
+@media (min-width: 1200px) { body { background: var(--fundo); } .tela--cel { display: none; }
+  .tela--pc { width: auto; max-width: 1440px; margin: 0 auto; } }
+@media (max-width: 1199px) { body { background: var(--fundo); } .tela--pc { display: none; }
+  .tela--cel { width: auto; margin: 0; } }
+.menu-cel { position: relative; } .menu-cel summary { list-style: none; cursor: pointer; } .menu-cel summary::-webkit-details-marker { display: none; }
+.menu-cel nav { position: absolute; right: 0; top: 44px; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.15); border-radius: 10px;
+  display: flex; flex-direction: column; min-width: 190px; z-index: 10; }
+.menu-cel nav a { padding: 14px 18px; color: var(--roxo); text-decoration: none; font-weight: 700; border-bottom: 1px solid #eee; }
+.menu-cel nav a.ativo { background: var(--roxo); color: #fff; }
+"""
+
+
 def faixa_alfa(raiz):
     """Faixa de versão alfa no topo de toda página, com link para a página Sobre."""
     return ('<div class="alfa" style="background:#150E1F;color:#FFFFFF;font:14px/1.4 system-ui,sans-serif;'
@@ -173,7 +211,7 @@ def faixa_alfa(raiz):
 def estilo(*nomes, extra=""):
     """CSS embutido na página: o Canva ignora folha de estilo externa."""
     css = "".join(open(os.path.join(BASE, n), encoding="utf-8").read() for n in nomes)
-    return f"{FONTES}\n<style>\n{css}{extra}</style>"
+    return f"{FONTES}\n<style>\n{css}{CSS_SITE}{extra}</style>"
 
 
 def _baixar(p, tela):
@@ -205,11 +243,7 @@ def _baixar(p, tela):
 def _tela(p, tela):
     pc = tela == "pc"
     rotulo = "computador (1440)" if pc else "celular (375)"
-    if pc:
-        nav = ('<nav class="menu"><a class="ativo" href="../">Catálogo</a><a href="../../">Sobre o Lab</a>'
-               '<a href="../../">Contato</a><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no catálogo"></nav>')
-    else:
-        nav = '<img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu">'
+    nav = menu("../../", "Catálogo", cel=not pc)
     fatos = "".join(f'<div class="fato"><b>{E(b)}</b><span>{E(s)}</span></div>' for b, s in p["fatos"])
     partes = [
         f'<section class="tela tela--{tela}" data-document-role="page" data-label="Produto · {E(p["titulo"])} · {rotulo}">',
@@ -237,7 +271,7 @@ def _tela(p, tela):
                   f'<div><h2>Créditos</h2><p class="creditos">{E(p["creditos"])}</p></div></div>')
     redes = "".join(f'<img src="../../_base/icones/{r}.svg" alt="{n}">' for r, n in
                     [("instagram", "Instagram"), ("facebook", "Facebook"), ("youtube", "YouTube"), ("linkedin", "LinkedIn")])
-    partes.append(f'<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · protótipo de tela</span>'
+    partes.append(f'<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · <a href="../../sobre/" style="color:inherit">sobre este protótipo</a> · <a href="../../contribuir/" style="color:inherit">contato</a></span>'
                   f'<div class="redes">{redes}</div></footer></section>')
     return "\n".join(partes)
 

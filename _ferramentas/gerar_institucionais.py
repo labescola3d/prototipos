@@ -4,6 +4,10 @@ Uso: py -X utf8 _ferramentas/gerar_institucionais.py
 Protótipo vindo da Meta AI (18/11/2026), com acabamento do Claude.
 """
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from gerar_produtos import cabecalho_simples  # noqa: E402
 
 EMAIL_LAB = "labescola3d@gmail.com"  # canal de envio (decisão de Ivan, 18/11); [a confirmar se é o oficial]
 
@@ -44,13 +48,13 @@ RODAPE = ('<footer>Lab Escola 3D · projeto de extensão da UFRJ · materiais e 
           '<a href="../licenca/">licença e como usar</a> · <a href="../contribuir/">como contribuir</a></footer>')
 
 
-def pagina(titulo, corpo):
+def pagina(titulo, corpo, ativo=""):
     return ('<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
             f'<title>{titulo} · Lab Escola 3D (protótipo)</title>\n'
             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700'
             '&family=Source+Sans+3:wght@400;700&display=swap">\n'
-            f'<style>\n{CSS}</style>\n</head>\n<body>\n{FAIXA}\n<main>\n{corpo}\n{RODAPE}\n</main>\n</body>\n</html>\n')
+            f'<style>\n{CSS}{CSS_OBRAS}</style>\n</head>\n<body>\n{FAIXA}\n{cabecalho_simples("../", ativo)}\n<main>\n{corpo}\n{RODAPE}\n</main>\n</body>\n</html>\n')
 
 
 def perg(tag, cls, titulo, texto):
@@ -120,13 +124,43 @@ CONTRIBUIR = f"""<p class="crumb"><a href="../">Início</a> › Como contribuir<
 <a class="botao contorno" href="../catalogo/">Voltar ao catálogo</a>"""
 
 
+EM_OBRAS = """<div class="obras">
+<div class="fita"><span>EM DESENVOLVIMENTO · EM DESENVOLVIMENTO · EM DESENVOLVIMENTO · EM DESENVOLVIMENTO</span></div>
+<h1>Página em obras!</h1>
+<p class="lead">O Tom e o Vit, os exploradores do jogo <a href="../catalogo/expedicao-sonora/">Expedição Sonora</a>, botaram o capacete e estão construindo esta parte do site.</p>
+<div class="mascotes">
+<figure class="m tom"><div class="quadro"><img src="tom.jpg" alt="Tom, a ararajuba exploradora, mascote do Lab Escola 3D" width="380" height="563"><svg class="capacete" viewBox="0 0 200 110" aria-hidden="true"><path d="M20 92 Q20 22 100 18 Q180 22 180 92 Z" fill="#FFC21A" stroke="#150E1F" stroke-width="5"/><rect x="88" y="14" width="24" height="70" rx="8" fill="#FFD84D" stroke="#150E1F" stroke-width="5"/><rect x="6" y="86" width="188" height="18" rx="9" fill="#FFC21A" stroke="#150E1F" stroke-width="5"/></svg></div><figcaption><b>Tom</b> · ararajuba do Maranhão</figcaption></figure>
+<figure class="m vit"><div class="quadro"><img src="vit.jpg" alt="Vit, o lagarto explorador, mascote do Lab Escola 3D" width="380" height="517"><svg class="capacete" viewBox="0 0 200 110" aria-hidden="true"><path d="M20 92 Q20 22 100 18 Q180 22 180 92 Z" fill="#FFC21A" stroke="#150E1F" stroke-width="5"/><rect x="88" y="14" width="24" height="70" rx="8" fill="#FFD84D" stroke="#150E1F" stroke-width="5"/><rect x="6" y="86" width="188" height="18" rx="9" fill="#FFC21A" stroke="#150E1F" stroke-width="5"/></svg></div><figcaption><b>Vit</b> · lagarto do Mato Grosso do Sul</figcaption></figure>
+</div>
+<div class="fita"><span>EM DESENVOLVIMENTO · EM DESENVOLVIMENTO · EM DESENVOLVIMENTO · EM DESENVOLVIMENTO</span></div>
+<p>Enquanto isso, que tal:</p>
+<a class="botao" href="../catalogo/">Ver o catálogo</a><a class="botao contorno" href="../">Voltar ao início</a>
+<p class="pequeno">Esta é uma vitrine alfa: <a href="../sobre/">saiba o que já está pronto</a>.</p>
+</div>"""
+
+CSS_OBRAS = """.obras{text-align:center}
+.fita{background:repeating-linear-gradient(-45deg,#FFC21A 0 22px,#150E1F 22px 44px);padding:8px 0;margin:18px -16px;overflow:hidden;transform:rotate(-1.5deg)}
+.fita span{display:inline-block;background:#FFC21A;color:#150E1F;font-family:'Big Shoulders Display',sans-serif;font-size:22px;letter-spacing:2px;padding:2px 14px;white-space:nowrap}
+.mascotes{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin:24px 0}
+.m{margin:0;width:min(260px,44vw)}
+.quadro{position:relative;overflow:visible;margin-top:60px}
+.quadro img{width:100%;height:auto;display:block;border-radius:16px;border:5px solid #3026AD;background:#fff}
+.capacete{position:absolute;width:62%;left:19%;top:-12%;filter:drop-shadow(0 3px 2px rgba(0,0,0,.3))}
+.vit .capacete{width:46%;left:40%;top:-9%}
+.tom .capacete{width:72%;left:9%;top:-11%}
+.m figcaption{margin-top:8px}
+"""
+
+
 def gerar(raiz):
     saidas = []
-    for pasta, titulo, corpo in (("licenca", "Licença e como usar", LICENCA), ("contribuir", "Como contribuir", CONTRIBUIR)):
+    for pasta, titulo, corpo, ativo in (("licenca", "Licença e como usar", LICENCA, "Como usar"),
+                                        ("contribuir", "Como contribuir", CONTRIBUIR, "Contribuir"),
+                                        ("em-obras", "Em obras", EM_OBRAS, "")):
         os.makedirs(os.path.join(raiz, pasta), exist_ok=True)
         arq = os.path.join(raiz, pasta, "index.html")
         with open(arq, "w", encoding="utf-8", newline="\n") as f:
-            f.write(pagina(titulo, corpo))
+            f.write(pagina(titulo, corpo, ativo))
         saidas.append(arq)
     return saidas
 

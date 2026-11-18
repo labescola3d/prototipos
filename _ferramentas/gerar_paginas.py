@@ -8,7 +8,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from gerar_produtos import LOGO, PRODUTOS, estilo, faixa_alfa
+from gerar_produtos import LOGO, PRODUTOS, estilo, faixa_alfa, menu
 
 E = html.escape
 POR_SLUG = {p["slug"]: p for p in PRODUTOS}
@@ -109,12 +109,7 @@ def card(c, prefixo=""):
 
 
 def _topo(tela, raiz, ativo):
-    if tela == "pc":
-        a = lambda nome, href: f'<a class="ativo" href="{href}">{nome}</a>' if nome == ativo else f'<a href="{href}">{nome}</a>'
-        nav = (f'<nav class="menu">{a("Catálogo", raiz + "catalogo/")}{a("Sobre o Lab", raiz)}{a("Contato", raiz)}'
-               f'<img class="icone" src="{raiz}_base/icones/lupa.svg" alt="Buscar no catálogo"></nav>')
-    else:
-        nav = f'<img class="icone" src="{raiz}_base/icones/menu.svg" alt="Abrir o menu">'
+    nav = menu(raiz, ativo, cel=(tela != "pc"))
     return (f'<header class="topo"><a href="{raiz or "./"}"><img class="logo" src="{LOGO}" alt="Lab Escola 3D"></a>{nav}</header>'
             '<div class="onda"></div>')
 
@@ -122,7 +117,7 @@ def _topo(tela, raiz, ativo):
 def _rodape(raiz):
     redes = "".join(f'<img src="{raiz}_base/icones/{r}.svg" alt="{n}">' for r, n in
                     [("instagram", "Instagram"), ("facebook", "Facebook"), ("youtube", "YouTube"), ("linkedin", "LinkedIn")])
-    return (f'<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · protótipo de tela</span>'
+    return (f'<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · <a href="{raiz}sobre/" style="color:inherit">sobre este protótipo</a> · <a href="{raiz}contribuir/" style="color:inherit">contato</a></span>'
             f'<div class="redes">{redes}</div></footer>')
 
 
