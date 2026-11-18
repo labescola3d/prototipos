@@ -1,0 +1,112 @@
+{
+ "nome": "Cubo LE3D",
+ "versao": "1.0",
+ "gerado_em": "2026-09-23",
+ "fonte": "Derivado do ícone (icone-le3d.json): diagonais no mesmo ângulo. Primeira peça: medalha 'moeda mini' do brinde da Catarina (Brindes e Perfumaria, 03_Catarina\\v4_Bangu), bico 0,8. Forma aprovada por Ivan em 23/09/2026.",
+ "sistema": {
+  "unidade": "u",
+  "eixo_y": "para cima",
+  "origem": "canto inferior esquerdo da caixa das linhas centrais",
+  "largura_do_cubo": 1000.0,
+  "caixa_linhas_centrais": [
+   1000.0,
+   990.9661
+  ]
+ },
+ "angulo_diagonais_graus": 22.341,
+ "proporcao_aresta_largura": 0.58,
+ "vertices": {
+  "topo": [
+   500.0,
+   990.9661
+  ],
+  "dir_sup": [
+   1000.0,
+   785.483
+  ],
+  "dir_inf": [
+   1000.0,
+   205.483
+  ],
+  "base": [
+   500.0,
+   0.0
+  ],
+  "esq_inf": [
+   0.0,
+   205.483
+  ],
+  "esq_sup": [
+   0.0,
+   785.483
+  ],
+  "centro": [
+   500.0,
+   580.0
+  ]
+ },
+ "segmentos": [
+  [
+   "topo",
+   "dir_sup"
+  ],
+  [
+   "dir_sup",
+   "dir_inf"
+  ],
+  [
+   "dir_inf",
+   "base"
+  ],
+  [
+   "base",
+   "esq_inf"
+  ],
+  [
+   "esq_inf",
+   "esq_sup"
+  ],
+  [
+   "esq_sup",
+   "topo"
+  ],
+  [
+   "centro",
+   "esq_sup"
+  ],
+  [
+   "centro",
+   "dir_sup"
+  ],
+  [
+   "centro",
+   "base"
+  ]
+ ],
+ "traco_u": 100.0,
+ "faces": {
+  "topo": [
+   "topo",
+   "dir_sup",
+   "centro",
+   "esq_sup"
+  ],
+  "esquerda": [
+   "esq_sup",
+   "centro",
+   "base",
+   "esq_inf"
+  ],
+  "direita": [
+   "dir_sup",
+   "dir_inf",
+   "base",
+   "centro"
+  ]
+ },
+ "usos": {
+  "marca_reduzida": "Lê onde o ícone não cabe: vazado no bico 0,8, as faces do cubo abrem a partir de ~6,5 mm de largura (o ícone completo pede ~27 mm; ver REFERÊNCIA §5 e §8).",
+  "testado": "Selo com Ø19 × 1,6 mm no bico 0,8 (medalha colada no mapa da Catarina): 6 de 6 janelas abertas."
+ },
+ "como_desenhar": "Cada segmento é uma linha com ponta e junção redondas (shapely: LineString.buffer(traço/2); SVG: stroke-linecap/linejoin=round). Para 3D, escale 1000 u para a largura desejada do cubo."
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Etiqueta de destaque laranja: caixa de 640 × 150, raio 32; texto em branco por cima · candidato a elemento gráfico LE3D (garimpo do Canva, 18/11/2026) · gerado por build/vetores/gerar_elementos_canva.py · não editar à mão -->
+<!-- Etiqueta de destaque laranja: caixa de 640 × 150, raio 32; texto em branco por cima · candidato a elemento gráfico LE3D (garimpo do Canva, 18/11/2026) · gerado por gerar_elementos_canva.py (github.com/labescola3d/prototipos/tree/main/identidade/geradores) · não editar à mão -->
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="150" viewBox="0 0 640 150" fill="none">
   <rect x="0" y="0" width="640" height="150" rx="32" fill="#E3630D"/>
 </svg>

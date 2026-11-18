@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Moldura com contorno em degradê — Group-5-2.svg: roxo à esquerda, laranja à direita · extraído de labescola3d.rio.br em 17/11/2026 por build/vetores/extrair_elementos_site.py · não editar à mão -->
+<!-- Moldura com contorno em degradê — Group-5-2.svg: roxo à esquerda, laranja à direita · extraído de labescola3d.rio.br em 17/11/2026 por extrair_elementos_site.py (github.com/labescola3d/prototipos/tree/main/identidade/geradores) · não editar à mão -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1589" height="630" viewBox="0 0 1589 630" fill="none">
   <rect x="0.5" y="0.5" width="1588" height="629" rx="29.5" fill="#F2F2F2" stroke="url(#g)"/>
   <defs><linearGradient id="g" x1="0" y1="315" x2="1589" y2="315" gradientUnits="userSpaceOnUse"><stop stop-color="#3026AD"/><stop offset="1" stop-color="#E3630D"/></linearGradient></defs>
