@@ -57,7 +57,11 @@ Os materiais do acervo estão sob **Creative Commons BY-NC-SA 4.0** (atribuiçã
 - **Inventar fatos**: números, depoimentos, parcerias, prêmios ou nomes de pessoas. Onde faltar dado real, escreva `[a confirmar]`.
 - Outra paleta, outro logo ou outras fontes.
 
-## 7. Formato de entrega
+## 7. Contexto privado
+
+Este arquivo é o **canal público**: só traz o que qualquer pessoa pode ler. Contexto que não deve ficar na internet chega por outro canal: a pessoa que pede a tela **cola no chat** um texto numerado (CTX01, CTX02…). Esse contexto serve para entender o pedido e **nunca** deve aparecer no HTML, no Markdown ou na imagem que você gerar.
+
+## 8. Formato de entrega
 
 Responda com:
 
