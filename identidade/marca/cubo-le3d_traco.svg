@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Cubo LE3D · kit vetorial v1.0 · geometria em identidade/geradores/cubo-le3d.json (não editar à mão) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50.000 -50.000 1100.000 1090.966" width="1100.000" height="1090.966">
+  <title>Cubo LE3D (traço editável)</title>
+  <path d="M500.000 0.000L1000.000 205.483 M1000.000 205.483L1000.000 785.483 M1000.000 785.483L500.000 990.966 M500.000 990.966L0.000 785.483 M0.000 785.483L0.000 205.483 M0.000 205.483L500.000 0.000 M500.000 410.966L0.000 205.483 M500.000 410.966L1000.000 205.483 M500.000 410.966L500.000 990.966" fill="none" stroke="#3026AD" stroke-width="100.000" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

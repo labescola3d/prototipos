@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Selo do cubo LE3D · kit vetorial v1.0 · geometria em identidade/geradores/cubo-le3d.json (não editar à mão) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-85.000 -85.000 1900.000 1900.000" width="1900.000" height="1900.000">
+  <title>Selo do cubo LE3D (traço editável)</title>
+  <path d="M865.000 369.517L1365.000 575.000 M1365.000 575.000L1365.000 1155.000 M1365.000 1155.000L865.000 1360.483 M865.000 1360.483L365.000 1155.000 M365.000 1155.000L365.000 575.000 M365.000 575.000L865.000 369.517 M865.000 780.483L365.000 575.000 M865.000 780.483L1365.000 575.000 M865.000 780.483L865.000 1360.483 M865.000 369.517L865.000 0.000 M365.000 1155.000L116.748 1298.986 M1365.000 1155.000L1613.252 1298.986" fill="none" stroke="#3026AD" stroke-width="100.000" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="865.000" cy="865.000" r="865.000" fill="none" stroke="#3026AD" stroke-width="170.000"/>
+</svg>
