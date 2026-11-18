@@ -162,6 +162,13 @@ FONTES = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family
           '&family=Roboto:wght@400;500;700&display=swap">')
 
 
+def faixa_alfa(raiz):
+    """Faixa de versão alfa no topo de toda página, com link para a página Sobre."""
+    return ('<div class="alfa" style="background:#150E1F;color:#FFFFFF;font:14px/1.4 system-ui,sans-serif;'
+            'padding:8px 16px;text-align:center">Protótipo em <b style="color:#E3630D">versão alfa</b> · '
+            f'Lab Escola 3D · <a href="{raiz}sobre/" style="color:#FFFFFF">o que é este protótipo</a></div>')
+
+
 def estilo(*nomes, extra=""):
     """CSS embutido na página: o Canva ignora folha de estilo externa."""
     css = "".join(open(os.path.join(BASE, n), encoding="utf-8").read() for n in nomes)
@@ -234,7 +241,7 @@ def pagina(p) -> str:
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n'
             f'<title>{E(p["titulo"])} · Acervo LE3D (protótipo)</title>\n'
             f'{estilo("site.css", "produto.css")}\n'
-            f'</head>\n<body>\n{_tela(p, "pc")}\n\n{_tela(p, "cel")}\n</body>\n</html>\n')
+            f'</head>\n<body>\n{faixa_alfa("../../")}\n{_tela(p, "pc")}\n\n{_tela(p, "cel")}\n</body>\n</html>\n')
 
 
 def gerar_todos(raiz: str) -> list[str]:
