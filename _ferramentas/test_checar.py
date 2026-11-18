@@ -9,7 +9,7 @@ from checar import checar  # noqa: E402
 BASE = os.path.join(os.path.dirname(__file__), "..", "_base", "site.css")
 
 BOA = """<!doctype html><html><head>
-<link rel="stylesheet" href="../_base/site.css"></head><body>
+<style>.x{}</style></head><body>
 <section class="tela tela--pc" data-document-role="page" data-label="pc">
   <img src="../_base/icones/lupa.svg" alt="Buscar">
   <a href="../acervo/">Acervo</a>
@@ -33,6 +33,10 @@ def rodar(html, arquivos=("arquivos/kit.pdf",)):
 
 
 class TestChecar(unittest.TestCase):
+    def test_css_local_externo_falha(self):
+        self.assertIn("css", rodar(BOA.replace(
+            "</head>", '<link rel="stylesheet" href="../_base/site.css"></head>')))
+
     def test_tela_boa_passa(self):
         self.assertEqual(rodar(BOA), "")
 

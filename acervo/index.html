@@ -5,8 +5,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Acervo · Lab Escola 3D (protótipo)</title>
-<link rel="stylesheet" href="../_base/site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Roboto:wght@400;500;700&display=swap">
 <style>
+/* Base visual dos protótipos do site LE3D.
+   Copiada do site no ar (medida em 17/11/2026 e conferida no .json do Elementor).
+   Não inventar paleta nem fonte: a ID nova da Yasmim entra quando chegar. */
+/* Fontes: <link> do Google Fonts no <head> de cada página. */
+
+:root {
+  --roxo: #3026AD;
+  --roxo-claro: #C0BDE6;
+  --roxo-fundo: #EAE9F6;
+  --laranja: #E3630D;
+  --texto: #150E1F;
+  --fundo: #F2F2F2;
+  --branco: #FFFFFF;
+  --cinza: #6B6B6B;
+  --titulo: "Big Shoulders Display", sans-serif;
+  --corpo: "Roboto", sans-serif;
+  --onda: url("https://labescola3d.rio.br/wp-content/uploads/2024/10/template.svg");
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #d9d9d9; font-family: var(--corpo); color: var(--texto); }
+a { color: inherit; }
+img { display: block; }
+
+/* Telas: um bloco por página do Canva */
+.tela { background: var(--fundo); margin: 40px auto; position: relative; overflow: hidden; }
+.tela--pc { width: 1440px; }
+.tela--cel { width: 375px; }
+
+h1, h2, h3 { font-family: var(--titulo); text-transform: uppercase; overflow-wrap: anywhere; }
+h1 { font-weight: 900; color: var(--roxo); line-height: 1.03; }
+h2 { font-weight: 700; color: var(--texto); line-height: 1; }
+h3 { font-weight: 700; color: var(--roxo); line-height: 1.1; }
+p { font-size: 16px; line-height: 29.71px; }
+.tela--pc h1 { font-size: 67px; }
+.tela--pc h2 { font-size: 45px; }
+.tela--pc h3 { font-size: 30px; }
+.tela--cel h1 { font-size: 40px; }
+.tela--cel h2 { font-size: 38px; }
+.tela--cel h3 { font-size: 26px; }
+
+/* Topo: cartão com borda roxa e raio inferior de 10 px, sem itens suspensos */
+.topo { display: flex; align-items: center; justify-content: space-between; background: var(--fundo);
+        border: 1px solid var(--roxo); border-top: 0; border-radius: 0 0 10px 10px; position: relative; z-index: 1; }
+.tela--pc .topo { height: 155px; padding: 0 160px; }
+.tela--cel .topo { height: 110px; padding: 0 20px; }
+.topo .logo { width: 103px; height: auto; }
+.tela--cel .topo .logo { width: 74px; }
+.menu { display: flex; align-items: center; gap: 32px; }
+.menu a { font-size: 14px; font-weight: 500; color: var(--roxo); text-decoration: none; }
+.menu .ativo { background: var(--roxo); color: var(--fundo); padding: 16px 20px; }
+.icone { width: 20px; height: 20px; }
+
+/* Onda decorativa sob o topo */
+.onda { position: absolute; left: 0; right: 0; height: 300px; background: var(--onda) center top / cover no-repeat; }
+.tela--pc .onda { top: 155px; }
+.tela--cel .onda { top: 110px; }
+
+/* Botão: bloco único, sem flexbox no texto */
+.botao { display: inline-block; background: var(--roxo); color: var(--fundo); font-size: 12px; letter-spacing: 2px;
+         text-transform: uppercase; text-decoration: none; padding: 14px 24px; line-height: 14px; }
+.botao--grande { font-size: 16px; padding: 18px 32px; line-height: 18px; }
+.botao--claro { background: var(--fundo); color: var(--roxo); border: 1px solid var(--roxo); }
+
+/* Cartões */
+.card { display: block; background: var(--fundo); border: 1px solid var(--laranja); border-radius: 20px;
+        text-decoration: none; overflow: hidden; }
+.card .capa { width: 100%; height: 180px; object-fit: cover; background: var(--roxo-claro); }
+.card .corpo { padding: 20px 24px 24px; }
+.card .tipo { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--laranja); }
+.card h3 { margin: 6px 0 8px; }
+.card p { font-size: 14px; line-height: 22px; }
+.selo { display: inline-block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 4px 8px;
+        border: 1px solid var(--roxo); color: var(--roxo); border-radius: 4px; }
+
+/* Área reservada para foto (direito de imagem pendente): texto no topo, sem centralização vertical */
+.reservada { background: var(--roxo-claro); color: var(--roxo); border-radius: 20px; font-size: 14px;
+             line-height: 20px; text-align: center; padding-top: 24px; }
+
+/* Aviso de material em preparação */
+.aviso { background: var(--roxo-fundo); border-left: 4px solid var(--roxo); padding: 16px 20px; font-size: 15px; line-height: 24px; }
+
+/* Rodapé */
+.rodape { border-top: 1px solid var(--roxo-claro); color: var(--cinza); font-size: 13px; line-height: 20px; }
+.redes { display: flex; gap: 12px; }
+.redes img { width: 28px; height: 28px; }
+
 .faixa { position: relative; }
 .numeros { display: grid; }
 .numero b { display: block; font-family: var(--titulo); font-weight: 900; color: var(--laranja); text-transform: uppercase; }

@@ -1,7 +1,7 @@
 /* Base visual dos protótipos do site LE3D.
    Copiada do site no ar (medida em 17/11/2026 e conferida no .json do Elementor).
    Não inventar paleta nem fonte: a ID nova da Yasmim entra quando chegar. */
-@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Roboto:wght@400;500;700&display=swap");
+/* Fontes: <link> do Google Fonts no <head> de cada página. */
 
 :root {
   --roxo: #3026AD;

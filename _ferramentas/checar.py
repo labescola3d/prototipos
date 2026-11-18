@@ -37,6 +37,9 @@ class _Leitor(HTMLParser):
             self._p("ícone de fonte (use SVG ou imagem)")
         if tag == "link" and re.search(r"font-?awesome", a.get("href") or "", re.I):
             self._p("ícone de fonte carregado (font-awesome)")
+        if (tag == "link" and a.get("rel") == "stylesheet"
+                and not (a.get("href") or "").startswith("https://fonts.googleapis.com")):
+            self._p(f"css externo não chega ao Canva (embutir na página): {a.get('href')}")
         if tag == "img" and "alt" not in a:
             self._p(f"img sem alt: {a.get('src')}")
         if tag == "a":

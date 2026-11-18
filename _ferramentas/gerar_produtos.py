@@ -156,6 +156,15 @@ PRODUTOS = [
 ]
 
 E = html.escape
+BASE = os.path.join(os.path.dirname(__file__), "..", "_base")
+FONTES = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900'
+          '&family=Roboto:wght@400;500;700&display=swap">')
+
+
+def estilo(*nomes, extra=""):
+    """CSS embutido na página: o Canva ignora folha de estilo externa."""
+    css = "".join(open(os.path.join(BASE, n), encoding="utf-8").read() for n in nomes)
+    return f"{FONTES}\n<style>\n{css}{extra}</style>"
 
 
 def _baixar(p, tela):
@@ -219,7 +228,7 @@ def pagina(p) -> str:
     return (f'<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n'
             f'<title>{E(p["titulo"])} · Acervo LE3D (protótipo)</title>\n'
-            f'<link rel="stylesheet" href="../../_base/site.css">\n<link rel="stylesheet" href="../../_base/produto.css">\n'
+            f'{estilo("site.css", "produto.css")}\n'
             f'</head>\n<body>\n{_tela(p, "pc")}\n\n{_tela(p, "cel")}\n</body>\n</html>\n')
 
 

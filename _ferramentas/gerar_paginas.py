@@ -5,8 +5,10 @@ Os números da faixa de volume são texto à mão (desenho §6), contados no inv
 """
 import html
 import os
+import sys
 
-from gerar_produtos import LOGO, PRODUTOS
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from gerar_produtos import LOGO, PRODUTOS, estilo
 
 E = html.escape
 POR_SLUG = {p["slug"]: p for p in PRODUTOS}
@@ -132,8 +134,7 @@ def _numeros():
 def _doc(titulo, raiz, telas, script=""):
     return (f'<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n'
-            f'<title>{E(titulo)}</title>\n<link rel="stylesheet" href="{raiz}_base/site.css">\n'
-            f'<style>{CSS}</style>\n</head>\n<body>\n' + "\n\n".join(telas) + f"\n{script}\n</body>\n</html>\n")
+            f'<title>{E(titulo)}</title>\n{estilo("site.css", extra=CSS)}\n</head>\n<body>\n' + "\n\n".join(telas) + f"\n{script}\n</body>\n</html>\n")
 
 
 def _escrever(arq, texto):
