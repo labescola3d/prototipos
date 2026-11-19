@@ -50,6 +50,11 @@ class TestPolitica(unittest.TestCase):
     def test_decisao_registrada(self):
         self.assertTrue(os.path.isfile(os.path.join(RAIZ, ARQUIVOS[-1])))
 
+    def test_acao_roda_testes(self):
+        t = ler(".github/workflows/testes.yml")
+        for trecho in ("pull_request", "unittest discover -s _ferramentas", "checar.py"):
+            self.assertIn(trecho, t)
+
     def test_sem_dado_pessoal(self):
         for rel in ARQUIVOS:
             achados = set(re.findall(r"[\w.+-]+@[\w-]+\.[\w.]+", ler(rel))) - EMAILS_PERMITIDOS
