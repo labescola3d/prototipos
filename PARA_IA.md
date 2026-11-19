@@ -1,6 +1,6 @@
 # PARA IA — como prototipar telas do Lab Escola 3D
 
-Este arquivo orienta assistentes de IA (Meta AI, Claude e outros) que ajudam a prototipar o site do **Lab Escola 3D (LE3D)**. Leia tudo antes de propor uma tela.
+Este arquivo orienta assistentes de IA (Meta AI, Claude e outros) que ajudam a prototipar o site do **Lab Escola 3D (LE3D)**. Leia tudo antes de propor uma tela. Se você vai **mudar arquivos deste repositório**, siga também o [`AGENTS.md`](AGENTS.md), a política de colaboração.
 
 ## 1. Contexto
 
