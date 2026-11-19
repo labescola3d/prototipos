@@ -2,7 +2,7 @@
 
 ## Contexto
 
-Dois devs pares, Ivan e Gleyci, constroem o site do LE3D, cada um com os próprios agentes de IA. Nenhuma ferramenta permite que duas contas conversem com a mesma IA na mesma sessão, e cada dev usa ferramentas diferentes (Claude Code, Antigravity, Meta AI).
+Dois devs pares (Dev 1 e Dev 2) constroem o site do LE3D, cada um com os próprios agentes de IA. Nenhuma ferramenta permite que duas contas conversem com a mesma IA na mesma sessão, e cada dev usa ferramentas diferentes (Claude Code, Antigravity, Meta AI).
 
 ## Decisão
 
@@ -16,11 +16,11 @@ Dois devs pares, Ivan e Gleyci, constroem o site do LE3D, cada um com os própri
 
 - Mudar a política exige um pedido de junção em cada repositório.
 - Uma IA sem acesso ao repositório (ex.: Meta AI) recebe o `AGENTS.md` colado no chat.
-- A proteção da `main` só se aplica depois que a Gleyci entrar no `CODEOWNERS`; antes, ela travaria os pedidos do único dono.
+- A proteção da `main` só se aplica depois que o Dev 2 entrar no `CODEOWNERS`; antes, ela travaria os pedidos do único dono.
 
 ## Aplicar a proteção da `main`
 
-Feito por Ivan, com a conta `labescola3d`, **só depois** que o primeiro pedido de junção da Gleyci acrescentar o usuário dela na linha `*` do `.github/CODEOWNERS`. Antes disso, a revisão obrigatória de um dono travaria os pedidos do único dono.
+Feito pelo dev com acesso de administrador à conta `labescola3d`, **só depois** que o primeiro pedido de junção do Dev 2 acrescentar o usuário dele na linha `*` do `.github/CODEOWNERS`. Antes disso, a revisão obrigatória de um dono travaria os pedidos do único dono.
 
 ```
 gh api -X POST repos/labescola3d/prototipos/rulesets --input .github/regra-main.json

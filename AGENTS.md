@@ -38,7 +38,7 @@ Dois devs pares trabalham nestes repositórios, cada um com os próprios agentes
 ### Fluxo
 
 1. Toda tarefa tem uma **Issue** com responsável. Leia a Issue antes de começar.
-2. Trabalhe num **ramo** `<pessoa>/<issue>-<tema>` (ex.: `gleyci/12-filtro-catalogo`). Nunca na `main`.
+2. Trabalhe num **ramo** `<pessoa>/<issue>-<tema>` (ex.: `dev-2/12-filtro-catalogo`). Nunca na `main`.
 3. **Commits** em Conventional Commits, em português (`feat:`, `fix:`, `docs:`, `test:`, `ci:`, `chore:`). Se uma IA ajudou, o commit termina com `Assisted-by: <ferramenta> (<modelo>)`. Mantenha os trailers que a sua ferramenta acrescenta sozinha (ex.: `Co-Authored-By:`); o obrigatório é o `Assisted-by:`.
 4. Entregue por **pedido de junção** (*pull request*) com o modelo do repositório e `Fecha #<issue>`.
 5. O **outro dev revisa**. Depois da aprovação, qualquer um dos dois junta (*squash*). Detalhes no `CONTRIBUTING.md`.

@@ -77,6 +77,11 @@ class TestPolitica(unittest.TestCase):
         for trecho in ("pull_request", "unittest discover -s _ferramentas", "checar.py", "git diff --exit-code"):
             self.assertIn(trecho, t)
 
+    def test_sem_nome_de_dev(self):
+        for rel in ARQUIVOS:
+            for nome in ("Ivan", "Gleyci"):
+                self.assertNotIn(nome, ler(rel), rel)
+
     def test_sem_dado_pessoal(self):
         for rel in ARQUIVOS:
             achados = set(re.findall(r"[\w.+-]+@[\w-]+\.[\w.]+", ler(rel))) - EMAILS_PERMITIDOS

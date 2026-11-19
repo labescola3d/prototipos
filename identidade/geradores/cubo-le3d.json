@@ -2,7 +2,7 @@
  "nome": "Cubo LE3D",
  "versao": "1.0",
  "gerado_em": "2026-09-23",
- "fonte": "Derivado do ícone (icone-le3d.json): diagonais no mesmo ângulo. Primeira peça: medalha 'moeda mini' do brinde da Catarina (Brindes e Perfumaria, 03_Catarina\\v4_Bangu), bico 0,8. Forma aprovada por Ivan em 23/09/2026.",
+ "fonte": "Derivado do ícone (icone-le3d.json): diagonais no mesmo ângulo. Primeira peça: medalha de um brinde do Lab, bico 0,8. Forma aprovada em 23/09/2026.",
  "sistema": {
   "unidade": "u",
   "eixo_y": "para cima",
@@ -106,7 +106,7 @@
  },
  "usos": {
   "marca_reduzida": "Lê onde o ícone não cabe: vazado no bico 0,8, as faces do cubo abrem a partir de ~6,5 mm de largura (o ícone completo pede ~27 mm; ver REFERÊNCIA §5 e §8).",
-  "testado": "Selo com Ø19 × 1,6 mm no bico 0,8 (medalha colada no mapa da Catarina): 6 de 6 janelas abertas."
+  "testado": "Selo com Ø19 × 1,6 mm no bico 0,8 (medalha de brinde do Lab): 6 de 6 janelas abertas."
  },
  "como_desenhar": "Cada segmento é uma linha com ponta e junção redondas (shapely: LineString.buffer(traço/2); SVG: stroke-linecap/linejoin=round). Para 3D, escale 1000 u para a largura desejada do cubo."
 }

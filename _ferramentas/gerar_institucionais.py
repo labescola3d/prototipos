@@ -9,7 +9,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gerar_produtos import cabecalho_simples  # noqa: E402
 
-EMAIL_LAB = "labescola3d@gmail.com"  # canal de envio (decisão de Ivan, 18/11); [a confirmar se é o oficial]
+EMAIL_LAB = "labescola3d@gmail.com"  # canal de envio (decisão do Lab, 18/11); [a confirmar se é o oficial]
 
 CSS = """body{margin:0;background:#F2F2F2;color:#150E1F;font:17px/1.55 'Source Sans 3',system-ui,sans-serif}
 main{max-width:860px;margin:0 auto;padding:28px 16px 56px}
