@@ -30,7 +30,7 @@ feat: filtro do catalogo por disciplina
 Assisted-by: Claude Code (Claude Opus 5.5)
 ```
 
-Tipos: `feat` (algo novo), `fix` (correção), `docs` (documentação), `test` (testes), `ci` (automação), `chore` (arrumação). A linha `Assisted-by:` é obrigatória quando uma IA escreveu parte da mudança; ela nomeia a ferramenta e o modelo. Quem assina o commit responde por ele.
+Tipos: `feat` (algo novo), `fix` (correção), `docs` (documentação), `test` (testes), `ci` (automação), `chore` (arrumação). A linha `Assisted-by:` é obrigatória quando uma IA escreveu parte da mudança; ela nomeia a ferramenta e o modelo. Quem assina o commit responde por ele. Na junção, mantenha as linhas `Assisted-by:` na mensagem do squash.
 
 ### Revisão
 

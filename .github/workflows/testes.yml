@@ -18,5 +18,7 @@ jobs:
           python-version: "3.12"
       - name: Testes
         run: python -X utf8 -m unittest discover -s _ferramentas
+      - name: HTML gerado igual ao commitado
+        run: git diff --exit-code -- '*.html'
       - name: Validador das telas
         run: python -X utf8 _ferramentas/checar.py $(git ls-files '*.html')

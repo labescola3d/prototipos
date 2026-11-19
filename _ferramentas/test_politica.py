@@ -17,10 +17,20 @@ ARQUIVOS = [
     "docs/decisoes/2026-11-18-politica-de-colaboracao.md",
 ]
 
+PROTECAO = ("gh api", "regra-main.json", "CODEOWNERS")
+
 
 def ler(rel):
     with open(os.path.join(RAIZ, rel), encoding="utf-8") as f:
         return f.read()
+
+
+def donos(texto):
+    """Donos da linha "* " do CODEOWNERS."""
+    for linha in texto.splitlines():
+        if linha.startswith("* "):
+            return linha.split()[1:]
+    return []
 
 
 class TestPolitica(unittest.TestCase):
@@ -39,8 +49,20 @@ class TestPolitica(unittest.TestCase):
             self.assertIn(trecho, t)
 
     def test_codeowners(self):
-        linhas = [l.strip() for l in ler(".github/CODEOWNERS").splitlines()]
-        self.assertIn("* @ivansssilveira", linhas)
+        self.assertIn("@ivansssilveira", donos(ler(".github/CODEOWNERS")))
+
+    def test_codeowners_aceita_mais_donos(self):
+        texto = "# comentario\n* @ivansssilveira @outra\n"
+        self.assertEqual(donos(texto), ["@ivansssilveira", "@outra"])
+
+    def test_decisao_explica_protecao(self):
+        t = ler(ARQUIVOS[-1])
+        for trecho in PROTECAO:
+            self.assertIn(trecho, t)
+
+    def test_squash_mantem_assisted_by(self):
+        self.assertIn("mensagem do squash", ler("CONTRIBUTING.md"))
+        self.assertIn("trailers", ler("AGENTS.md"))
 
     def test_modelo_de_pedido(self):
         t = ler(".github/pull_request_template.md")
@@ -52,7 +74,7 @@ class TestPolitica(unittest.TestCase):
 
     def test_acao_roda_testes(self):
         t = ler(".github/workflows/testes.yml")
-        for trecho in ("pull_request", "unittest discover -s _ferramentas", "checar.py"):
+        for trecho in ("pull_request", "unittest discover -s _ferramentas", "checar.py", "git diff --exit-code"):
             self.assertIn(trecho, t)
 
     def test_sem_dado_pessoal(self):
