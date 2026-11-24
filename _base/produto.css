@@ -1,5 +1,5 @@
 /* Página de produto — estrutura do desenho §6, igual para todos os produtos. */
-.frase { color: var(--laranja); font-size: 20px; line-height: 28px; margin-top: 12px; }
+.frase { color: var(--laranja-texto); font-size: 20px; line-height: 28px; margin-top: 12px; }
 .baixar-bloco { background: var(--roxo); color: var(--fundo); }
 .baixar-bloco h2 { color: var(--fundo); }
 .baixar-bloco .meta { font-size: 14px; line-height: 22px; color: var(--roxo-claro); }

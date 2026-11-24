@@ -17,6 +17,7 @@
   --roxo-claro: #C0BDE6;
   --roxo-fundo: #EAE9F6;
   --laranja: #E3630D;
+  --laranja-texto: #B34D00; /* laranja para texto pequeno: 4,7:1 no cinza, 5,3:1 no branco (WCAG AA) */
   --texto: #150E1F;
   --fundo: #F2F2F2;
   --branco: #FFFFFF;
@@ -76,7 +77,7 @@ p { font-size: 16px; line-height: 29.71px; }
         text-decoration: none; overflow: hidden; }
 .card .capa { width: 100%; height: 180px; object-fit: cover; background: var(--roxo-claro); }
 .card .corpo { padding: 20px 24px 24px; }
-.card .tipo { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--laranja); }
+.card .tipo { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--laranja-texto); }
 .card h3 { margin: 6px 0 8px; }
 .card p { font-size: 14px; line-height: 22px; }
 .selo { display: inline-block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 4px 8px;
@@ -94,7 +95,7 @@ p { font-size: 16px; line-height: 29.71px; }
 .redes { display: flex; gap: 12px; }
 .redes img { width: 28px; height: 28px; }
 /* Página de produto — estrutura do desenho §6, igual para todos os produtos. */
-.frase { color: var(--laranja); font-size: 20px; line-height: 28px; margin-top: 12px; }
+.frase { color: var(--laranja-texto); font-size: 20px; line-height: 28px; margin-top: 12px; }
 .baixar-bloco { background: var(--roxo); color: var(--fundo); }
 .baixar-bloco h2 { color: var(--fundo); }
 .baixar-bloco .meta { font-size: 14px; line-height: 22px; color: var(--roxo-claro); }
