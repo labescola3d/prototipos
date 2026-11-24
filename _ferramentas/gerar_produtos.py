@@ -169,6 +169,49 @@ PRODUTOS = [
         "creditos": "Lab Escola 3D · extensão da UFRJ. Cada ficha traz a autoria no rodapé.",
     },
     {
+        "slug": "brindes-3d", "titulo": "Brindes impressos em 3D", "selo": "Peças 3D",
+        "frase": "Chaveiros, lanterna, spinner, colcheia, mapa e peões para imprimir e usar como apoio de aula.",
+        "reservada": "peças impressas sobre a mesa",
+        "baixar": {"titulo": "Arquivos prontos para imprimir",
+                   "aviso": "Cada peça abaixo tem o arquivo para baixar aqui e, quando houver, a página no Printables. Bico 0,6 mm, testados na impressora do Lab."},
+        "pecas": [
+            {"nome": "Peões Tom e Vit", "printables": 1875729,
+             "ensina": "Os exploradores da Expedição Sonora: viram peões do jogo e mascotes da turma.",
+             "bncc": "Geografia e Arte (música) · [a confirmar]",
+             "arquivos": [("Peões Tom e Vit em três peças", "../expedicao-sonora/peoes-tom-e-vit-pacote-c.zip", "ZIP · 5 MB · STL e créditos")]},
+            {"nome": "Colcheia e mapa da Catarina", "printables": None,
+             "ensina": "Uma colcheia para falar de ritmo e duração das notas, e um mapa do Brasil para ligar música e região.",
+             "bncc": "Arte (música) e Geografia · [a confirmar]",
+             "arquivos": [("Mesa pronta: colcheia e mapa", "mesa-catarina-colcheia-e-mapa.3mf", "3MF · 58 KB")]},
+            {"nome": "Medalhas para o mapa", "printables": None,
+             "ensina": "Medalhas para marcar as regiões no mapa da Catarina durante o jogo.",
+             "bncc": "Geografia · [a confirmar]",
+             "arquivos": [("Mesa pronta: medalhas", "mesa-catarina-medalhas.3mf", "3MF · 57 KB")]},
+            {"nome": "Lanterna LE3D", "printables": None,
+             "ensina": "Uma lanterna vazada que projeta a marca do Lab: luz, sombra e projeção na prática.",
+             "bncc": "Ciências (luz e sombra) · [a confirmar]",
+             "arquivos": [("Mesa pronta: lanterna", "mesa-lanterna.3mf", "3MF · 763 KB")]},
+            {"nome": "Spinner LE3D", "printables": None,
+             "ensina": "Um spinner para conversar sobre rotação, equilíbrio e atrito.",
+             "bncc": "Ciências · [a confirmar]",
+             "arquivos": [("Mesa pronta: spinner", "mesa-spinner.3mf", "3MF · 267 KB")]},
+            {"nome": "Chaveiros moeda", "printables": None,
+             "ensina": "Seis chaveiros de 40 mm com padrões diferentes, bons para primeiras impressões e para falar de padrões e simetria.",
+             "bncc": "Matemática (simetria) e Arte · [a confirmar]",
+             "arquivos": [("Mesa pronta: 6 chaveiros", "mesa-chaveiros.3mf", "3MF · 485 KB")]},
+        ],
+        "fatos": [("6 peças", "prontas para imprimir"), ("Bico 0,6 mm", "testado no Lab"), ("3MF", "mesa pronta para fatiar"), ("Printables", "página do Lab")],
+        "o_que_e": "As peças que o Lab Escola 3D imprime como brindes também servem de apoio de aula: cada uma puxa uma conversa de Ciências, Matemática, Geografia ou Arte. Os arquivos já vêm como mesa de impressão (3MF), prontos para abrir no fatiador.",
+        "como": ("Como usar", [
+            "Baixe a mesa da peça (3MF) e abra no fatiador da sua impressora.",
+            "Confira o bico: os arquivos foram feitos para 0,6 mm.",
+            "Imprima e use a peça para abrir a conversa da aula.",
+            "Peças com página no Printables também podem ser baixadas por lá."]),
+        "itens": None,
+        "origem": ["Brindes do Lab Escola 3D, impressos e testados na impressora do Lab em 2026."],
+        "creditos": "Lab Escola 3D · extensão da UFRJ. Modelagem: Ivan Silveira. Peões: ilustração original de Eduardo Cóser, adaptação de Ivan Silveira. Colcheia e mapa: original de Catarina Reis, adaptação de Ivan Silveira. Lanterna: ideia de Gabriel Texeira e Lucas Rizzo.",
+    },
+    {
         "slug": "curso-maker-de-ferias-2025", "titulo": "Curso Maker de Férias 2025", "selo": "Formação · 2025",
         "frase": "Um curso de férias para professores da rede municipal conhecerem a cultura maker na prática.",
         "reservada": "imagem de uma aula",
@@ -188,8 +231,8 @@ PRODUTOS = [
         "slug": "memorias-da-mare", "titulo": "Memórias da Maré / Consolidating Maré", "selo": "Parceria · 2025",
         "frase": "Uma réplica impressa em 3D do Rola-rola, o barril que os moradores da Maré criaram para levar água, vira objeto de aprendizagem numa aula de campo.",
         "reservada": "foto da réplica do Rola-rola",
-        "baixar": {"titulo": "Material do projeto",
-                   "aviso": "O material para o professor e o arquivo 3D do Rola-rola estão em preparação."},
+        "baixar": {"titulo": "Arquivo 3D do Rola-rola", "arquivos": [
+            ("Réplica do Rola-rola para imprimir", "rola-rola.stl", "STL · 2,7 MB · modelagem: Ivan Silveira, a partir do Rola-rola criado pelos moradores da Maré")]},
         "fatos": [("Nova Holanda", "Maré, Rio de Janeiro"), ("Aula de campo", "pelo território"), ("Réplica em 3D", "objeto de aprendizagem"), ("2027", "exposição DESIS Cluster, Zaragoza")],
         "o_que_e": "Na “aula de campo Maré”, estudantes e educadores do pré-vestibular da Redes da Maré percorrem o território para resgatar a memória local. Na Nova Holanda, onde faltava água encanada nos anos 1970, uma réplica do Rola-rola impressa em 3D abre a conversa sobre as tecnologias sociais criadas pelos próprios moradores e liga essa memória à fabricação digital.",
         "como": ("Como acontece", [
@@ -331,6 +374,29 @@ def _baixar(p, tela):
             f'<div><p class="aviso">{E(b["aviso"])}</p>{editor}</div></div>')
 
 
+PRINTABLES = "https://www.printables.com/embed/"
+# O embed do Printables não se ajusta à largura: Card no computador, Small no celular.
+TAMANHO_EMBED = {"pc": (400, 445), "cel": (300, 340)}
+
+
+def bloco_pecas(pecas: list[dict], tela: str) -> str:
+    """Uma peça 3D por cartão: o que ensina, cópia local para baixar e, se houver, o embed do Printables."""
+    if not pecas:
+        return ""
+    w, h = TAMANHO_EMBED[tela]
+    cartoes = []
+    for pc in pecas:
+        links = "".join(f'<a class="baixar" href="{E(u)}">{E(r)} <span>· {E(i)}</span></a>' for r, u, i in pc["arquivos"])
+        embed = ""
+        if pc.get("printables"):
+            embed = (f'<iframe src="{PRINTABLES}{int(pc["printables"])}" width="{w}" height="{h}" scrolling="no" '
+                     f'frameborder="0" loading="lazy" title="{E(pc["nome"])} no Printables"></iframe>')
+        cartoes.append(f'<div class="peca"><h3>{E(pc["nome"])}</h3><p>{E(pc["ensina"])}</p>'
+                       f'<p class="meta">BNCC: {E(pc["bncc"])}</p><div class="lista">{links}</div>{embed}</div>')
+    return ('<div class="secao"><h2>As peças</h2><p>Baixe aqui ou acesse a nossa página no Printables.</p>'
+            f'<div class="pecas">{"".join(cartoes)}</div></div>')
+
+
 def _tela(p, tela):
     pc = tela == "pc"
     rotulo = "computador (1440)" if pc else "celular (375)"
@@ -344,6 +410,7 @@ def _tela(p, tela):
         f'<h1 style="margin-top:16px">{E(p["titulo"])}</h1><p class="frase">{E(p["frase"])}</p></div>'
         f'<div class="reservada">Área reservada · {E(p["reservada"])}<br>sem pessoas</div></div>',
         _baixar(p, tela),
+        bloco_pecas(p.get("pecas") or [], tela),
         f'<div class="secao"><h2>Para quem</h2><div class="fatos">{fatos}</div></div>',
     ]
     o_que = f'<div><h2>O que é</h2><p>{E(p["o_que_e"])}</p></div>'

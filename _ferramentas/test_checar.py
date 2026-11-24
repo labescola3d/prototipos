@@ -82,6 +82,9 @@ class TestChecar(unittest.TestCase):
         self.assertIn("externo", rodar(BOA.replace(' data-autoria="Raiane"', "")))
         self.assertIn("externo", rodar(BOA.replace('href="https://ludopedia.com.br/jogo/x"', 'href="x/"')))
 
+    def test_iframe_sem_title_reprova(self):
+        self.assertIn("iframe", rodar(BOA.replace("</section>", '<iframe src="https://www.printables.com/embed/1"></iframe></section>', 1)))
+
     def test_capa_acima_de_80kb_reprova(self):
         pasta = tempfile.mkdtemp()
         os.makedirs(os.path.join(pasta, "capas"))

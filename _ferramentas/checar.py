@@ -44,6 +44,8 @@ class _Leitor(HTMLParser):
             self._p(f"css externo não chega ao Canva (embutir na página): {a.get('href')}")
         if tag == "img" and "alt" not in a:
             self._p(f"img sem alt: {a.get('src')}")
+        if tag == "iframe" and not a.get("title"):
+            self._p(f"iframe sem title: {a.get('src')}")
         if tag == "img" and "capa" in classes:
             src = a.get("src") or ""
             local = os.path.join(self.pasta, src)

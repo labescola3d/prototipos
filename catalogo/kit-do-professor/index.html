@@ -140,6 +140,13 @@ p { font-size: 16px; line-height: 29.71px; }
 .tela--cel .duas > div + div { margin-top: 44px; }
 .tela--cel .rodape { margin-top: 56px; padding: 28px 20px 40px; }
 .tela--cel .rodape .redes { margin-top: 16px; }
+/* peças 3D: cópia local + embed do Printables */
+.pecas { display: grid; gap: 24px; }
+.tela--pc .pecas { grid-template-columns: repeat(2, 1fr); }
+.peca { border: 1px solid var(--laranja); border-radius: 20px; padding: 20px; background: #fff; min-width: 0; }
+.peca .lista a { display: block; color: var(--roxo); font-weight: 700; padding: 8px 0; text-decoration: none; }
+.peca .lista a span { color: var(--cinza); font-weight: 400; font-size: 13px; }
+.peca iframe { display: block; max-width: 100%; margin-top: 12px; border: 0; }
 
 /* modo site: uma tela por aparelho (as duas seguem no código para o Canva) */
 @media (min-width: 1200px) { body { background: var(--fundo); } .tela--cel { display: none; }
@@ -160,6 +167,7 @@ p { font-size: 16px; line-height: 29.71px; }
 <div class="onda"></div>
 <div class="heroi"><div><span class="selo">Para o professor</span><h1 style="margin-top:16px">Kit do professor</h1><p class="frase">Catorze gabaritos A4 para imprimir e preparar aula: tabuleiros, cartas, dados e fichas para adaptar a qualquer matéria.</p></div><div class="reservada">Área reservada · gabaritos impressos sobre a mesa<br>sem pessoas</div></div>
 <div class="baixar-bloco"><div><h2>Baixe e imprima</h2><p class="meta">PDF · 14 páginas A4 · cartas, dado, quebra-cabeças e tabuleiros</p><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><a class="botao botao--grande baixar" href="kit-do-professor-a4.pdf"><img src="../../_base/icones/baixar.svg" alt="">Kit do professor: 14 gabaritos A4</a></div></div>
+
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>14 gabaritos</b><span>em A4</span></div><div class="fato"><b>Qualquer matéria</b><span>você põe o conteúdo</span></div><div class="fato"><b>Só imprimir</b><span>e recortar</span></div><div class="fato"><b>Gratuito</b><span>para baixar</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Um conjunto de moldes em branco para a professora transformar o conteúdo da aula em jogo: cartas, dado de montar, quebra-cabeças e tabuleiros. É a mesma base usada na Oficina de Gamificação, pronta para imprimir em A4.</p></div><div><h2>Como usar</h2><ol class="passos"><li>Escolha o conteúdo que a turma precisa praticar.</li><li>Imprima o gabarito que combina com a dinâmica: cartas, dado ou tabuleiro.</li><li>Escreva perguntas, imagens ou desafios nos espaços em branco.</li><li>Recorte, monte e jogue com a turma.</li></ol></div></div>
 <div class="secao duas"><div><h2>De onde veio</h2><ul class="origem"><li>Feito para a Oficina de Gamificação do Lab Escola 3D (2026).</li></ul></div><div><h2>Créditos</h2><p class="creditos">Lab Escola 3D · extensão da UFRJ. Gabaritos: Ivan Silveira.</p></div></div>
@@ -170,6 +178,7 @@ p { font-size: 16px; line-height: 29.71px; }
 <div class="onda"></div>
 <div class="heroi"><div><span class="selo">Para o professor</span><h1 style="margin-top:16px">Kit do professor</h1><p class="frase">Catorze gabaritos A4 para imprimir e preparar aula: tabuleiros, cartas, dados e fichas para adaptar a qualquer matéria.</p></div><div class="reservada">Área reservada · gabaritos impressos sobre a mesa<br>sem pessoas</div></div>
 <div class="baixar-bloco"><div><h2>Baixe e imprima</h2><p class="meta">PDF · 14 páginas A4 · cartas, dado, quebra-cabeças e tabuleiros</p><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><a class="botao botao--grande baixar" href="kit-do-professor-a4.pdf"><img src="../../_base/icones/baixar.svg" alt="">Kit do professor: 14 gabaritos A4</a></div></div>
+
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>14 gabaritos</b><span>em A4</span></div><div class="fato"><b>Qualquer matéria</b><span>você põe o conteúdo</span></div><div class="fato"><b>Só imprimir</b><span>e recortar</span></div><div class="fato"><b>Gratuito</b><span>para baixar</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Um conjunto de moldes em branco para a professora transformar o conteúdo da aula em jogo: cartas, dado de montar, quebra-cabeças e tabuleiros. É a mesma base usada na Oficina de Gamificação, pronta para imprimir em A4.</p></div><div><h2>Como usar</h2><ol class="passos"><li>Escolha o conteúdo que a turma precisa praticar.</li><li>Imprima o gabarito que combina com a dinâmica: cartas, dado ou tabuleiro.</li><li>Escreva perguntas, imagens ou desafios nos espaços em branco.</li><li>Recorte, monte e jogue com a turma.</li></ol></div></div>
 <div class="secao duas"><div><h2>De onde veio</h2><ul class="origem"><li>Feito para a Oficina de Gamificação do Lab Escola 3D (2026).</li></ul></div><div><h2>Créditos</h2><p class="creditos">Lab Escola 3D · extensão da UFRJ. Gabaritos: Ivan Silveira.</p></div></div>

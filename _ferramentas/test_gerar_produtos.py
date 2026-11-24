@@ -9,7 +9,7 @@ from gerar_produtos import PRODUTOS, gerar_todos  # noqa: E402
 RAIZ = os.path.join(os.path.dirname(__file__), "..")
 SLUGS = {"investigadoras-do-conhecimento", "expedicao-sonora", "oficina-de-gamificacao",
          "curso-maker-de-ferias-2025", "memorias-da-mare", "antropolojogo", "manual-maker",
-         "oficina-de-costura", "oficina-makey-makey-3d", "kit-do-professor", "catalogo-de-atividades"}
+         "oficina-de-costura", "oficina-makey-makey-3d", "kit-do-professor", "catalogo-de-atividades", "brindes-3d"}
 
 
 class TestGerarProdutos(unittest.TestCase):
@@ -64,11 +64,26 @@ class TestGerarProdutos(unittest.TestCase):
         for slug in SLUGS:
             self.assertIn("CC BY-NC-SA 4.0", self.ler(slug), slug)
 
-    def test_sem_arquivo_aprovado_mostra_aviso_e_nao_botao(self):
+    def test_mare_baixa_o_rola_rola(self):
         html = self.ler("memorias-da-mare")
-        self.assertIn('class="aviso"', html)
-        self.assertNotIn(' baixar"', html)
-        self.assertNotIn('class="baixar"', html)
+        self.assertIn('href="rola-rola.stl"', html)
+        self.assertTrue(os.path.isfile(os.path.join(RAIZ, "catalogo", "memorias-da-mare", "rola-rola.stl")))
+
+    def test_brindes_tem_copia_local_e_printables(self):
+        html = self.ler("brindes-3d")
+        pc, cel = html.split('<section class="tela tela--cel"')
+        self.assertIn("Baixe aqui ou acesse a nossa página no Printables", pc)
+        self.assertIn('class="baixar"', pc)
+        self.assertRegex(pc, r'<iframe [^>]*src="https://www.printables.com/embed/\d+"[^>]*width="400"')
+        self.assertRegex(cel, r'<iframe [^>]*src="https://www.printables.com/embed/\d+"[^>]*width="300"')
+
+    def test_peca_sem_printables_so_tem_copia_local(self):
+        from gerar_produtos import bloco_pecas
+        h = bloco_pecas([{"nome": "X", "ensina": "e", "bncc": "b", "arquivos": [("X", "x.3mf", "3MF")], "printables": None}], "pc")
+        self.assertIn('href="x.3mf"', h)
+        self.assertNotIn("iframe", h)
+        h2 = bloco_pecas([{"nome": "X", "ensina": "e", "bncc": "b", "arquivos": [("X", "x.3mf", "3MF")], "printables": 1875729}], "cel")
+        self.assertIn('src="https://www.printables.com/embed/1875729" width="300" height="340"', h2)
 
     def test_parceria_tem_selo_e_creditos(self):
         html = self.ler("memorias-da-mare")
