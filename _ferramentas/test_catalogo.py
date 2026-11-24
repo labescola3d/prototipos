@@ -47,5 +47,16 @@ class TestCatalogo(unittest.TestCase):
         self.assertEqual(mm["href"], "../manuais/")
 
 
+class TestTabela(unittest.TestCase):
+    def test_tabela_tem_15_linhas_e_mostra_a_confirmar(self):
+        from tabela_tags import tabela
+        texto = tabela(carregar())
+        linhas = [x for x in texto.splitlines() if x.startswith("| ") and not x.startswith("| Card")]
+        self.assertEqual(len(linhas), 15)
+        self.assertIn(A_CONFIRMAR, texto)
+        self.assertIn("Oficina de Costura", texto)
+        self.assertIn("6º ao 8º ano", texto)
+
+
 if __name__ == "__main__":
     unittest.main()
