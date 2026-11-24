@@ -49,7 +49,9 @@ class _Leitor(HTMLParser):
         if tag == "img" and "capa" in classes:
             src = a.get("src") or ""
             local = os.path.join(self.pasta, src)
-            if not src.startswith("http") and os.path.isfile(local) and os.path.getsize(local) > CAPA_MAX:
+            if not src.startswith("http") and not os.path.isfile(local):
+                self._p(f"capa sem arquivo: {src}")
+            elif not src.startswith("http") and os.path.getsize(local) > CAPA_MAX:
                 self._p(f"capa pesada (mais de 80 KB): {src}")
         if tag == "a":
             href = a.get("href") or ""

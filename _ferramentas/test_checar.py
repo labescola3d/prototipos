@@ -95,6 +95,13 @@ class TestChecar(unittest.TestCase):
             h.write('<section data-document-role="page" data-label="a"><img class="capa" src="capas/x.jpg" alt="x"></section>')
         self.assertIn("capa pesada", " | ".join(checar(f)))
 
+    def test_capa_sem_arquivo_reprova(self):
+        pasta = tempfile.mkdtemp()
+        f = os.path.join(pasta, "index.html")
+        with open(f, "w", encoding="utf-8") as h:
+            h.write('<section data-document-role="page" data-label="a"><img class="capa" src="capas/nao.jpg" alt="x"></section>')
+        self.assertIn("capa sem arquivo", " | ".join(checar(f)))
+
     def test_capa_leve_passa(self):
         pasta = tempfile.mkdtemp()
         os.makedirs(os.path.join(pasta, "capas"))
