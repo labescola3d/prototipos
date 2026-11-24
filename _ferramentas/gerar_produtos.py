@@ -18,7 +18,8 @@ PRODUTOS = [
         "frase": "Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.",
         "reservada": "foto do kit (cartas e dado)",
         "baixar": {"titulo": "Baixe e jogue com a sua turma", "arquivos": [
-            ("Baixar o kit", SITE + "2026/11/Investigadoras_do_Conhecimento_PnP_v0.pdf", "Kit para imprimir (print and play) · PDF · 5 páginas · 1 MB")],
+            ("Baixar o kit", SITE + "2026/11/Investigadoras_do_Conhecimento_PnP_v0.pdf", "Kit para imprimir (print and play) · PDF · 5 páginas · 1 MB"),
+            ("Abrir o Consultor de Campo", "consultor-de-campo.html", "As fichas no celular de quem conduz o jogo · HTML · 1 MB · funciona sem internet")],
             "editor": ("Crie sua investigadora", "editor/", "Troque o perfil e as pistas e imprima o card no navegador")},
         "fatos": [("[a confirmar]", "ano escolar"), ("5 a 10 pessoas", "por grupo"), ("5 a 10 min", "por rodada"), ("6 eixos", "33 homenageadas")],
         "o_que_e": "Um jogo que transforma o Método Científico em uma investigação. A figura de quem faz ciência não se resume ao “homem branco de jaleco”: com histórias reais, o jogo dá visibilidade às mulheres brasileiras que transformaram a ciência, a cultura e a sociedade, e fortalece a autoestima e a autonomia das estudantes.",
@@ -36,7 +37,7 @@ PRODUTOS = [
             ("Esportes", "Rebeca Andrade, Marta, Daiane dos Santos, Rayssa Leal, Jacqueline Silva e Sandra Pires")]),
         "origem": ["Criado a partir de uma demanda da SME-Rio para o Dia da Mulher (março de 2026).",
                    "Aplicado em dinâmica no GET Levy Neves, em 19/03/2026.", "Apresentado na SIAC/UFRJ."],
-        "creditos": "Lab Escola 3D · extensão da UFRJ. Equipe: [a confirmar].",
+        "creditos": "Lab Escola 3D · extensão da UFRJ. Equipe: Raiane Pacheco (responsável), Eduardo Cóser e Ivan Silveira.",
     },
     {
         "slug": "expedicao-sonora", "titulo": "Expedição Sonora", "selo": "Jogo · 2026",

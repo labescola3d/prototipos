@@ -54,5 +54,15 @@ class TestGerarProdutos(unittest.TestCase):
                       self.ler("investigadoras-do-conhecimento"))
 
 
+    def test_investigadoras_oferece_o_consultor_de_campo(self):
+        html = self.ler("investigadoras-do-conhecimento")
+        self.assertIn('href="consultor-de-campo.html"', html)
+        self.assertTrue(os.path.isfile(os.path.join(RAIZ, "catalogo", "investigadoras-do-conhecimento", "consultor-de-campo.html")))
+
+    def test_investigadoras_credita_a_equipe(self):
+        html = self.ler("investigadoras-do-conhecimento")
+        self.assertIn("Raiane Pacheco (responsável), Eduardo Cóser e Ivan Silveira", html)
+        self.assertNotIn("Equipe: [a confirmar]", html)
+
 if __name__ == "__main__":
     unittest.main()
