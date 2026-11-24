@@ -8,7 +8,8 @@ from gerar_produtos import PRODUTOS, gerar_todos  # noqa: E402
 
 RAIZ = os.path.join(os.path.dirname(__file__), "..")
 SLUGS = {"investigadoras-do-conhecimento", "expedicao-sonora", "oficina-de-gamificacao",
-         "curso-maker-de-ferias-2025", "memorias-da-mare", "antropolojogo", "manual-maker"}
+         "curso-maker-de-ferias-2025", "memorias-da-mare", "antropolojogo", "manual-maker",
+         "oficina-de-costura", "oficina-makey-makey-3d"}
 
 
 class TestGerarProdutos(unittest.TestCase):
@@ -20,9 +21,25 @@ class TestGerarProdutos(unittest.TestCase):
         with open(os.path.join(RAIZ, "catalogo", slug, "index.html"), encoding="utf-8") as f:
             return f.read()
 
-    def test_gera_as_7_paginas_da_fase_1(self):
+    def test_gera_as_paginas(self):
         self.assertEqual({p["slug"] for p in PRODUTOS}, SLUGS)
-        self.assertEqual(len(self.arquivos), 7)
+        self.assertEqual(len(self.arquivos), len(SLUGS))
+
+    def test_oficinas_seguem_o_modelo_da_gamificacao(self):
+        for slug in ("oficina-de-costura", "oficina-makey-makey-3d"):
+            html = self.ler(slug)
+            for s in ("O que é", "Para quem", "De onde veio", "baixar-bloco"):
+                self.assertIn(s, html, (slug, s))
+            self.assertRegex(html, r'class="(botao botao--grande )?baixar" href="[^h"][^"]*\.pdf"')
+
+    def test_oficinas_sem_dado_de_pesquisa(self):
+        for slug in ("oficina-de-costura", "oficina-makey-makey-3d"):
+            html = self.ler(slug)
+            for proibido in ("Certezas", "Suposições", "Que pena", "Paes"):
+                self.assertNotIn(proibido, html, (slug, proibido))
+
+    def test_costura_credita_a_autora(self):
+        self.assertIn("Ana da Hora", self.ler("oficina-de-costura"))
 
     def test_toda_pagina_passa_no_validador(self):
         for arq in self.arquivos:

@@ -114,7 +114,11 @@
   "tipo": "oficina",
   "selo": "Oficina · 2025",
   "href": "oficina-de-costura/",
-  "imagem": null,
+  "imagem": {
+   "arquivo": "_base/capas/oficina-de-costura.jpg",
+   "alt": "Ilustração de uma máquina de costura com as partes indicadas: volante, guia-fio, porta-retrós e alavanca da sapatilha",
+   "origem_canva": null
+  },
   "autoria_externa": null,
   "frase": "Geometria com tecido e máquina de costura: a turma calcula perímetro e área e costura almofadinhas geométricas.",
   "tags": {

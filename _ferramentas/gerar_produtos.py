@@ -87,6 +87,49 @@ PRODUTOS = [
         "creditos": "Lab Escola 3D · extensão da UFRJ. Apostila e gabaritos: Ivan Silveira. Roteiro e ficha: gestão do Lab Escola 3D.",
     },
     {
+        "slug": "oficina-de-costura", "titulo": "Oficina de Costura", "selo": "Oficina · 2025",
+        "frase": "Geometria com tecido e máquina de costura: a turma calcula perímetro e área e costura almofadinhas geométricas.",
+        "reservada": "card das partes da máquina de costura",
+        "baixar": {"titulo": "Ficha e card para aplicar", "arquivos": [
+            ("Ficha da atividade: Almofadinhas Geométricas", "ficha-almofadinhas-geometricas.pdf", "PDF · 2 páginas · etapas, tabela de medidas e BNCC"),
+            ("Card das partes da máquina de costura", "card-maquina-de-costura.pdf", "PDF · 1 página para imprimir")]},
+        "fatos": [("6º ao 8º ano", "Fundamental II"), ("50 min", "1 tempo de aula"), ("Matemática e Arte", "perímetro, área e criação"),
+                  ("EF06MA24 · EF69AR06", "e mais 4 habilidades")],
+        "o_que_e": "Uma oficina que usa a máquina de costura do colaboratório como ferramenta pedagógica. Primeiro os professores conhecem as partes da máquina com o card; depois aplicam a ficha: a turma recebe só o perímetro e a área de uma figura, desenha, risca no tecido, costura e enche uma almofadinha, e confere se a peça final bate com os cálculos.",
+        "como": ("Como foi aplicada", [
+            "Formação com professores de uma escola da rede municipal do Rio, em 2025.",
+            "Os professores reconheceram as partes da máquina com o card.",
+            "Em duplas e trios, fizeram a almofadinha da ficha do começo ao fim.",
+            "No fim, conversaram sobre como levar a costura para as próprias aulas."]),
+        "itens": ("Para adaptar", [
+            ("Outras figuras", "Troque quadrado, triângulo e círculo por hexágonos, trapézios ou figuras compostas."),
+            ("Sem máquina", "Costura à mão com agulha grossa e feltro funciona para turmas menores."),
+            ("Outra matéria", "Em Arte, foque na composição de cores e texturas, como no patchwork.")]),
+        "origem": ["Ficha do Catálogo de Atividades do Lab Escola 3D, aplicada em formação de professores em 2025."],
+        "creditos": "Lab Escola 3D · extensão da UFRJ. Ficha da atividade: Ana da Hora. Card da máquina e formação: equipe do Lab Escola 3D.",
+    },
+    {
+        "slug": "oficina-makey-makey-3d", "titulo": "Oficina Makey Makey + impressão 3D", "selo": "Oficina · 2025",
+        "frase": "Duas estações para professores: uma caça aos órgãos com peças impressas em 3D e um jogo controlado por Makey Makey.",
+        "reservada": "ilustração do Bibo",
+        "baixar": {"titulo": "Roteiro para aplicar", "arquivos": [
+            ("Roteiro da oficina com as fichas de charadas", "roteiro-da-oficina.pdf", "PDF · estações, falas e anexo para imprimir")]},
+        "fatos": [("Professores", "público"), ("1 hora", "3 estações de 15 min"), ("Ciências e Computação", "impressão 3D e eletrônica"),
+                  ("EF01CI02", "partes do corpo e suas funções")],
+        "o_que_e": "Uma oficina em estações para os professores experimentarem duas tecnologias do colaboratório no papel de alunos. Na caça aos órgãos, o Bibo desmontou e a turma resolve charadas para achar peças impressas em 3D e remontar o corpo. No jogo do dinossauro, um tapete ligado à Makey Makey controla um jogo feito em Scratch. Na terceira estação, todos pensam juntos em como levar isso para cada disciplina.",
+        "como": ("Como foi aplicada", [
+            "Formação com professores de uma escola da rede municipal do Rio, em 2025.",
+            "Os professores se dividiram em dois grupos e trocaram de estação a cada 15 minutos.",
+            "Experimentaram as peças, as charadas, o circuito e o jogo.",
+            "Fecharam com uma conversa sobre usos em cada disciplina."]),
+        "itens": ("As estações", [
+            ("Ajude o Bibo", "Caça aos órgãos com peças impressas em 3D, charadas e um mapa de letras e números."),
+            ("O que faz esse botão?", "O jogo do dinossauro controlado por um tapete ligado à Makey Makey."),
+            ("E agora, José?", "Conversa para adaptar as duas dinâmicas a cada disciplina.")]),
+        "origem": ["Roteiro da equipe do Lab Escola 3D, aplicado em formação de professores em 2025."],
+        "creditos": "Lab Escola 3D · extensão da UFRJ. Roteiro e dinâmicas: equipe do Lab Escola 3D.",
+    },
+    {
         "slug": "curso-maker-de-ferias-2025", "titulo": "Curso Maker de Férias 2025", "selo": "Formação · 2025",
         "frase": "Um curso de férias para professores da rede municipal conhecerem a cultura maker na prática.",
         "reservada": "imagem de uma aula",
