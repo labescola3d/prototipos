@@ -9,7 +9,7 @@ from gerar_produtos import PRODUTOS, gerar_todos  # noqa: E402
 RAIZ = os.path.join(os.path.dirname(__file__), "..")
 SLUGS = {"investigadoras-do-conhecimento", "expedicao-sonora", "oficina-de-gamificacao",
          "curso-maker-de-ferias-2025", "memorias-da-mare", "antropolojogo", "manual-maker",
-         "oficina-de-costura", "oficina-makey-makey-3d", "kit-do-professor", "catalogo-de-atividades", "brindes-3d", "kit-de-divulgacao"}
+         "oficina-de-costura", "oficina-makey-makey-3d", "kit-do-professor", "catalogo-de-atividades", "brindes-3d", "kit-de-divulgacao", "visitas-coppei"}
 
 
 class TestGerarProdutos(unittest.TestCase):
@@ -66,8 +66,21 @@ class TestGerarProdutos(unittest.TestCase):
         self.assertIn(FRASE_MARCA, html)
         self.assertNotIn("CC BY-NC-SA 4.0", html)
 
+    def test_visitas_e_relato_sem_download(self):
+        self.assertNotIn('class="baixar"', self.ler("visitas-coppei"))
+
+    def test_visitas_convida_a_pedir_visita(self):
+        html = self.ler("visitas-coppei")
+        self.assertIn("Diretoria de Extensão da COPPE", html)
+        self.assertIn("[a confirmar]", html)
+
+    def test_visitas_liga_aos_jogos_das_mesas(self):
+        html = self.ler("visitas-coppei")
+        for s in ("antropolojogo/", "investigadoras-do-conhecimento/", "expedicao-sonora/"):
+            self.assertIn(f'href="../{s}"', html)
+
     def test_toda_pagina_tem_licenca(self):
-        for slug in SLUGS - {"kit-de-divulgacao"}:
+        for slug in SLUGS - {"kit-de-divulgacao", "visitas-coppei"}:
             self.assertIn("CC BY-NC-SA 4.0", self.ler(slug), slug)
 
     def test_mare_baixa_o_rola_rola(self):

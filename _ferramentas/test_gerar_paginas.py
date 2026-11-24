@@ -68,8 +68,11 @@ class TestCatalogo(unittest.TestCase):
         self.assertRegex(self.pc, r'class="vazio"[^>]*hidden')
 
     def test_pagina_que_ainda_nao_existe_vira_card_sem_link(self):
-        self.assertRegex(self.pc, r'<div class="card em-breve"[^>]*data-slug="visitas-coppei"')
-        self.assertNotIn('href="visitas-coppei/"', self.pc)
+        from gerar_paginas import card
+        base = {c["slug"]: c for c in carregar()}["antropolojogo"]
+        h = card(dict(base, slug="nao-existe", href="nao-existe/"))
+        self.assertRegex(h, r'^<div class="card em-breve"')
+        self.assertNotIn('href="nao-existe/"', h)
 
     def test_numeros_contados_do_json(self):
         self.assertEqual(numeros(carregar()), [("4 jogos", "para baixar e jogar"),

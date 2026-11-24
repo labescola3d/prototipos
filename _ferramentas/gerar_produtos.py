@@ -236,6 +236,29 @@ PRODUTOS = [
         "creditos": "Lab Escola 3D · extensão da UFRJ. Marca: gestões do Lab Escola 3D. Adesivos, bottons e crachás: equipe de comunicação do Lab.",
     },
     {
+        "slug": "visitas-coppei", "titulo": "Visitas COPPEi", "selo": "Visita",
+        "frase": "Como é a visita ao Lab na COPPE: peças 3D, jogos de Humanas e de Exatas, e como a sua escola pode pedir a dela.",
+        "reservada": "a sala i118 montada com as três mesas",
+        "contato": ("Quer levar a sua turma?",
+                    "A escola pode pedir uma visita à Diretoria de Extensão da COPPE/UFRJ. Contato: [a confirmar].", None),
+        "links": [("Antropolojogo", "../antropolojogo/"), ("Investigadoras do Conhecimento", "../investigadoras-do-conhecimento/"),
+                  ("Expedição Sonora", "../expedicao-sonora/"), ("Através do Espelho (na Ludopédia)", "https://ludopedia.com.br/jogo/atraves-do-espelho")],
+        "fatos": [("Escolas", "público"), ("3 mesas", "de atividades"), ("4 jogos", "para experimentar"), ("Sala i118", "Centro de Tecnologia da UFRJ")],
+        "o_que_e": "Nas Visitas COPPEi, turmas e professores conhecem o Lab Escola 3D numa sala montada com três mesas: peças impressas em 3D, jogos de Humanas e jogos de Exatas e Artes. Os visitantes jogam, perguntam e saem sabendo onde encontrar os materiais gratuitos.",
+        "como": ("O percurso", [
+            "Recepção na mesa do Lab: apresentações e boas-vindas.",
+            "Peças em 3D: a Terra é plana? Onde fica o cérebro? Qual o lado de fora da fita de Möbius?",
+            "Jogos de Humanas: Antropolojogo e Investigadoras do Conhecimento.",
+            "Jogos de Exatas e Artes: Através do Espelho e Expedição Sonora.",
+            "Encerramento: os visitantes exploram livremente as mesas."]),
+        "itens": ("As três mesas", [
+            ("Apresentação do Lab", "Impressora 3D, globos, modelos de cérebro e nariz, spinners e o card da máquina de costura."),
+            ("Jogos de Humanas", "História, Filosofia e Sociologia em jogo: Antropolojogo e Investigadoras do Conhecimento."),
+            ("Jogos de Exatas e Artes", "Física e música: Através do Espelho e Expedição Sonora.")]),
+        "origem": ["Visitas recebidas pelo Lab Escola 3D na sala i118 do Centro de Tecnologia da UFRJ."],
+        "creditos": "Lab Escola 3D · extensão da UFRJ, com a Diretoria de Extensão da COPPE.",
+    },
+    {
         "slug": "curso-maker-de-ferias-2025", "titulo": "Curso Maker de Férias 2025", "selo": "Formação · 2025",
         "frase": "Um curso de férias para professores da rede municipal conhecerem a cultura maker na prática.",
         "reservada": "imagem de uma aula",
@@ -398,6 +421,16 @@ def _baixar(p, tela):
             f'<div><p class="aviso">{E(b["aviso"])}</p>{editor}</div></div>')
 
 
+def _contato(p) -> str:
+    """Página de relato: no lugar do bloco de baixar, um convite (ex.: pedir uma visita) e os links do percurso."""
+    titulo, texto, link = p["contato"]
+    acao = f'<a class="botao botao--grande" href="{E(link)}">Entrar em contato</a>' if link else ""
+    links = "".join(f'<a class="baixar-link" href="{E(h)}">{E(r)} →</a>' for r, h in p.get("links", []))
+    lista = f'<div class="lista">{links}</div>' if links else ""
+    return (f'<div class="baixar-bloco"><div><h2>{E(titulo)}</h2><p class="meta">{E(texto)}</p>{acao}</div>'
+            f'{lista}</div>')
+
+
 PRINTABLES = "https://www.printables.com/embed/"
 # O embed do Printables não se ajusta à largura: Card no computador, Small no celular.
 TAMANHO_EMBED = {"pc": (400, 445), "cel": (300, 340)}
@@ -433,7 +466,7 @@ def _tela(p, tela):
         f'<div class="heroi"><div><span class="selo">{E(p["selo"])}</span>'
         f'<h1 style="margin-top:16px">{E(p["titulo"])}</h1><p class="frase">{E(p["frase"])}</p></div>'
         f'<div class="reservada">Área reservada · {E(p["reservada"])}<br>sem pessoas</div></div>',
-        _baixar(p, tela),
+        _contato(p) if "contato" in p else _baixar(p, tela),
         bloco_pecas(p.get("pecas") or [], tela),
         f'<div class="secao"><h2>Para quem</h2><div class="fatos">{fatos}</div></div>',
     ]
