@@ -5,7 +5,11 @@
   "tipo": "jogo",
   "selo": "Jogo · 2026",
   "href": "investigadoras-do-conhecimento/",
-  "imagem": null,
+  "imagem": {
+   "arquivo": "_base/capas/investigadoras-do-conhecimento.jpg",
+   "alt": "Arte do jogo Investigadoras do conhecimento: silhueta azul sobre explosão laranja e ponto de interrogação em fundo azul",
+   "origem_canva": "DAHYpb6HAWA"
+  },
   "autoria_externa": null,
   "frase": "Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.",
   "tags": {
@@ -27,7 +31,11 @@
   "tipo": "jogo",
   "selo": "Jogo · 2026",
   "href": "expedicao-sonora/",
-  "imagem": null,
+  "imagem": {
+   "arquivo": "_base/capas/expedicao-sonora.jpg",
+   "alt": "Tabuleiro do jogo Expedição Sonora: mapa do Brasil em relevo 3D com as cinco regiões em cores diferentes",
+   "origem_canva": "DAHR1EWvcJY"
+  },
   "autoria_externa": null,
   "frase": "Uma viagem pelo Brasil de ouvido: a turma escuta uma música e descobre de que região ela vem.",
   "tags": {
@@ -95,7 +103,11 @@
   "tipo": "oficina",
   "selo": "Oficina · 2026",
   "href": "oficina-de-gamificacao/",
-  "imagem": null,
+  "imagem": {
+   "arquivo": "_base/capas/oficina-de-gamificacao.jpg",
+   "alt": "Capa da Oficina de Gamificação para professores do Lab Escola 3D, com ilustrações de tabuleiros e dado planificado",
+   "origem_canva": "DAHR1ETss80"
+  },
   "autoria_externa": null,
   "frase": "Uma oficina para professores vivenciarem dois jogos do LE3D e adaptarem a mecânica para a própria turma.",
   "tags": {

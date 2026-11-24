@@ -117,6 +117,18 @@ class TestHome(unittest.TestCase):
         for t in ("Investigadoras do conhecimento", "Expedição Sonora", "Oficina de Gamificação", "Antropolojogo"):
             self.assertIn(t, self.pc)
 
+    def test_home_todos_os_destaques_tem_imagem(self):
+        corpo = self.html.split("</style>", 1)[1]
+        cel = self.html.split('<section class="tela tela--cel"')[1]
+        self.assertEqual(len(re.findall(r'<img class="capa"', self.pc)), 4)
+        self.assertEqual(len(re.findall(r'<img class="capa"', cel)), 4)
+        self.assertNotIn('class="capa reservada"', corpo)
+        self.assertNotIn("Área reservada", corpo)
+        self.assertIn(".tela--pc .cards.quatro img.capa { height: 144px; }", self.html)
+        for arq in ("investigadoras-do-conhecimento.jpg", "expedicao-sonora.jpg",
+                    "oficina-de-gamificacao.jpg", "antropolojogo.jpg"):
+            self.assertIn(arq, self.pc, arq)
+
     def test_faixa_da_home_leva_ao_catalogo_filtrado(self):
         self.assertIn('href="catalogo/?tipo=jogo"', self.pc)
         self.assertIn('href="catalogo/"', self.pc)
