@@ -11,6 +11,8 @@ import os
 LOGO = "https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png"
 SITE = "https://labescola3d.rio.br/wp-content/uploads/"
 LICENCA = "Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores."
+FRASE_MARCA = ("A marca do Lab Escola 3D não é licenciada em CC. Use a logo, os adesivos e os bottons à vontade "
+               "para dar aula e divulgar o Lab, sem alterá-los.")
 
 PRODUTOS = [
     {
@@ -212,6 +214,28 @@ PRODUTOS = [
         "creditos": "Lab Escola 3D · extensão da UFRJ. Modelagem: Ivan Silveira. Peões: ilustração original de Eduardo Cóser, adaptação de Ivan Silveira. Colcheia e mapa: original de Catarina Reis, adaptação de Ivan Silveira. Lanterna: ideia de Gabriel Texeira e Lucas Rizzo.",
     },
     {
+        "slug": "kit-de-divulgacao", "titulo": "Kit de divulgação do Lab", "selo": "Divulgação",
+        "frase": "Logo, adesivos, bottons e crachás do Lab Escola 3D para imprimir, usar em aula e espalhar por aí.",
+        "reservada": "adesivos e bottons do Lab",
+        "licenca": FRASE_MARCA,
+        "baixar": {"titulo": "Baixe e espalhe", "arquivos": [
+            ("Logo horizontal", "logo-lab-escola-3d-horizontal.svg", "SVG · vetor, qualquer tamanho"),
+            ("Logo vertical", "logo-lab-escola-3d-vertical.svg", "SVG · vetor, qualquer tamanho"),
+            ("Adesivos", "adesivos-lab-escola-3d.pdf", "PDF · A4 · 1,6 MB · para papel adesivo"),
+            ("Bottons", "bottons-lab-escola-3d.pdf", "PDF · 2 modelos"),
+            ("Crachás", "cracha-lab-escola-3d.pdf", "PDF · 2 modelos de 70 × 100 mm com espaço para o nome")]},
+        "fatos": [("Logo em vetor", "horizontal e vertical"), ("Adesivos", "para imprimir"), ("Bottons e crachás", "modelos prontos"), ("Gratuito", "para divulgar")],
+        "o_que_e": "Como os adesivos das rádios, a marca do Lab circula de mão em mão. Use a logo nos seus slides e atividades, imprima adesivos para a turma, monte bottons e crachás para a feira de ciências. Cada vez que o Lab aparece, mais professoras descobrem os materiais gratuitos.",
+        "como": ("Como usar", [
+            "Baixe a logo e use em slides, fichas e cartazes da aula.",
+            "Imprima os adesivos em papel adesivo e distribua para a turma.",
+            "Monte bottons e crachás para eventos e feiras da escola.",
+            "Marque o Lab nas redes quando postar."]),
+        "itens": None,
+        "origem": ["Identidade visual e peças de divulgação feitas pela equipe do Lab Escola 3D."],
+        "creditos": "Lab Escola 3D · extensão da UFRJ. Marca: gestões do Lab Escola 3D. Adesivos, bottons e crachás: equipe de comunicação do Lab.",
+    },
+    {
         "slug": "curso-maker-de-ferias-2025", "titulo": "Curso Maker de Férias 2025", "selo": "Formação · 2025",
         "frase": "Um curso de férias para professores da rede municipal conhecerem a cultura maker na prática.",
         "reservada": "imagem de uma aula",
@@ -346,7 +370,7 @@ def estilo(*nomes, extra=""):
 
 def _baixar(p, tela):
     b = p["baixar"]
-    meta = f'<p class="meta">{E(LICENCA)} <a href="../../licenca/" style="color:inherit">Como usar →</a></p>'
+    meta = f'<p class="meta">{E(p.get("licenca", LICENCA))} <a href="../../licenca/" style="color:inherit">Como usar →</a></p>'
     if "arquivos" in b and len(b["arquivos"]) == 1:
         rot, url, info = b["arquivos"][0]
         botao = (f'<a class="botao botao--grande baixar" href="{E(url)}">'

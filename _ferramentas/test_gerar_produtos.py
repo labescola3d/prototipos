@@ -9,7 +9,7 @@ from gerar_produtos import PRODUTOS, gerar_todos  # noqa: E402
 RAIZ = os.path.join(os.path.dirname(__file__), "..")
 SLUGS = {"investigadoras-do-conhecimento", "expedicao-sonora", "oficina-de-gamificacao",
          "curso-maker-de-ferias-2025", "memorias-da-mare", "antropolojogo", "manual-maker",
-         "oficina-de-costura", "oficina-makey-makey-3d", "kit-do-professor", "catalogo-de-atividades", "brindes-3d"}
+         "oficina-de-costura", "oficina-makey-makey-3d", "kit-do-professor", "catalogo-de-atividades", "brindes-3d", "kit-de-divulgacao"}
 
 
 class TestGerarProdutos(unittest.TestCase):
@@ -60,8 +60,14 @@ class TestGerarProdutos(unittest.TestCase):
             html = self.ler(slug)
             self.assertEqual(html.count('data-document-role="page"'), 2, slug)
 
+    def test_kit_de_divulgacao_usa_a_frase_da_marca_e_nao_a_cc(self):
+        from gerar_produtos import FRASE_MARCA
+        html = self.ler("kit-de-divulgacao")
+        self.assertIn(FRASE_MARCA, html)
+        self.assertNotIn("CC BY-NC-SA 4.0", html)
+
     def test_toda_pagina_tem_licenca(self):
-        for slug in SLUGS:
+        for slug in SLUGS - {"kit-de-divulgacao"}:
             self.assertIn("CC BY-NC-SA 4.0", self.ler(slug), slug)
 
     def test_mare_baixa_o_rola_rola(self):
