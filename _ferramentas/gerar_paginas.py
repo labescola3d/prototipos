@@ -28,6 +28,8 @@ CSS = """
 .numeros { display: grid; }
 .numero b { display: block; font-family: var(--titulo); font-weight: 900; color: var(--laranja); text-transform: uppercase; }
 .numero span { font-size: 14px; line-height: 20px; }
+a.numero { display: block; color: var(--texto); text-decoration: none; border-bottom: 2px solid transparent; }
+a.numero:hover span, a.numero:focus-visible span { text-decoration: underline; }
 .busca { font: inherit; font-size: 16px; padding: 12px 18px; border: 1px solid var(--roxo); border-radius: 24px;
          width: 100%; max-width: 520px; box-sizing: border-box; margin-bottom: 18px; background: #fff; color: var(--texto); }
 .filtros { display: flex; flex-direction: column; gap: 14px; }
@@ -99,6 +101,11 @@ FILTRO_JS = r"""<script>
       aplicar();
     });
     if (busca) busca.addEventListener('input', aplicar);
+    var tipo = new URLSearchParams(location.search).get('tipo');  // atalho da faixa de números
+    if (tipo) {
+      var alvo = caixa.querySelector('button[data-campo="tipo"][data-valor="' + tipo + '"]');
+      if (alvo) { alvo.setAttribute('aria-pressed', 'true'); aplicar(); }
+    }
     var limpar = tela.querySelector('.limpar');
     if (limpar) limpar.addEventListener('click', function () {
       caixa.querySelectorAll('button[data-campo]').forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
@@ -121,13 +128,14 @@ def _valores(v) -> list:
     return v if isinstance(v, list) else [v]
 
 
-def numeros(cards: list[dict]) -> list[tuple[str, str]]:
+def numeros(cards: list[dict]) -> list[tuple[str, str, str | None]]:
+    """Faixa de números: (número, rótulo, tipo do filtro que o atalho abre; None = catálogo inteiro)."""
     def n(tipo):
         return sum(1 for c in cards if c["tipo"] == tipo)
-    return [(f"{n('jogo')} jogos", "para baixar e jogar"),
-            (f"{n('oficina')} oficinas", "e formações para professores"),
-            (f"{n('professor')} materiais", "para preparar a aula"),
-            (f"{len(cards)} materiais", "no catálogo")]
+    return [(f"{n('jogo')} jogos", "para baixar e jogar", "jogo"),
+            (f"{n('oficina')} oficinas", "e formações para professores", "oficina"),
+            (f"{n('professor')} para o professor", "preparar a aula", "professor"),
+            (f"{len(cards)} no catálogo", "materiais gratuitos", None)]
 
 
 def _pagina_existe(c: dict) -> bool:
@@ -195,9 +203,13 @@ def _rodape(raiz):
             f'<div class="redes">{redes}</div></footer>')
 
 
-def _numeros(cards):
+def _numeros(cards, catalogo=""):
+    """Cada número é um atalho para o catálogo já filtrado por aquele tipo."""
+    def href(tipo):
+        return catalogo + (f"?tipo={tipo}" if tipo else "") or "./"
     return '<div class="numeros">' + "".join(
-        f'<div class="numero"><b>{E(b)}</b><span>{E(s)}</span></div>' for b, s in numeros(cards)) + "</div>"
+        f'<a class="numero" href="{E(href(tipo))}"><b>{E(b)}</b><span>{E(s)}</span></a>'
+        for b, s, tipo in numeros(cards)) + "</div>"
 
 
 def _doc(titulo, raiz, telas, script=""):
@@ -245,7 +257,7 @@ def gerar_home(raiz: str) -> str:
               '<h1 style="margin-top:16px">Materiais para usar na sua aula</h1>'
               '<p>Jogos, formações e manuais criados com professoras e professores da rede pública do Rio. Gratuitos, para baixar, imprimir e adaptar à sua turma.</p>'
               '<a class="botao botao--grande" href="catalogo/">Ver o catálogo</a></div>'
-            + _numeros(cards)
+            + _numeros(cards, "catalogo/")
             + '<div class="bloco"><h2>Em destaque</h2><div class="cards quatro">'
             + "".join(card(c, "catalogo/", "") for c in destaques) + "</div></div>"
             + '<div class="bloco"><h2>O que é o Lab Escola 3D</h2>'
