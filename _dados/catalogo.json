@@ -1,78 +1,327 @@
 [
-  {"slug": "investigadoras-do-conhecimento", "titulo": "Investigadoras do conhecimento", "tipo": "jogo",
-   "selo": "Jogo · 2026", "href": "investigadoras-do-conhecimento/", "imagem": null, "autoria_externa": null,
-   "frase": "Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.",
-   "tags": {"disciplinas": ["Ciências", "Arte", "História", "Educação Física"], "tempo": "ate-50",
-            "complexidade": "facil", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "expedicao-sonora", "titulo": "Expedição Sonora", "tipo": "jogo",
-   "selo": "Jogo · 2026", "href": "expedicao-sonora/", "imagem": null, "autoria_externa": null,
-   "frase": "Uma viagem pelo Brasil de ouvido: a turma escuta uma música e descobre de que região ela vem.",
-   "tags": {"disciplinas": ["Geografia", "Arte"], "tempo": "[a confirmar]",
-            "complexidade": "medio", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "antropolojogo", "titulo": "Antropolojogo", "tipo": "jogo",
-   "selo": "Jogo · 2022", "href": "antropolojogo/", "imagem": null, "autoria_externa": null,
-   "frase": "Um jogo de tabuleiro de ciências sociais, criado com o LabES/UFRJ para a Olimpíada de Sociologia do Rio.",
-   "tags": {"disciplinas": ["História"], "tempo": "[a confirmar]",
-            "complexidade": "[a confirmar]", "etapas": ["medio"], "anos": "[a confirmar]"}},
-  {"slug": "atraves-do-espelho", "titulo": "Através do Espelho", "tipo": "jogo",
-   "selo": "Jogo · na Ludopédia", "href": "https://ludopedia.com.br/jogo/atraves-do-espelho", "imagem": null,
-   "autoria_externa": "Raiane",
-   "frase": "Jogo de Física da Raiane, com mecânicas de engajamento para a sala de aula.",
-   "tags": {"disciplinas": ["Ciências"], "tempo": "[a confirmar]",
-            "complexidade": "[a confirmar]", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "oficina-de-gamificacao", "titulo": "Oficina de Gamificação", "tipo": "oficina",
-   "selo": "Oficina · 2026", "href": "oficina-de-gamificacao/", "imagem": null, "autoria_externa": null,
-   "frase": "Uma oficina para professores vivenciarem dois jogos do LE3D e adaptarem a mecânica para a própria turma.",
-   "tags": {"disciplinas": ["Transversal"], "tempo": "50-100",
-            "complexidade": "medio", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "oficina-de-costura", "titulo": "Oficina de Costura", "tipo": "oficina",
-   "selo": "Oficina · 2025", "href": "oficina-de-costura/", "imagem": null, "autoria_externa": null,
-   "frase": "Geometria com tecido e máquina de costura: a turma calcula perímetro e área e costura almofadinhas geométricas.",
-   "tags": {"disciplinas": ["Matemática", "Arte"], "tempo": "ate-50",
-            "complexidade": "dificil", "etapas": ["fund2"], "anos": "6º ao 8º ano"}},
-  {"slug": "oficina-makey-makey-3d", "titulo": "Oficina Makey Makey + impressão 3D", "tipo": "oficina",
-   "selo": "Oficina · 2025", "href": "oficina-makey-makey-3d/", "imagem": null, "autoria_externa": null,
-   "frase": "Duas estações para professores: uma caça aos órgãos com peças impressas em 3D e um jogo controlado por Makey Makey.",
-   "tags": {"disciplinas": ["Ciências", "Computação"], "tempo": "50-100",
-            "complexidade": "dificil", "etapas": ["fund1"], "anos": "[a confirmar]"}},
-  {"slug": "curso-maker-de-ferias-2025", "titulo": "Curso Maker de Férias 2025", "tipo": "oficina",
-   "selo": "Formação · 2025", "href": "curso-maker-de-ferias-2025/", "imagem": null, "autoria_externa": null,
-   "frase": "Um curso de férias para professores da rede municipal conhecerem a cultura maker na prática.",
-   "tags": {"disciplinas": ["Transversal"], "tempo": "mais-100",
-            "complexidade": "[a confirmar]", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "kit-do-professor", "titulo": "Kit do professor", "tipo": "professor",
-   "selo": "Para o professor", "href": "kit-do-professor/", "imagem": null, "autoria_externa": null,
-   "frase": "Catorze gabaritos A4 para imprimir e preparar aula: tabuleiros, cartas, dados e fichas para adaptar a qualquer matéria.",
-   "tags": {"disciplinas": ["Transversal"], "tempo": "[a confirmar]",
-            "complexidade": "facil", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "manual-maker", "titulo": "Manual Maker", "tipo": "professor",
-   "selo": "Manual · 2025", "href": "../manuais/", "imagem": null, "autoria_externa": null,
-   "frase": "Guias gratuitos para levar a cultura maker, o Arduino, o Micro:bit, a impressão 3D e a horta escolar para a sala de aula.",
-   "tags": {"disciplinas": ["Computação", "Ciências"], "tempo": "[a confirmar]",
-            "complexidade": "dificil", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "catalogo-de-atividades", "titulo": "Catálogo de Atividades", "tipo": "professor",
-   "selo": "Atividades", "href": "catalogo-de-atividades/", "imagem": null, "autoria_externa": null,
-   "frase": "Roteiros de aula maker alinhados à BNCC e à BNCC Computação, com filtros por ano e componente.",
-   "tags": {"disciplinas": ["Transversal"], "tempo": "[a confirmar]",
-            "complexidade": "[a confirmar]", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "brindes-3d", "titulo": "Brindes impressos em 3D", "tipo": "pecas3d",
-   "selo": "Peças 3D", "href": "brindes-3d/", "imagem": null, "autoria_externa": null,
-   "frase": "Chaveiros, lanterna, spinner, colcheia, mapa e régua de engrenagens para imprimir e usar como apoio de aula.",
-   "tags": {"disciplinas": ["Arte", "Geografia", "Ciências"], "tempo": "[a confirmar]",
-            "complexidade": "dificil", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "kit-de-divulgacao", "titulo": "Kit de divulgação do Lab", "tipo": "divulgacao",
-   "selo": "Divulgação", "href": "kit-de-divulgacao/", "imagem": null, "autoria_externa": null,
-   "frase": "Logo, adesivos, bottons e crachás do Lab Escola 3D para imprimir, usar em aula e espalhar por aí.",
-   "tags": {"disciplinas": ["Transversal"], "tempo": "[a confirmar]",
-            "complexidade": "facil", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "visitas-coppei", "titulo": "Visitas COPPEi", "tipo": "visitas",
-   "selo": "Visita", "href": "visitas-coppei/", "imagem": null, "autoria_externa": null,
-   "frase": "Como é a visita ao Lab na COPPE: peças 3D, jogos de Humanas e de Exatas, e como a sua escola pode pedir a dela.",
-   "tags": {"disciplinas": ["Transversal"], "tempo": "[a confirmar]",
-            "complexidade": "[a confirmar]", "etapas": "[a confirmar]", "anos": "[a confirmar]"}},
-  {"slug": "memorias-da-mare", "titulo": "Memórias da Maré / Consolidating Maré", "tipo": "visitas",
-   "selo": "Parceria · 2025", "href": "memorias-da-mare/", "imagem": null, "autoria_externa": null,
-   "frase": "Uma réplica impressa em 3D do Rola-rola, o barril que os moradores da Maré criaram para levar água, vira objeto de aprendizagem numa aula de campo.",
-   "tags": {"disciplinas": ["Geografia", "História"], "tempo": "[a confirmar]",
-            "complexidade": "dificil", "etapas": "[a confirmar]", "anos": "[a confirmar]"}}
+ {
+  "slug": "investigadoras-do-conhecimento",
+  "titulo": "Investigadoras do conhecimento",
+  "tipo": "jogo",
+  "selo": "Jogo · 2026",
+  "href": "investigadoras-do-conhecimento/",
+  "imagem": null,
+  "autoria_externa": null,
+  "frase": "Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.",
+  "tags": {
+   "disciplinas": [
+    "Ciências",
+    "Arte",
+    "História",
+    "Educação Física"
+   ],
+   "tempo": "ate-50",
+   "complexidade": "facil",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "expedicao-sonora",
+  "titulo": "Expedição Sonora",
+  "tipo": "jogo",
+  "selo": "Jogo · 2026",
+  "href": "expedicao-sonora/",
+  "imagem": null,
+  "autoria_externa": null,
+  "frase": "Uma viagem pelo Brasil de ouvido: a turma escuta uma música e descobre de que região ela vem.",
+  "tags": {
+   "disciplinas": [
+    "Geografia",
+    "Arte"
+   ],
+   "tempo": "[a confirmar]",
+   "complexidade": "medio",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "antropolojogo",
+  "titulo": "Antropolojogo",
+  "tipo": "jogo",
+  "selo": "Jogo · 2022",
+  "href": "antropolojogo/",
+  "imagem": {
+   "arquivo": "_base/capas/antropolojogo.jpg",
+   "alt": "Banner do Antropolojogo: tabuleiro ilustrado com o Rio de Janeiro, os Arcos da Lapa e o Cristo Redentor, e dois dados",
+   "origem_canva": "DAGph_NfIIQ"
+  },
+  "autoria_externa": null,
+  "frase": "Um jogo de tabuleiro de ciências sociais, criado com o LabES/UFRJ para a Olimpíada de Sociologia do Rio.",
+  "tags": {
+   "disciplinas": [
+    "História"
+   ],
+   "tempo": "[a confirmar]",
+   "complexidade": "[a confirmar]",
+   "etapas": [
+    "medio"
+   ],
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "atraves-do-espelho",
+  "titulo": "Através do Espelho",
+  "tipo": "jogo",
+  "selo": "Jogo · na Ludopédia",
+  "href": "https://ludopedia.com.br/jogo/atraves-do-espelho",
+  "imagem": {
+   "arquivo": "_base/capas/atraves-do-espelho.jpg",
+   "alt": "Ilustração do jogo Através do Espelho: Alice, um relógio de bolso, cartas de baralho e um bule",
+   "origem_canva": "DAGyVuliC8Y"
+  },
+  "autoria_externa": "Raiane",
+  "frase": "Jogo de Física da Raiane, com mecânicas de engajamento para a sala de aula.",
+  "tags": {
+   "disciplinas": [
+    "Ciências"
+   ],
+   "tempo": "[a confirmar]",
+   "complexidade": "[a confirmar]",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "oficina-de-gamificacao",
+  "titulo": "Oficina de Gamificação",
+  "tipo": "oficina",
+  "selo": "Oficina · 2026",
+  "href": "oficina-de-gamificacao/",
+  "imagem": null,
+  "autoria_externa": null,
+  "frase": "Uma oficina para professores vivenciarem dois jogos do LE3D e adaptarem a mecânica para a própria turma.",
+  "tags": {
+   "disciplinas": [
+    "Transversal"
+   ],
+   "tempo": "50-100",
+   "complexidade": "medio",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "oficina-de-costura",
+  "titulo": "Oficina de Costura",
+  "tipo": "oficina",
+  "selo": "Oficina · 2025",
+  "href": "oficina-de-costura/",
+  "imagem": null,
+  "autoria_externa": null,
+  "frase": "Geometria com tecido e máquina de costura: a turma calcula perímetro e área e costura almofadinhas geométricas.",
+  "tags": {
+   "disciplinas": [
+    "Matemática",
+    "Arte"
+   ],
+   "tempo": "ate-50",
+   "complexidade": "dificil",
+   "etapas": [
+    "fund2"
+   ],
+   "anos": "6º ao 8º ano"
+  }
+ },
+ {
+  "slug": "oficina-makey-makey-3d",
+  "titulo": "Oficina Makey Makey + impressão 3D",
+  "tipo": "oficina",
+  "selo": "Oficina · 2025",
+  "href": "oficina-makey-makey-3d/",
+  "imagem": {
+   "arquivo": "_base/capas/oficina-makey-makey-3d.jpg",
+   "alt": "O Bibo, monstrinho azul com o esqueleto à mostra, personagem da caça aos órgãos",
+   "origem_canva": "DAHXccr8frc"
+  },
+  "autoria_externa": null,
+  "frase": "Duas estações para professores: uma caça aos órgãos com peças impressas em 3D e um jogo controlado por Makey Makey.",
+  "tags": {
+   "disciplinas": [
+    "Ciências",
+    "Computação"
+   ],
+   "tempo": "50-100",
+   "complexidade": "dificil",
+   "etapas": [
+    "fund1"
+   ],
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "curso-maker-de-ferias-2025",
+  "titulo": "Curso Maker de Férias 2025",
+  "tipo": "oficina",
+  "selo": "Formação · 2025",
+  "href": "curso-maker-de-ferias-2025/",
+  "imagem": {
+   "arquivo": "_base/capas/curso-maker-de-ferias-2025.jpg",
+   "alt": "Capa laranja da Aula 0 do Curso Maker de Verão do Lab Escola 3D",
+   "origem_canva": "DAGfBaE4zKg"
+  },
+  "autoria_externa": null,
+  "frase": "Um curso de férias para professores da rede municipal conhecerem a cultura maker na prática.",
+  "tags": {
+   "disciplinas": [
+    "Transversal"
+   ],
+   "tempo": "mais-100",
+   "complexidade": "[a confirmar]",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "kit-do-professor",
+  "titulo": "Kit do professor",
+  "tipo": "professor",
+  "selo": "Para o professor",
+  "href": "kit-do-professor/",
+  "imagem": null,
+  "autoria_externa": null,
+  "frase": "Catorze gabaritos A4 para imprimir e preparar aula: tabuleiros, cartas, dados e fichas para adaptar a qualquer matéria.",
+  "tags": {
+   "disciplinas": [
+    "Transversal"
+   ],
+   "tempo": "[a confirmar]",
+   "complexidade": "facil",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "manual-maker",
+  "titulo": "Manual Maker",
+  "tipo": "professor",
+  "selo": "Manual · 2025",
+  "href": "../manuais/",
+  "imagem": {
+   "arquivo": "_base/capas/manual-maker.jpg",
+   "alt": "Capa dos Manuais Educacionais, com impressora 3D, eletrônica, horta e chip",
+   "origem_canva": "DAGl2lKqOkk"
+  },
+  "autoria_externa": null,
+  "frase": "Guias gratuitos para levar a cultura maker, o Arduino, o Micro:bit, a impressão 3D e a horta escolar para a sala de aula.",
+  "tags": {
+   "disciplinas": [
+    "Computação",
+    "Ciências"
+   ],
+   "tempo": "[a confirmar]",
+   "complexidade": "dificil",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "catalogo-de-atividades",
+  "titulo": "Catálogo de Atividades",
+  "tipo": "professor",
+  "selo": "Atividades",
+  "href": "catalogo-de-atividades/",
+  "imagem": null,
+  "autoria_externa": null,
+  "frase": "Roteiros de aula maker alinhados à BNCC e à BNCC Computação, com filtros por ano e componente.",
+  "tags": {
+   "disciplinas": [
+    "Transversal"
+   ],
+   "tempo": "[a confirmar]",
+   "complexidade": "[a confirmar]",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "brindes-3d",
+  "titulo": "Brindes impressos em 3D",
+  "tipo": "pecas3d",
+  "selo": "Peças 3D",
+  "href": "brindes-3d/",
+  "imagem": null,
+  "autoria_externa": null,
+  "frase": "Chaveiros, lanterna, spinner, colcheia, mapa e régua de engrenagens para imprimir e usar como apoio de aula.",
+  "tags": {
+   "disciplinas": [
+    "Arte",
+    "Geografia",
+    "Ciências"
+   ],
+   "tempo": "[a confirmar]",
+   "complexidade": "dificil",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "kit-de-divulgacao",
+  "titulo": "Kit de divulgação do Lab",
+  "tipo": "divulgacao",
+  "selo": "Divulgação",
+  "href": "kit-de-divulgacao/",
+  "imagem": {
+   "arquivo": "_base/capas/kit-de-divulgacao.jpg",
+   "alt": "Cartela de adesivos coloridos do Lab: peões, personagens dos jogos e ícones das áreas",
+   "origem_canva": "DAHaD1h0l_8"
+  },
+  "autoria_externa": null,
+  "frase": "Logo, adesivos, bottons e crachás do Lab Escola 3D para imprimir, usar em aula e espalhar por aí.",
+  "tags": {
+   "disciplinas": [
+    "Transversal"
+   ],
+   "tempo": "[a confirmar]",
+   "complexidade": "facil",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "visitas-coppei",
+  "titulo": "Visitas COPPEi",
+  "tipo": "visitas",
+  "selo": "Visita",
+  "href": "visitas-coppei/",
+  "imagem": null,
+  "autoria_externa": null,
+  "frase": "Como é a visita ao Lab na COPPE: peças 3D, jogos de Humanas e de Exatas, e como a sua escola pode pedir a dela.",
+  "tags": {
+   "disciplinas": [
+    "Transversal"
+   ],
+   "tempo": "[a confirmar]",
+   "complexidade": "[a confirmar]",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ },
+ {
+  "slug": "memorias-da-mare",
+  "titulo": "Memórias da Maré / Consolidating Maré",
+  "tipo": "visitas",
+  "selo": "Parceria · 2025",
+  "href": "memorias-da-mare/",
+  "imagem": null,
+  "autoria_externa": null,
+  "frase": "Uma réplica impressa em 3D do Rola-rola, o barril que os moradores da Maré criaram para levar água, vira objeto de aprendizagem numa aula de campo.",
+  "tags": {
+   "disciplinas": [
+    "Geografia",
+    "História"
+   ],
+   "tempo": "[a confirmar]",
+   "complexidade": "dificil",
+   "etapas": "[a confirmar]",
+   "anos": "[a confirmar]"
+  }
+ }
 ]

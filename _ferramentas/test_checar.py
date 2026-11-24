@@ -82,6 +82,26 @@ class TestChecar(unittest.TestCase):
         self.assertIn("externo", rodar(BOA.replace(' data-autoria="Raiane"', "")))
         self.assertIn("externo", rodar(BOA.replace('href="https://ludopedia.com.br/jogo/x"', 'href="x/"')))
 
+    def test_capa_acima_de_80kb_reprova(self):
+        pasta = tempfile.mkdtemp()
+        os.makedirs(os.path.join(pasta, "capas"))
+        with open(os.path.join(pasta, "capas", "x.jpg"), "wb") as h:
+            h.write(b"0" * (81 * 1024))
+        f = os.path.join(pasta, "index.html")
+        with open(f, "w", encoding="utf-8") as h:
+            h.write('<section data-document-role="page" data-label="a"><img class="capa" src="capas/x.jpg" alt="x"></section>')
+        self.assertIn("capa pesada", " | ".join(checar(f)))
+
+    def test_capa_leve_passa(self):
+        pasta = tempfile.mkdtemp()
+        os.makedirs(os.path.join(pasta, "capas"))
+        with open(os.path.join(pasta, "capas", "x.jpg"), "wb") as h:
+            h.write(b"0" * (40 * 1024))
+        f = os.path.join(pasta, "index.html")
+        with open(f, "w", encoding="utf-8") as h:
+            h.write('<section data-document-role="page" data-label="a"><img class="capa" src="capas/x.jpg" alt="x"></section>')
+        self.assertEqual(checar(f), [])
+
 
 if __name__ == "__main__":
     unittest.main()

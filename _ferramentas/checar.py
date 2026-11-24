@@ -12,6 +12,7 @@ EMAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+")
 EMAIL_INSTITUCIONAL = {"labescola3d@gmail.com"}  # canal oficial do Lab: não é dado pessoal
 TELEFONE = re.compile(r"\(?\b\d{2}\)?\s?9?\d{4}-?\d{4}\b")
 PROIBIDO_NO_DOWNLOAD = ("drive.google.com", "docs.google.com", "instagram.com")
+CAPA_MAX = 80 * 1024  # capa de card: site leve no celular
 VAZIOS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 
 
@@ -43,6 +44,11 @@ class _Leitor(HTMLParser):
             self._p(f"css externo não chega ao Canva (embutir na página): {a.get('href')}")
         if tag == "img" and "alt" not in a:
             self._p(f"img sem alt: {a.get('src')}")
+        if tag == "img" and "capa" in classes:
+            src = a.get("src") or ""
+            local = os.path.join(self.pasta, src)
+            if not src.startswith("http") and os.path.isfile(local) and os.path.getsize(local) > CAPA_MAX:
+                self._p(f"capa pesada (mais de 80 KB): {src}")
         if tag == "a":
             href = a.get("href") or ""
             if href.startswith("/") and not href.startswith("//"):

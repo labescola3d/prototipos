@@ -42,7 +42,8 @@ CSS = """
 .card[hidden] { display: none; }
 .card.externo { border-style: dashed; }
 .card.em-breve .tipo::after { content: " · em preparação"; }
-.card .capa { display: block; padding-top: 70px; text-align: center; color: var(--roxo); font-size: 13px; }
+.card span.capa { display: block; padding-top: 70px; text-align: center; color: var(--roxo); font-size: 13px; }
+.card img.capa { display: block; width: 100%; height: 180px; object-fit: cover; }
 .card .tags-card { font-size: 12px; line-height: 18px; color: var(--cinza); margin-top: 8px; }
 .passos-home { display: grid; }
 .passo b { display: block; font-family: var(--titulo); font-size: 28px; color: var(--roxo); text-transform: uppercase; }
@@ -137,7 +138,7 @@ def _pagina_existe(c: dict) -> bool:
     return os.path.isfile(os.path.normpath(os.path.join(RAIZ_SITE, "catalogo", h, "index.html")))
 
 
-def card(c: dict, prefixo: str = "") -> str:
+def card(c: dict, prefixo: str = "", raiz: str = "../") -> str:
     t = c["tags"]
     attrs = {"slug": c["slug"], "tipo": c["tipo"]}
     for _g, campo, _rot, _vals in GRUPOS[1:]:
@@ -151,7 +152,10 @@ def card(c: dict, prefixo: str = "") -> str:
     if autoria:
         dados += f' data-autoria="{E(autoria)}"'
     resumo = " · ".join(x for x in [", ".join(_valores(t["disciplinas"])), ", ".join(_valores(t["anos"]))] if x)
-    miolo = ('<span class="capa reservada">Área reservada · imagem do material</span>'
+    img = c.get("imagem")
+    capa = (f'<img class="capa" src="{E(raiz + img["arquivo"])}" alt="{E(img["alt"])}" width="800" height="450" loading="lazy">'
+            if img else '<span class="capa reservada">Área reservada · imagem do material</span>')
+    miolo = (capa +
              f'<div class="corpo"><span class="tipo">{E(c["selo"])}</span><h3>{E(c["titulo"])}</h3>'
              f'<p>{E(c["frase"])}</p>'
              + (f'<p class="tags-card">{E(resumo)}</p>' if resumo else "")
@@ -243,7 +247,7 @@ def gerar_home(raiz: str) -> str:
               '<a class="botao botao--grande" href="catalogo/">Ver o catálogo</a></div>'
             + _numeros(cards)
             + '<div class="bloco"><h2>Em destaque</h2><div class="cards quatro">'
-            + "".join(card(c, "catalogo/") for c in destaques) + "</div></div>"
+            + "".join(card(c, "catalogo/", "") for c in destaques) + "</div></div>"
             + '<div class="bloco"><h2>O que é o Lab Escola 3D</h2>'
               '<p>Um projeto de extensão da UFRJ que leva a cultura maker, o design e as tecnologias digitais para a escola pública. '
               'Trabalhamos junto com o professor, a partir das necessidades reais da sala de aula, e devolvemos tudo o que criamos como material aberto.</p></div>'

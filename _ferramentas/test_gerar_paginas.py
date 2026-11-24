@@ -78,6 +78,16 @@ class TestCatalogo(unittest.TestCase):
                                                ("15 materiais", "no catálogo")])
         self.assertIn("15 materiais", self.pc)
 
+    def test_card_com_imagem_usa_img_e_sem_imagem_reserva(self):
+        from gerar_paginas import card
+        base = {c["slug"]: c for c in carregar()}["antropolojogo"]
+        com = dict(base, imagem={"arquivo": "_base/capas/antropolojogo.jpg", "alt": "Tabuleiro", "origem_canva": "X"})
+        h = card(com)
+        self.assertIn('<img class="capa" src="../_base/capas/antropolojogo.jpg" alt="Tabuleiro"', h)
+        self.assertIn('loading="lazy"', h)
+        self.assertNotIn("reservada", h)
+        self.assertIn("reservada", card(dict(base, imagem=None)))
+
 
 class TestHome(unittest.TestCase):
     @classmethod
