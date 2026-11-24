@@ -52,8 +52,8 @@ def _volume(v: dict, raiz: str) -> str:
             f'<a class="botao" href="{E(v["href"])}">Baixar</a></div></div>')
 
 
-def gerar_manuais(raiz: str) -> str:
-    r = "../"
+def render_manuais(raiz_rel: str = "../", modo_site: bool = True, com_faixa: bool = True) -> str:
+    r = raiz_rel
     telas = []
     for tela, rot in (("pc", "computador (1440)"), ("cel", "celular (375)")):
         telas.append(
@@ -67,8 +67,12 @@ def gerar_manuais(raiz: str) -> str:
             + '<div class="bloco"><h2>De onde veio</h2><p>Produzido pelo Lab Escola 3D a partir das formações nos GETs. '
               'Créditos: equipe do projeto de extensão Lab Escola 3D (UFRJ/COPPE), 2025.</p></div>'
             + _rodape(r) + "</section>")
-    doc = _doc("Manual Maker · Lab Escola 3D (protótipo)", r, telas).replace("</style>", CSS_EXTRA + "</style>", 1)
-    return _escrever(os.path.join(raiz, "manuais", "index.html"), doc)
+    return _doc("Manual Maker · Lab Escola 3D (protótipo)", r, telas, modo_site=modo_site,
+                com_faixa=com_faixa).replace("</style>", CSS_EXTRA + "</style>", 1)
+
+
+def gerar_manuais(raiz: str) -> str:
+    return _escrever(os.path.join(raiz, "manuais", "index.html"), render_manuais())
 
 
 if __name__ == "__main__":

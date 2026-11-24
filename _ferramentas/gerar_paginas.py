@@ -5,6 +5,7 @@ Os cards, as tags e os números saem de _dados/catalogo.json (módulo catalogo).
 """
 import html
 import os
+import posixpath
 import sys
 import unicodedata
 
@@ -171,7 +172,13 @@ def card(c: dict, prefixo: str = "", raiz: str = "../") -> str:
              + "</div>")
     if not _pagina_existe(c):
         return f'<div class="card em-breve"{dados}>{miolo}</div>'
-    href = c["href"] if c["href"].startswith("http") else prefixo + c["href"]
+    if c["href"].startswith("http"):
+        href = c["href"]
+    elif prefixo:
+        barra = "/" if c["href"].endswith("/") else ""
+        href = posixpath.normpath(posixpath.join(prefixo, c["href"])) + barra
+    else:
+        href = c["href"]
     classe = "card externo" if autoria else "card"
     return f'<a class="{classe}" href="{E(href)}"{dados}>{miolo}</a>'
 
@@ -212,10 +219,11 @@ def _numeros(cards, catalogo=""):
         for b, s, tipo in numeros(cards)) + "</div>"
 
 
-def _doc(titulo, raiz, telas, script=""):
+def _doc(titulo, raiz, telas, script="", modo_site=True, com_faixa=True):
+    faixa = (faixa_alfa(raiz) + "\n") if com_faixa else ""
     return (f'<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n'
-            f'<title>{E(titulo)}</title>\n{estilo("site.css", extra=CSS)}\n</head>\n<body>\n' + faixa_alfa(raiz) + "\n" + "\n\n".join(telas) + f"\n{script}\n</body>\n</html>\n")
+            f'<title>{E(titulo)}</title>\n{estilo("site.css", extra=CSS, modo_site=modo_site)}\n</head>\n<body>\n' + faixa + "\n\n".join(telas) + f"\n{script}\n</body>\n</html>\n")
 
 
 def _escrever(arq, texto):
@@ -225,26 +233,32 @@ def _escrever(arq, texto):
     return arq
 
 
-def gerar_catalogo(raiz: str) -> str:
+def render_catalogo(raiz_rel: str = "../", prefixo_card: str = "", catalogo_href: str = "",
+                    modo_site: bool = True, com_faixa: bool = True, com_script: bool = True) -> str:
     cards = carregar()
     telas = []
     for tela, rot in (("pc", "computador (1440)"), ("cel", "celular (375)")):
         telas.append(
             f'<section class="tela tela--{tela}" data-document-role="page" data-label="Catálogo · {rot}">'
-            + _topo(tela, "../", "Catálogo")
+            + _topo(tela, raiz_rel, "Catálogo")
             + '<div class="faixa"><span class="selo">Catálogo aberto</span><h1 style="margin-top:16px">Materiais para usar na sua aula</h1>'
               '<p>Jogos, oficinas, peças 3D e manuais criados pelo Lab Escola 3D com escolas públicas do Rio. Tudo gratuito, para baixar e adaptar.</p></div>'
-            + _numeros(cards)
+            + _numeros(cards, catalogo_href)
             + '<div class="bloco">' + _filtros(tela)
             + '<div class="vazio" hidden><p>Nenhum material com esses filtros.</p>'
               '<button type="button" class="botao botao--claro limpar">Limpar filtros</button></div>'
-            + '<div class="cards">' + "".join(card(c) for c in cards) + "</div></div>"
-            + _rodape("../") + "</section>")
-    return _escrever(os.path.join(raiz, "catalogo", "index.html"),
-                     _doc("Catálogo · Lab Escola 3D (protótipo)", "../", telas, FILTRO_JS))
+            + '<div class="cards">' + "".join(card(c, prefixo=prefixo_card, raiz=raiz_rel) for c in cards) + "</div></div>"
+            + _rodape(raiz_rel) + "</section>")
+    return _doc("Catálogo · Lab Escola 3D (protótipo)", raiz_rel, telas, FILTRO_JS if com_script else "",
+                modo_site=modo_site, com_faixa=com_faixa)
 
 
-def gerar_home(raiz: str) -> str:
+def gerar_catalogo(raiz: str) -> str:
+    return _escrever(os.path.join(raiz, "catalogo", "index.html"), render_catalogo())
+
+
+def render_home(raiz_rel: str = "", prefixo_catalogo: str = "catalogo/",
+                modo_site: bool = True, com_faixa: bool = True) -> str:
     cards = carregar()
     por_slug = {c["slug"]: c for c in cards}
     destaques = [por_slug[s] for s in DESTAQUES]
@@ -252,14 +266,14 @@ def gerar_home(raiz: str) -> str:
     for tela, rot in (("pc", "computador (1440)"), ("cel", "celular (375)")):
         telas.append(
             f'<section class="tela tela--{tela}" data-document-role="page" data-label="Home · {rot}">'
-            + _topo(tela, "", "")
+            + _topo(tela, raiz_rel, "")
             + '<div class="faixa"><span class="selo">Lab Escola 3D · extensão da UFRJ</span>'
               '<h1 style="margin-top:16px">Materiais para usar na sua aula</h1>'
               '<p>Jogos, formações e manuais criados com professoras e professores da rede pública do Rio. Gratuitos, para baixar, imprimir e adaptar à sua turma.</p>'
-              '<a class="botao botao--grande" href="catalogo/">Ver o catálogo</a></div>'
-            + _numeros(cards, "catalogo/")
+              f'<a class="botao botao--grande" href="{E(prefixo_catalogo)}">Ver o catálogo</a></div>'
+            + _numeros(cards, prefixo_catalogo)
             + '<div class="bloco"><h2>Em destaque</h2><div class="cards quatro">'
-            + "".join(card(c, "catalogo/", "") for c in destaques) + "</div></div>"
+            + "".join(card(c, prefixo_catalogo, raiz_rel) for c in destaques) + "</div></div>"
             + '<div class="bloco"><h2>O que é o Lab Escola 3D</h2>'
               '<p>Um projeto de extensão da UFRJ que leva a cultura maker, o design e as tecnologias digitais para a escola pública. '
               'Trabalhamos junto com o professor, a partir das necessidades reais da sala de aula, e devolvemos tudo o que criamos como material aberto.</p></div>'
@@ -267,8 +281,12 @@ def gerar_home(raiz: str) -> str:
               '<div class="passo"><b>1 · Visita</b><p>Vamos à escola, ouvimos os professores e conhecemos o colaboratório.</p></div>'
               '<div class="passo"><b>2 · Produto</b><p>Criamos juntos jogos, oficinas e roteiros, testados com as turmas.</p></div>'
               '<div class="passo"><b>3 · Material aberto</b><p>Publicamos tudo aqui, para qualquer professora baixar e adaptar.</p></div></div></div>'
-            + _rodape("") + "</section>")
-    return _escrever(os.path.join(raiz, "index.html"), _doc("Lab Escola 3D (protótipo)", "", telas))
+            + _rodape(raiz_rel) + "</section>")
+    return _doc("Lab Escola 3D (protótipo)", raiz_rel, telas, modo_site=modo_site, com_faixa=com_faixa)
+
+
+def gerar_home(raiz: str) -> str:
+    return _escrever(os.path.join(raiz, "index.html"), render_home())
 
 
 if __name__ == "__main__":

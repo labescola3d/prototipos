@@ -7,6 +7,7 @@ Fontes: inventário em site-le3d/docs/acervo/inventario.md.
 """
 import html
 import os
+import posixpath
 
 LOGO = "https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png"
 SITE = "https://labescola3d.rio.br/wp-content/uploads/"
@@ -364,18 +365,30 @@ def cabecalho_simples(raiz, ativo=""):
             f'<nav style="display:flex;flex-wrap:wrap;gap:4px">{links}</nav></header>')
 
 
-CSS_SITE = """
+CSS_MODO_SITE = """
 /* modo site: uma tela por aparelho (as duas seguem no código para o Canva) */
 @media (min-width: 1200px) { body { background: var(--fundo); } .tela--cel { display: none; }
   .tela--pc { width: auto; max-width: 1440px; margin: 0 auto; } }
 @media (max-width: 1199px) { body { background: var(--fundo); } .tela--pc { display: none; }
   .tela--cel { width: auto; margin: 0; } }
-.menu-cel { position: relative; } .menu-cel summary { list-style: none; cursor: pointer; } .menu-cel summary::-webkit-details-marker { display: none; }
+"""
+
+CSS_MENU_CEL = """.menu-cel { position: relative; } .menu-cel summary { list-style: none; cursor: pointer; } .menu-cel summary::-webkit-details-marker { display: none; }
 .menu-cel nav { position: absolute; right: 0; top: 44px; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.15); border-radius: 10px;
   display: flex; flex-direction: column; min-width: 190px; z-index: 10; }
 .menu-cel nav a { padding: 14px 18px; color: var(--roxo); text-decoration: none; font-weight: 700; border-bottom: 1px solid #eee; }
 .menu-cel nav a.ativo { background: var(--roxo); color: #fff; }
 """
+
+CSS_SITE = CSS_MODO_SITE + CSS_MENU_CEL
+
+
+def _resolver_href(url: str, prefixo_local: str = "") -> str:
+    """Resolve link relativo para outro diretório (ex.: espelho /canva/), preservando barra final."""
+    if not prefixo_local or url.startswith(("http://", "https://", "mailto:", "#")):
+        return url
+    barra = "/" if url.endswith("/") else ""
+    return posixpath.normpath(posixpath.join(prefixo_local, url)) + barra
 
 
 def faixa_alfa(raiz):
@@ -385,47 +398,49 @@ def faixa_alfa(raiz):
             f'Lab Escola 3D · <a href="{raiz}sobre/" style="color:#FFFFFF">o que é este protótipo</a></div>')
 
 
-def estilo(*nomes, extra=""):
+def estilo(*nomes, extra="", modo_site=True):
     """CSS embutido na página: o Canva ignora folha de estilo externa."""
     css = "".join(open(os.path.join(BASE, n), encoding="utf-8").read() for n in nomes)
-    return f"{FONTES}\n<style>\n{css}{CSS_SITE}{extra}</style>"
+    css_modo = CSS_SITE if modo_site else ("\n" + CSS_MENU_CEL)
+    return f"{FONTES}\n<style>\n{css}{css_modo}{extra}</style>"
 
 
-def _baixar(p, tela):
+def _baixar(p, tela, prefixo_local="", raiz="../../"):
     b = p["baixar"]
-    meta = f'<p class="meta">{E(p.get("licenca", LICENCA))} <a href="../../licenca/" style="color:inherit">Como usar →</a></p>'
+    meta = f'<p class="meta">{E(p.get("licenca", LICENCA))} <a href="{raiz}licenca/" style="color:inherit">Como usar →</a></p>'
     if "arquivos" in b and len(b["arquivos"]) == 1:
         rot, url, info = b["arquivos"][0]
-        botao = (f'<a class="botao botao--grande baixar" href="{E(url)}">'
-                 f'<img src="../../_base/icones/baixar.svg" alt="">{E(rot)}</a>')
+        botao = (f'<a class="botao botao--grande baixar" href="{E(_resolver_href(url, prefixo_local))}">'
+                 f'<img src="{raiz}_base/icones/baixar.svg" alt="">{E(rot)}</a>')
         texto = f'<h2>{E(b["titulo"])}</h2><p class="meta">{E(info)}</p>{meta}'
         if "editor" in b:  # edição online do perfil (patamar A): link secundário sob o botão
             er, eu, ei = b["editor"]
-            botao += (f'<p class="meta" style="margin-top:12px"><a class="editor" href="{E(eu)}" '
+            botao += (f'<p class="meta" style="margin-top:12px"><a class="editor" href="{E(_resolver_href(eu, prefixo_local))}" '
                       f'style="color:inherit;font-weight:700">{E(er)} →</a><br>{E(ei)}</p>')
         return f'<div class="baixar-bloco"><div>{texto}</div><div>{botao}</div></div>'
     if "arquivos" in b:
-        links = "".join(f'<a class="baixar" href="{E(u)}">{E(r)} <span>· {E(i)}</span></a>' for r, u, i in b["arquivos"])
+        links = "".join(f'<a class="baixar" href="{E(_resolver_href(u, prefixo_local))}">{E(r)} <span>· {E(i)}</span></a>'
+                        for r, u, i in b["arquivos"])
         if "editor" in b:  # o editor no navegador continua visível quando há vários arquivos
             er, eu, ei = b["editor"]
-            links += (f'<p class="meta" style="margin-top:12px"><a class="editor" href="{E(eu)}" '
+            links += (f'<p class="meta" style="margin-top:12px"><a class="editor" href="{E(_resolver_href(eu, prefixo_local))}" '
                       f'style="color:inherit;font-weight:700">{E(er)} →</a><br>{E(ei)}</p>')
         return (f'<div class="baixar-bloco"><div><h2>{E(b["titulo"])}</h2>{meta}</div>'
                 f'<div class="lista">{links}</div></div>')
     editor = ""
     if "editor" in b:  # editor no navegador, mesmo sem arquivo para baixar
         er, eu, ei = b["editor"]
-        editor = (f'<p class="meta" style="margin-top:12px"><a class="editor" href="{E(eu)}" '
+        editor = (f'<p class="meta" style="margin-top:12px"><a class="editor" href="{E(_resolver_href(eu, prefixo_local))}" '
                   f'style="color:inherit;font-weight:700">{E(er)} →</a><br>{E(ei)}</p>')
     return (f'<div class="baixar-bloco"><div><h2>{E(b["titulo"])}</h2>{meta}</div>'
             f'<div><p class="aviso">{E(b["aviso"])}</p>{editor}</div></div>')
 
 
-def _contato(p) -> str:
+def _contato(p, prefixo_local="") -> str:
     """Página de relato: no lugar do bloco de baixar, um convite (ex.: pedir uma visita) e os links do percurso."""
     titulo, texto, link = p["contato"]
-    acao = f'<a class="botao botao--grande" href="{E(link)}">Entrar em contato</a>' if link else ""
-    links = "".join(f'<a class="baixar-link" href="{E(h)}">{E(r)} →</a>' for r, h in p.get("links", []))
+    acao = f'<a class="botao botao--grande" href="{E(_resolver_href(link, prefixo_local))}">Entrar em contato</a>' if link else ""
+    links = "".join(f'<a class="baixar-link" href="{E(_resolver_href(h, prefixo_local))}">{E(r)} →</a>' for r, h in p.get("links", []))
     lista = f'<div class="lista">{links}</div>' if links else ""
     return (f'<div class="baixar-bloco"><div><h2>{E(titulo)}</h2><p class="meta">{E(texto)}</p>{acao}</div>'
             f'{lista}</div>')
@@ -436,14 +451,15 @@ PRINTABLES = "https://www.printables.com/embed/"
 TAMANHO_EMBED = {"pc": (400, 445), "cel": (300, 340)}
 
 
-def bloco_pecas(pecas: list[dict], tela: str) -> str:
+def bloco_pecas(pecas: list[dict], tela: str, prefixo_local: str = "") -> str:
     """Uma peça 3D por cartão: o que ensina, cópia local para baixar e, se houver, o embed do Printables."""
     if not pecas:
         return ""
     w, h = TAMANHO_EMBED[tela]
     cartoes = []
     for pc in pecas:
-        links = "".join(f'<a class="baixar" href="{E(u)}">{E(r)} <span>· {E(i)}</span></a>' for r, u, i in pc["arquivos"])
+        links = "".join(f'<a class="baixar" href="{E(_resolver_href(u, prefixo_local))}">{E(r)} <span>· {E(i)}</span></a>'
+                        for r, u, i in pc["arquivos"])
         embed = ""
         if pc.get("printables"):
             embed = (f'<iframe src="{PRINTABLES}{int(pc["printables"])}" width="{w}" height="{h}" scrolling="no" '
@@ -454,20 +470,20 @@ def bloco_pecas(pecas: list[dict], tela: str) -> str:
             f'<div class="pecas">{"".join(cartoes)}</div></div>')
 
 
-def _tela(p, tela):
+def _tela(p, tela, prefixo_local="", raiz="../../"):
     pc = tela == "pc"
     rotulo = "computador (1440)" if pc else "celular (375)"
-    nav = menu("../../", "Catálogo", cel=not pc)
+    nav = menu(raiz, "Catálogo", cel=not pc)
     fatos = "".join(f'<div class="fato"><b>{E(b)}</b><span>{E(s)}</span></div>' for b, s in p["fatos"])
     partes = [
         f'<section class="tela tela--{tela}" data-document-role="page" data-label="Produto · {E(p["titulo"])} · {rotulo}">',
-        f'<header class="topo"><a href="../../"><img class="logo" src="{LOGO}" alt="Lab Escola 3D"></a>{nav}</header>',
+        f'<header class="topo"><a href="{raiz}"><img class="logo" src="{LOGO}" alt="Lab Escola 3D"></a>{nav}</header>',
         '<div class="onda"></div>',
         f'<div class="heroi"><div><span class="selo">{E(p["selo"])}</span>'
         f'<h1 style="margin-top:16px">{E(p["titulo"])}</h1><p class="frase">{E(p["frase"])}</p></div>'
         f'<div class="reservada">Área reservada · {E(p["reservada"])}<br>sem pessoas</div></div>',
-        _contato(p) if "contato" in p else _baixar(p, tela),
-        bloco_pecas(p.get("pecas") or [], tela),
+        _contato(p, prefixo_local=prefixo_local) if "contato" in p else _baixar(p, tela, prefixo_local=prefixo_local, raiz=raiz),
+        bloco_pecas(p.get("pecas") or [], tela, prefixo_local=prefixo_local),
         f'<div class="secao"><h2>Para quem</h2><div class="fatos">{fatos}</div></div>',
     ]
     o_que = f'<div><h2>O que é</h2><p>{E(p["o_que_e"])}</p></div>'
@@ -484,19 +500,21 @@ def _tela(p, tela):
     origem = "".join(f"<li>{E(x)}</li>" for x in p["origem"])
     partes.append(f'<div class="secao duas"><div><h2>De onde veio</h2><ul class="origem">{origem}</ul></div>'
                   f'<div><h2>Créditos</h2><p class="creditos">{E(p["creditos"])}</p></div></div>')
-    redes = "".join(f'<img src="../../_base/icones/{r}.svg" alt="{n}">' for r, n in
+    redes = "".join(f'<img src="{raiz}_base/icones/{r}.svg" alt="{n}">' for r, n in
                     [("instagram", "Instagram"), ("facebook", "Facebook"), ("youtube", "YouTube"), ("linkedin", "LinkedIn")])
-    partes.append(f'<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · <a href="../../sobre/" style="color:inherit">sobre este protótipo</a> · <a href="../../contribuir/" style="color:inherit">contato</a></span>'
+    partes.append(f'<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · <a href="{raiz}sobre/" style="color:inherit">sobre este protótipo</a> · <a href="{raiz}contribuir/" style="color:inherit">contato</a></span>'
                   f'<div class="redes">{redes}</div></footer></section>')
     return "\n".join(partes)
 
 
-def pagina(p) -> str:
+def pagina(p, modo_site=True, com_faixa=True, prefixo_local="", raiz="../../") -> str:
+    faixa = (faixa_alfa(raiz) + "\n") if com_faixa else ""
     return (f'<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n'
             f'<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n'
             f'<title>{E(p["titulo"])} · Catálogo LE3D (protótipo)</title>\n'
-            f'{estilo("site.css", "produto.css")}\n'
-            f'</head>\n<body>\n{faixa_alfa("../../")}\n{_tela(p, "pc")}\n\n{_tela(p, "cel")}\n</body>\n</html>\n')
+            f'{estilo("site.css", "produto.css", modo_site=modo_site)}\n'
+            f'</head>\n<body>\n{faixa}{_tela(p, "pc", prefixo_local=prefixo_local, raiz=raiz)}\n\n'
+            f'{_tela(p, "cel", prefixo_local=prefixo_local, raiz=raiz)}\n</body>\n</html>\n')
 
 
 def redirecionar(destino: str) -> str:
