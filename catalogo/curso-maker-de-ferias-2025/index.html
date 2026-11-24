@@ -140,6 +140,14 @@ p { font-size: 16px; line-height: 29.71px; }
 .tela--cel .duas > div + div { margin-top: 44px; }
 .tela--cel .rodape { margin-top: 56px; padding: 28px 20px 40px; }
 .tela--cel .rodape .redes { margin-top: 16px; }
+/* peças 3D: cópia local + embed do Printables */
+.pecas { display: grid; gap: 24px; }
+.tela--pc .pecas { grid-template-columns: repeat(2, 1fr); }
+.peca { border: 1px solid var(--laranja); border-radius: 20px; padding: 20px; background: #fff; min-width: 0; }
+.peca .lista a { display: block; color: var(--roxo); font-weight: 700; padding: 8px 0; text-decoration: none; }
+.peca .lista a span { color: var(--cinza); font-weight: 400; font-size: 13px; }
+.peca iframe { display: block; max-width: 100%; margin-top: 12px; border: 0; }
+.baixar-bloco .lista a.baixar-link { display: block; color: var(--fundo); font-size: 15px; padding: 10px 0; border-bottom: 1px solid var(--roxo-claro); text-decoration: none; }
 
 /* modo site: uma tela por aparelho (as duas seguem no código para o Canva) */
 @media (min-width: 1200px) { body { background: var(--fundo); } .tela--cel { display: none; }
@@ -160,6 +168,7 @@ p { font-size: 16px; line-height: 29.71px; }
 <div class="onda"></div>
 <div class="heroi"><div><span class="selo">Formação · 2025</span><h1 style="margin-top:16px">Curso Maker de Férias 2025</h1><p class="frase">Um curso de férias para professores da rede municipal conhecerem a cultura maker na prática.</p></div><div class="reservada">Área reservada · imagem de uma aula<br>sem pessoas</div></div>
 <div class="baixar-bloco"><div><h2>As aulas do curso</h2><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><p class="aviso">As apresentações das aulas estão em revisão antes da publicação.</p></div></div>
+
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Fevereiro de 2025</b><span>edição</span></div><div class="fato"><b>Professores</b><span>da rede municipal</span></div><div class="fato"><b>[a confirmar]</b><span>número de aulas</span></div><div class="fato"><b>Certificado</b><span>para quem participou</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Uma formação de férias voltada à difusão da cultura maker entre professores da rede municipal do Rio, com aulas práticas que incluem jogos de tabuleiro modernos no ensino.</p></div><div><h2>Algumas aulas</h2><ol class="passos"><li>Jogos de tabuleiro modernos e o ensino.</li><li>Jogos de tabuleiro modernos: prática.</li><li>[demais aulas a confirmar]</li></ol></div></div>
 <div class="secao duas"><div><h2>De onde veio</h2><ul class="origem"><li>Realizado em fevereiro de 2025, pelo Lab Escola 3D.</li></ul></div><div><h2>Créditos</h2><p class="creditos">Lab Escola 3D · extensão da UFRJ. Equipe: [a confirmar].</p></div></div>
@@ -170,6 +179,7 @@ p { font-size: 16px; line-height: 29.71px; }
 <div class="onda"></div>
 <div class="heroi"><div><span class="selo">Formação · 2025</span><h1 style="margin-top:16px">Curso Maker de Férias 2025</h1><p class="frase">Um curso de férias para professores da rede municipal conhecerem a cultura maker na prática.</p></div><div class="reservada">Área reservada · imagem de uma aula<br>sem pessoas</div></div>
 <div class="baixar-bloco"><div><h2>As aulas do curso</h2><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><p class="aviso">As apresentações das aulas estão em revisão antes da publicação.</p></div></div>
+
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Fevereiro de 2025</b><span>edição</span></div><div class="fato"><b>Professores</b><span>da rede municipal</span></div><div class="fato"><b>[a confirmar]</b><span>número de aulas</span></div><div class="fato"><b>Certificado</b><span>para quem participou</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Uma formação de férias voltada à difusão da cultura maker entre professores da rede municipal do Rio, com aulas práticas que incluem jogos de tabuleiro modernos no ensino.</p></div><div><h2>Algumas aulas</h2><ol class="passos"><li>Jogos de tabuleiro modernos e o ensino.</li><li>Jogos de tabuleiro modernos: prática.</li><li>[demais aulas a confirmar]</li></ol></div></div>
 <div class="secao duas"><div><h2>De onde veio</h2><ul class="origem"><li>Realizado em fevereiro de 2025, pelo Lab Escola 3D.</li></ul></div><div><h2>Créditos</h2><p class="creditos">Lab Escola 3D · extensão da UFRJ. Equipe: [a confirmar].</p></div></div>

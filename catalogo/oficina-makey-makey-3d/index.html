@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Oficina Makey Makey + impressão 3D · Catálogo LE3D (protótipo)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Roboto:wght@400;500;700&display=swap">
+<style>
+/* Base visual dos protótipos do site LE3D.
+   Copiada do site no ar (medida em 17/11/2026 e conferida no .json do Elementor).
+   Não inventar paleta nem fonte: a identidade visual nova entra quando chegar. */
+/* Fontes: <link> do Google Fonts no <head> de cada página. */
+
+:root {
+  --roxo: #3026AD;
+  --roxo-claro: #C0BDE6;
+  --roxo-fundo: #EAE9F6;
+  --laranja: #E3630D;
+  --texto: #150E1F;
+  --fundo: #F2F2F2;
+  --branco: #FFFFFF;
+  --cinza: #6B6B6B;
+  --titulo: "Big Shoulders Display", sans-serif;
+  --corpo: "Roboto", sans-serif;
+  --onda: url("https://labescola3d.rio.br/wp-content/uploads/2024/10/template.svg");
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #d9d9d9; font-family: var(--corpo); color: var(--texto); }
+a { color: inherit; }
+img { display: block; }
+
+/* Telas: um bloco por página do Canva */
+.tela { background: var(--fundo); margin: 40px auto; position: relative; overflow: hidden; }
+.tela--pc { width: 1440px; }
+.tela--cel { width: 375px; }
+
+h1, h2, h3 { font-family: var(--titulo); text-transform: uppercase; overflow-wrap: anywhere; }
+h1 { font-weight: 900; color: var(--roxo); line-height: 1.03; }
+h2 { font-weight: 700; color: var(--texto); line-height: 1; }
+h3 { font-weight: 700; color: var(--roxo); line-height: 1.1; }
+p { font-size: 16px; line-height: 29.71px; }
+.tela--pc h1 { font-size: 67px; }
+.tela--pc h2 { font-size: 45px; }
+.tela--pc h3 { font-size: 30px; }
+.tela--cel h1 { font-size: 40px; }
+.tela--cel h2 { font-size: 38px; }
+.tela--cel h3 { font-size: 26px; }
+
+/* Topo: cartão com borda roxa e raio inferior de 10 px, sem itens suspensos */
+.topo { display: flex; align-items: center; justify-content: space-between; background: var(--fundo);
+        border: 1px solid var(--roxo); border-top: 0; border-radius: 0 0 10px 10px; position: relative; z-index: 1; }
+.tela--pc .topo { height: 155px; padding: 0 160px; }
+.tela--cel .topo { height: 110px; padding: 0 20px; }
+.topo .logo { width: 103px; height: auto; }
+.tela--cel .topo .logo { width: 74px; }
+.menu { display: flex; align-items: center; gap: 32px; }
+.menu a { font-size: 14px; font-weight: 500; color: var(--roxo); text-decoration: none; }
+.menu .ativo { background: var(--roxo); color: var(--fundo); padding: 16px 20px; }
+.icone { width: 20px; height: 20px; }
+
+/* Onda decorativa sob o topo */
+.onda { position: absolute; left: 0; right: 0; height: 300px; background: var(--onda) center top / cover no-repeat; }
+.tela--pc .onda { top: 155px; }
+.tela--cel .onda { top: 110px; }
+
+/* Botão: bloco único, sem flexbox no texto */
+.botao { display: inline-block; background: var(--roxo); color: var(--fundo); font-size: 12px; letter-spacing: 2px;
+         text-transform: uppercase; text-decoration: none; padding: 14px 24px; line-height: 14px; }
+.botao--grande { font-size: 16px; padding: 18px 32px; line-height: 18px; }
+.botao--claro { background: var(--fundo); color: var(--roxo); border: 1px solid var(--roxo); }
+
+/* Cartões */
+.card { display: block; background: var(--fundo); border: 1px solid var(--laranja); border-radius: 20px;
+        text-decoration: none; overflow: hidden; }
+.card .capa { width: 100%; height: 180px; object-fit: cover; background: var(--roxo-claro); }
+.card .corpo { padding: 20px 24px 24px; }
+.card .tipo { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--laranja); }
+.card h3 { margin: 6px 0 8px; }
+.card p { font-size: 14px; line-height: 22px; }
+.selo { display: inline-block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 4px 8px;
+        border: 1px solid var(--roxo); color: var(--roxo); border-radius: 4px; }
+
+/* Área reservada para foto (direito de imagem pendente): texto no topo, sem centralização vertical */
+.reservada { background: var(--roxo-claro); color: var(--roxo); border-radius: 20px; font-size: 14px;
+             line-height: 20px; text-align: center; padding-top: 24px; }
+
+/* Aviso de material em preparação */
+.aviso { background: var(--roxo-fundo); border-left: 4px solid var(--roxo); padding: 16px 20px; font-size: 15px; line-height: 24px; }
+
+/* Rodapé */
+.rodape { border-top: 1px solid var(--roxo-claro); color: var(--cinza); font-size: 13px; line-height: 20px; }
+.redes { display: flex; gap: 12px; }
+.redes img { width: 28px; height: 28px; }
+/* Página de produto — estrutura do desenho §6, igual para todos os produtos. */
+.frase { color: var(--laranja); font-size: 20px; line-height: 28px; margin-top: 12px; }
+.baixar-bloco { background: var(--roxo); color: var(--fundo); }
+.baixar-bloco h2 { color: var(--fundo); }
+.baixar-bloco .meta { font-size: 14px; line-height: 22px; color: var(--roxo-claro); }
+.baixar-bloco .botao { background: var(--laranja); color: var(--branco); }
+.baixar-bloco .botao img { width: 16px; height: 16px; display: inline-block; vertical-align: -3px; margin-right: 8px; }
+.baixar-bloco .lista a { display: block; color: var(--fundo); font-size: 15px; line-height: 22px; padding: 10px 0; border-bottom: 1px solid var(--roxo-claro); text-decoration: none; }
+.baixar-bloco .lista a span { color: var(--roxo-claro); font-size: 13px; }
+.baixar-bloco .aviso { background: var(--fundo); color: var(--texto); margin-top: 16px; }
+.fatos { display: grid; }
+.fato { background: var(--branco); border: 1px solid var(--laranja); border-radius: 20px; padding: 16px 20px; }
+.fato b { display: block; font-family: var(--titulo); font-weight: 700; font-size: 28px; line-height: 30px; color: var(--roxo); text-transform: uppercase; }
+.fato span { font-size: 14px; line-height: 20px; }
+.passos { list-style: none; counter-reset: p; }
+.passos li { counter-increment: p; position: relative; padding-left: 52px; margin-top: 16px; font-size: 16px; line-height: 26px; }
+.passos li::before { content: counter(p); position: absolute; left: 0; top: 0; width: 36px; height: 36px; border-radius: 18px;
+                     background: var(--roxo); color: var(--fundo); font-family: var(--titulo); font-size: 22px; line-height: 36px; text-align: center; }
+.itens { display: grid; }
+.item { border-top: 3px solid var(--laranja); padding-top: 10px; }
+.item b { font-family: var(--titulo); font-size: 24px; color: var(--roxo); text-transform: uppercase; }
+.item p { font-size: 14px; line-height: 22px; }
+.origem li { font-size: 15px; line-height: 26px; margin-left: 20px; }
+.creditos { font-size: 14px; line-height: 22px; color: var(--cinza); }
+
+.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; padding: 90px 160px 60px; }
+.tela--pc .heroi .reservada { height: 400px; }
+.tela--pc .baixar-bloco { margin: 0 160px; padding: 40px 48px; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.tela--pc .baixar-bloco .botao { margin-top: 18px; }
+.tela--pc .secao { padding: 60px 160px 0; }
+.tela--pc .secao h2 { margin-bottom: 20px; }
+.tela--pc .fatos { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.tela--pc .itens { grid-template-columns: repeat(3, 1fr); gap: 24px 32px; }
+.tela--pc .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.tela--pc .rodape { margin-top: 80px; padding: 32px 160px 48px; display: flex; justify-content: space-between; }
+
+.tela--cel .heroi { position: relative; padding: 60px 20px 32px; }
+.tela--cel .heroi .reservada { height: 220px; margin-top: 24px; }
+.tela--cel .baixar-bloco { margin: 0 20px; padding: 28px 24px; border-radius: 20px; }
+.tela--cel .baixar-bloco .botao { margin-top: 16px; }
+.tela--cel .secao { padding: 44px 20px 0; }
+.tela--cel .secao h2 { margin-bottom: 16px; }
+.tela--cel .fatos { grid-template-columns: 1fr 1fr; gap: 12px; }
+.tela--cel .itens { grid-template-columns: 1fr; gap: 16px; }
+.tela--cel .duas > div + div { margin-top: 44px; }
+.tela--cel .rodape { margin-top: 56px; padding: 28px 20px 40px; }
+.tela--cel .rodape .redes { margin-top: 16px; }
+/* peças 3D: cópia local + embed do Printables */
+.pecas { display: grid; gap: 24px; }
+.tela--pc .pecas { grid-template-columns: repeat(2, 1fr); }
+.peca { border: 1px solid var(--laranja); border-radius: 20px; padding: 20px; background: #fff; min-width: 0; }
+.peca .lista a { display: block; color: var(--roxo); font-weight: 700; padding: 8px 0; text-decoration: none; }
+.peca .lista a span { color: var(--cinza); font-weight: 400; font-size: 13px; }
+.peca iframe { display: block; max-width: 100%; margin-top: 12px; border: 0; }
+.baixar-bloco .lista a.baixar-link { display: block; color: var(--fundo); font-size: 15px; padding: 10px 0; border-bottom: 1px solid var(--roxo-claro); text-decoration: none; }
+
+/* modo site: uma tela por aparelho (as duas seguem no código para o Canva) */
+@media (min-width: 1200px) { body { background: var(--fundo); } .tela--cel { display: none; }
+  .tela--pc { width: auto; max-width: 1440px; margin: 0 auto; } }
+@media (max-width: 1199px) { body { background: var(--fundo); } .tela--pc { display: none; }
+  .tela--cel { width: auto; margin: 0; } }
+.menu-cel { position: relative; } .menu-cel summary { list-style: none; cursor: pointer; } .menu-cel summary::-webkit-details-marker { display: none; }
+.menu-cel nav { position: absolute; right: 0; top: 44px; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.15); border-radius: 10px;
+  display: flex; flex-direction: column; min-width: 190px; z-index: 10; }
+.menu-cel nav a { padding: 14px 18px; color: var(--roxo); text-decoration: none; font-weight: 700; border-bottom: 1px solid #eee; }
+.menu-cel nav a.ativo { background: var(--roxo); color: #fff; }
+</style>
+</head>
+<body>
+<div class="alfa" style="background:#150E1F;color:#FFFFFF;font:14px/1.4 system-ui,sans-serif;padding:8px 16px;text-align:center">Protótipo em <b style="color:#E3630D">versão alfa</b> · Lab Escola 3D · <a href="../../sobre/" style="color:#FFFFFF">o que é este protótipo</a></div>
+<section class="tela tela--pc" data-document-role="page" data-label="Produto · Oficina Makey Makey + impressão 3D · computador (1440)">
+<header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><nav class="menu"><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a><a href="../../em-obras/"><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no catálogo (em obras)"></a></nav></header>
+<div class="onda"></div>
+<div class="heroi"><div><span class="selo">Oficina · 2025</span><h1 style="margin-top:16px">Oficina Makey Makey + impressão 3D</h1><p class="frase">Duas estações para professores: uma caça aos órgãos com peças impressas em 3D e um jogo controlado por Makey Makey.</p></div><div class="reservada">Área reservada · ilustração do Bibo<br>sem pessoas</div></div>
+<div class="baixar-bloco"><div><h2>Roteiro para aplicar</h2><p class="meta">PDF · estações, falas e anexo para imprimir</p><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><a class="botao botao--grande baixar" href="roteiro-da-oficina.pdf"><img src="../../_base/icones/baixar.svg" alt="">Roteiro da oficina com as fichas de charadas</a></div></div>
+
+<div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Professores</b><span>público</span></div><div class="fato"><b>1 hora</b><span>3 estações de 15 min</span></div><div class="fato"><b>Ciências e Computação</b><span>impressão 3D e eletrônica</span></div><div class="fato"><b>EF01CI02</b><span>partes do corpo e suas funções</span></div></div></div>
+<div class="secao duas"><div><h2>O que é</h2><p>Uma oficina em estações para os professores experimentarem duas tecnologias do colaboratório no papel de alunos. Na caça aos órgãos, o Bibo desmontou e a turma resolve charadas para achar peças impressas em 3D e remontar o corpo. No jogo do dinossauro, um tapete ligado à Makey Makey controla um jogo feito em Scratch. Na terceira estação, todos pensam juntos em como levar isso para cada disciplina.</p></div><div><h2>Como foi aplicada</h2><ol class="passos"><li>Formação com professores de uma escola da rede municipal do Rio, em 2025.</li><li>Os professores se dividiram em dois grupos e trocaram de estação a cada 15 minutos.</li><li>Experimentaram as peças, as charadas, o circuito e o jogo.</li><li>Fecharam com uma conversa sobre usos em cada disciplina.</li></ol></div></div>
+<div class="secao"><h2>As estações</h2><div class="itens"><div class="item"><b>Ajude o Bibo</b><p>Caça aos órgãos com peças impressas em 3D, charadas e um mapa de letras e números.</p></div><div class="item"><b>O que faz esse botão?</b><p>O jogo do dinossauro controlado por um tapete ligado à Makey Makey.</p></div><div class="item"><b>E agora, José?</b><p>Conversa para adaptar as duas dinâmicas a cada disciplina.</p></div></div></div>
+<div class="secao duas"><div><h2>De onde veio</h2><ul class="origem"><li>Roteiro da equipe do Lab Escola 3D, aplicado em formação de professores em 2025.</li></ul></div><div><h2>Créditos</h2><p class="creditos">Lab Escola 3D · extensão da UFRJ. Roteiro e dinâmicas: equipe do Lab Escola 3D.</p></div></div>
+<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · <a href="../../sobre/" style="color:inherit">sobre este protótipo</a> · <a href="../../contribuir/" style="color:inherit">contato</a></span><div class="redes"><img src="../../_base/icones/instagram.svg" alt="Instagram"><img src="../../_base/icones/facebook.svg" alt="Facebook"><img src="../../_base/icones/youtube.svg" alt="YouTube"><img src="../../_base/icones/linkedin.svg" alt="LinkedIn"></div></footer></section>
+
+<section class="tela tela--cel" data-document-role="page" data-label="Produto · Oficina Makey Makey + impressão 3D · celular (375)">
+<header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><details class="menu-cel"><summary><img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu"></summary><nav><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a></nav></details></header>
+<div class="onda"></div>
+<div class="heroi"><div><span class="selo">Oficina · 2025</span><h1 style="margin-top:16px">Oficina Makey Makey + impressão 3D</h1><p class="frase">Duas estações para professores: uma caça aos órgãos com peças impressas em 3D e um jogo controlado por Makey Makey.</p></div><div class="reservada">Área reservada · ilustração do Bibo<br>sem pessoas</div></div>
+<div class="baixar-bloco"><div><h2>Roteiro para aplicar</h2><p class="meta">PDF · estações, falas e anexo para imprimir</p><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><a class="botao botao--grande baixar" href="roteiro-da-oficina.pdf"><img src="../../_base/icones/baixar.svg" alt="">Roteiro da oficina com as fichas de charadas</a></div></div>
+
+<div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Professores</b><span>público</span></div><div class="fato"><b>1 hora</b><span>3 estações de 15 min</span></div><div class="fato"><b>Ciências e Computação</b><span>impressão 3D e eletrônica</span></div><div class="fato"><b>EF01CI02</b><span>partes do corpo e suas funções</span></div></div></div>
+<div class="secao duas"><div><h2>O que é</h2><p>Uma oficina em estações para os professores experimentarem duas tecnologias do colaboratório no papel de alunos. Na caça aos órgãos, o Bibo desmontou e a turma resolve charadas para achar peças impressas em 3D e remontar o corpo. No jogo do dinossauro, um tapete ligado à Makey Makey controla um jogo feito em Scratch. Na terceira estação, todos pensam juntos em como levar isso para cada disciplina.</p></div><div><h2>Como foi aplicada</h2><ol class="passos"><li>Formação com professores de uma escola da rede municipal do Rio, em 2025.</li><li>Os professores se dividiram em dois grupos e trocaram de estação a cada 15 minutos.</li><li>Experimentaram as peças, as charadas, o circuito e o jogo.</li><li>Fecharam com uma conversa sobre usos em cada disciplina.</li></ol></div></div>
+<div class="secao"><h2>As estações</h2><div class="itens"><div class="item"><b>Ajude o Bibo</b><p>Caça aos órgãos com peças impressas em 3D, charadas e um mapa de letras e números.</p></div><div class="item"><b>O que faz esse botão?</b><p>O jogo do dinossauro controlado por um tapete ligado à Makey Makey.</p></div><div class="item"><b>E agora, José?</b><p>Conversa para adaptar as duas dinâmicas a cada disciplina.</p></div></div></div>
+<div class="secao duas"><div><h2>De onde veio</h2><ul class="origem"><li>Roteiro da equipe do Lab Escola 3D, aplicado em formação de professores em 2025.</li></ul></div><div><h2>Créditos</h2><p class="creditos">Lab Escola 3D · extensão da UFRJ. Roteiro e dinâmicas: equipe do Lab Escola 3D.</p></div></div>
+<footer class="rodape"><span>Lab Escola 3D · projeto de extensão da UFRJ · <a href="../../sobre/" style="color:inherit">sobre este protótipo</a> · <a href="../../contribuir/" style="color:inherit">contato</a></span><div class="redes"><img src="../../_base/icones/instagram.svg" alt="Instagram"><img src="../../_base/icones/facebook.svg" alt="Facebook"><img src="../../_base/icones/youtube.svg" alt="YouTube"><img src="../../_base/icones/linkedin.svg" alt="LinkedIn"></div></footer></section>
+</body>
+</html>
