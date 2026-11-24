@@ -310,7 +310,7 @@ PRODUTOS = [
         "creditos": "Lab Escola 3D com o LabES/UFRJ, coordenado pela Profª Drª Julia Polessa Maçaira. Equipe: [a confirmar].",
     },
     {
-        "slug": "manual-maker", "titulo": "Manual Maker", "selo": "Manual · 2025",
+        "slug": "manual-maker", "titulo": "Manual Maker", "selo": "Manual · 2025", "redirect": "../../manuais/",
         "frase": "Guias gratuitos para levar a cultura maker, o Arduino, o Micro:bit, a impressão 3D e a horta escolar para a sala de aula.",
         "reservada": "capa do Manual Maker",
         "baixar": {"titulo": "Baixe os volumes", "arquivos": [
@@ -499,6 +499,13 @@ def pagina(p) -> str:
             f'</head>\n<body>\n{faixa_alfa("../../")}\n{_tela(p, "pc")}\n\n{_tela(p, "cel")}\n</body>\n</html>\n')
 
 
+def redirecionar(destino: str) -> str:
+    """Página antiga que passou a morar noutro endereço (ex.: o Manual Maker foi para /manuais)."""
+    return ('<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n<meta name="robots" content="noindex">\n'
+            f'<meta http-equiv="refresh" content="0; url={E(destino)}">\n<title>Manual Maker · Lab Escola 3D (protótipo)</title>\n'
+            f'</head>\n<body>\n<p>Esta página mudou para <a href="{E(destino)}">a coleção Manual Maker</a>.</p>\n</body>\n</html>\n')
+
+
 def gerar_todos(raiz: str) -> list[str]:
     saidas = []
     for p in PRODUTOS:
@@ -506,7 +513,7 @@ def gerar_todos(raiz: str) -> list[str]:
         os.makedirs(pasta, exist_ok=True)
         arq = os.path.join(pasta, "index.html")
         with open(arq, "w", encoding="utf-8", newline="\n") as f:
-            f.write(pagina(p))
+            f.write(redirecionar(p["redirect"]) if p.get("redirect") else pagina(p))
         saidas.append(arq)
     return saidas
 

@@ -56,7 +56,7 @@ class TestGerarProdutos(unittest.TestCase):
             self.assertEqual(checar(arq), [], arq)
 
     def test_toda_pagina_tem_tela_de_computador_e_de_celular(self):
-        for slug in SLUGS:
+        for slug in SLUGS - {"manual-maker"}:
             html = self.ler(slug)
             self.assertEqual(html.count('data-document-role="page"'), 2, slug)
 
@@ -80,7 +80,7 @@ class TestGerarProdutos(unittest.TestCase):
             self.assertIn(f'href="../{s}"', html)
 
     def test_toda_pagina_tem_licenca(self):
-        for slug in SLUGS - {"kit-de-divulgacao", "visitas-coppei"}:
+        for slug in SLUGS - {"kit-de-divulgacao", "visitas-coppei", "manual-maker"}:
             self.assertIn("CC BY-NC-SA 4.0", self.ler(slug), slug)
 
     def test_mare_baixa_o_rola_rola(self):

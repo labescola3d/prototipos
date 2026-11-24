@@ -16,7 +16,8 @@ Diretiva para **qualquer agente de IA** que trabalhe neste repositório. Leia in
 py -I -X utf8 -m unittest discover -s _ferramentas        # testes
 py -I -X utf8 _ferramentas/checar.py <arquivo.html> ...   # validador das telas
 py -I -X utf8 _ferramentas/gerar_produtos.py               # páginas de material
-py -I -X utf8 _ferramentas/gerar_paginas.py                # Home e Catálogo
+py -I -X utf8 _ferramentas/gerar_manuais.py               # /manuais (coleção Manual Maker)
+py -I -X utf8 _ferramentas/gerar_paginas.py                # Home e Catálogo (depois das outras)
 py -I -X utf8 _ferramentas/gerar_institucionais.py         # Como usar e Contribuir
 ```
 
