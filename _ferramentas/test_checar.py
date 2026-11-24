@@ -78,6 +78,13 @@ class TestChecar(unittest.TestCase):
         self.assertIn("width: 375px", css)
         self.assertIn("overflow-wrap: anywhere", css)
 
+    def test_texto_pequeno_laranja_usa_o_tom_escuro(self):
+        site = open(BASE, encoding="utf-8").read()
+        prod = open(os.path.join(os.path.dirname(BASE), "produto.css"), encoding="utf-8").read()
+        self.assertIn("--laranja-texto: #B34D00", site)
+        self.assertRegex(site, r"\.card \.tipo \{[^}]*color: var\(--laranja-texto\)")
+        self.assertRegex(prod, r"\.frase \{[^}]*color: var\(--laranja-texto\)")
+
     def test_card_externo_tem_credito_e_destino(self):
         self.assertIn("externo", rodar(BOA.replace(' data-autoria="Raiane"', "")))
         self.assertIn("externo", rodar(BOA.replace('href="https://ludopedia.com.br/jogo/x"', 'href="x/"')))
