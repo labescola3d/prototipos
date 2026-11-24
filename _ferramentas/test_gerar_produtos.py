@@ -84,3 +84,13 @@ class TestGerarProdutos(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestInvestigadoras(unittest.TestCase):
+    def test_investigadoras_diz_31_fichas(self):
+        gerar_todos(RAIZ)
+        with open(os.path.join(RAIZ, "catalogo", "investigadoras-do-conhecimento", "index.html"), encoding="utf-8") as f:
+            html = f.read()
+        self.assertIn("31 fichas", html)
+        self.assertNotIn("33 homenageadas", html)
+        self.assertIn("uma ficha para a dupla", html)
