@@ -9,7 +9,7 @@ from gerar_produtos import PRODUTOS, gerar_todos  # noqa: E402
 RAIZ = os.path.join(os.path.dirname(__file__), "..")
 SLUGS = {"investigadoras-do-conhecimento", "expedicao-sonora", "oficina-de-gamificacao",
          "curso-maker-de-ferias-2025", "memorias-da-mare", "antropolojogo", "manual-maker",
-         "oficina-de-costura", "oficina-makey-makey-3d"}
+         "oficina-de-costura", "oficina-makey-makey-3d", "kit-do-professor", "catalogo-de-atividades"}
 
 
 class TestGerarProdutos(unittest.TestCase):
@@ -37,6 +37,16 @@ class TestGerarProdutos(unittest.TestCase):
             html = self.ler(slug)
             for proibido in ("Certezas", "Suposições", "Que pena", "Paes"):
                 self.assertNotIn(proibido, html, (slug, proibido))
+
+    def test_kit_do_professor_baixa_o_pdf_local(self):
+        html = self.ler("kit-do-professor")
+        self.assertIn('href="kit-do-professor-a4.pdf"', html)
+        self.assertTrue(os.path.isfile(os.path.join(RAIZ, "catalogo", "kit-do-professor", "kit-do-professor-a4.pdf")))
+
+    def test_catalogo_de_atividades_aponta_para_as_fichas(self):
+        html = self.ler("catalogo-de-atividades")
+        self.assertIn('href="https://labescola3d.rio.br/fichas/"', html)
+        self.assertIn("Almofadinhas Geométricas", html)
 
     def test_costura_credita_a_autora(self):
         self.assertIn("Ana da Hora", self.ler("oficina-de-costura"))
