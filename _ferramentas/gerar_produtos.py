@@ -43,8 +43,8 @@ PRODUTOS = [
         "slug": "expedicao-sonora", "titulo": "Expedição Sonora", "selo": "Jogo · 2026",
         "frase": "Uma viagem pelo Brasil de ouvido: a turma escuta uma música e descobre de que região ela vem.",
         "reservada": "foto do mapa do Brasil e dos peões impressos em 3D",
-        "baixar": {"titulo": "Material para levar à sua turma",
-                   "aviso": "O manual do jogo para o professor está em preparação. Enquanto isso, a Apostila da Oficina de Gamificação traz o passo a passo e os modelos.",
+        "baixar": {"titulo": "Material para levar à sua turma", "arquivos": [
+            ("Peões Tom e Vit (três peças)", "peoes-tom-e-vit-pacote-c.zip", "9 arquivos STL para impressora 3D, bico 0,6 ou 0,4 mm, com créditos · ZIP · 5 MB · a versão usada em sala")],
                    "editor": ("Monte suas cartas", "editor/", "Parta das 41 cartas do jogo ou escreva as suas e imprima 9 por folha A4")},
         "fatos": [("2 a 4 pessoas", "por grupo"), ("cerca de 10 min", "por rodada"), ("30 músicas", "6 por região"), ("5 regiões", "do Brasil")],
         "o_que_e": "Um jogo que transforma um tema abstrato em experiência: a turma vira “Exploradores dos Ritmos” e viaja pelo território brasileiro conectando identidades, instrumentos e artistas regionais. A música afina a escuta crítica e estimula a colaboração entre estudantes e famílias.",
@@ -60,14 +60,18 @@ PRODUTOS = [
             ("Cartas", "Cerca de 6 artistas por região, com nome e curiosidades.")]),
         "origem": ["Aplicado no GET Levy Neves, com as famílias, em 14/05/2026.", "Apresentado na SIAC/UFRJ.",
                    "Inscrito no Banco de Inovação da UFRJ."],
-        "creditos": "Lab Escola 3D · extensão da UFRJ. Equipe: [a confirmar].",
+        "creditos": "Lab Escola 3D · extensão da UFRJ. Equipe: Eduardo Cóser (responsável), Levi Macedo, Yasmim Teles, Raiane Pacheco e Ivan Silveira. Peões: modelo de Eduardo Cóser, adaptado por Ivan Silveira.",
     },
     {
         "slug": "oficina-de-gamificacao", "titulo": "Oficina de Gamificação", "selo": "Oficina · 2026",
         "frase": "Uma oficina para professores vivenciarem dois jogos do LE3D e adaptarem a mecânica para a própria turma.",
         "reservada": "foto dos materiais da oficina sobre a mesa",
-        "baixar": {"titulo": "Apostila do professor",
-                   "aviso": "A apostila, com os modelos editáveis no Canva, está em revisão para publicação."},
+        "baixar": {"titulo": "Apostila e modelos do professor", "arquivos": [
+            ("Apostila do professor", "apostila-roteiro-para-o-professor.docx", "Word · 9 páginas · 2 MB · links para os modelos no Canva"),
+            ("Roteiro da oficina (modelo)", "roteiro-oficina-modelo.pdf", "PDF · 12 páginas · 60 minutos em rotação de bases"),
+            ("Roteiro da oficina para editar", "roteiro-oficina-modelo.odt", "ODT (LibreOffice ou Word) · 3 MB"),
+            ("Ficha de planejamento", "ficha-de-planejamento.pdf", "PDF · 1 página para preencher em dupla"),
+            ("Kit do professor: 14 gabaritos A4", "kit-do-professor-a4.pdf", "PDF · cartas, dado, quebra-cabeças e tabuleiros para imprimir")]},
         "fatos": [("Professores", "público"), ("2 jogos", "vivenciados"), ("15 e 20 min", "por ciclo de cada jogo"), ("Modelos", "editáveis no Canva")],
         "o_que_e": "Na oficina, os professores jogam o Investigadoras do Conhecimento e a Expedição Sonora e, em seguida, esboçam com um colega a adaptação de um dos jogos para a sua disciplina. A apostila mostra tudo o que o LE3D desenvolveu e sugere, elemento por elemento, como trocar o tema, o estímulo e o material.",
         "como": ("Como acontece", [
@@ -80,7 +84,7 @@ PRODUTOS = [
             ("O estímulo", "Imagem, trecho de texto, vídeo curto, objeto, cheiro ou sabor no lugar da música."),
             ("O material", "Papel A4 dobrado, tampinhas ou massinha no lugar de fichas plastificadas e peões em 3D.")]),
         "origem": ["Realizada no GET Levy Neves, em 12/08/2026."],
-        "creditos": "Lab Escola 3D · extensão da UFRJ. Equipe: [a confirmar].",
+        "creditos": "Lab Escola 3D · extensão da UFRJ. Apostila e gabaritos: Ivan Silveira. Roteiro e ficha: gestão do Lab Escola 3D.",
     },
     {
         "slug": "curso-maker-de-ferias-2025", "titulo": "Curso Maker de Férias 2025", "selo": "Formação · 2025",
@@ -230,6 +234,10 @@ def _baixar(p, tela):
         return f'<div class="baixar-bloco"><div>{texto}</div><div>{botao}</div></div>'
     if "arquivos" in b:
         links = "".join(f'<a class="baixar" href="{E(u)}">{E(r)} <span>· {E(i)}</span></a>' for r, u, i in b["arquivos"])
+        if "editor" in b:  # o editor no navegador continua visível quando há vários arquivos
+            er, eu, ei = b["editor"]
+            links += (f'<p class="meta" style="margin-top:12px"><a class="editor" href="{E(eu)}" '
+                      f'style="color:inherit;font-weight:700">{E(er)} →</a><br>{E(ei)}</p>')
         return (f'<div class="baixar-bloco"><div><h2>{E(b["titulo"])}</h2>{meta}</div>'
                 f'<div class="lista">{links}</div></div>')
     editor = ""

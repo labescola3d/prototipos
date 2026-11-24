@@ -64,5 +64,23 @@ class TestGerarProdutos(unittest.TestCase):
         self.assertIn("Raiane Pacheco (responsável), Eduardo Cóser e Ivan Silveira", html)
         self.assertNotIn("Equipe: [a confirmar]", html)
 
+    def test_pagina_com_varios_arquivos_mantem_o_editor(self):
+        self.assertIn('class="editor" href="editor/"', self.ler("investigadoras-do-conhecimento"))
+        self.assertIn('class="editor" href="editor/"', self.ler("expedicao-sonora"))
+
+    def test_oficina_oferece_apostila_ficha_roteiro_e_kit(self):
+        html = self.ler("oficina-de-gamificacao")
+        self.assertNotIn("está em revisão", html)
+        for arq in ("apostila-roteiro-para-o-professor.docx", "ficha-de-planejamento.pdf", "roteiro-oficina-modelo.pdf",
+                    "roteiro-oficina-modelo.odt", "kit-do-professor-a4.pdf"):
+            self.assertIn(f'href="{arq}"', html, arq)
+            self.assertTrue(os.path.isfile(os.path.join(RAIZ, "catalogo", "oficina-de-gamificacao", arq)), arq)
+
+    def test_expedicao_oferece_os_peoes_e_credita_a_equipe(self):
+        html = self.ler("expedicao-sonora")
+        self.assertIn('href="peoes-tom-e-vit-pacote-c.zip"', html)
+        self.assertTrue(os.path.isfile(os.path.join(RAIZ, "catalogo", "expedicao-sonora", "peoes-tom-e-vit-pacote-c.zip")))
+        self.assertIn("Eduardo Cóser (responsável)", html)
+
 if __name__ == "__main__":
     unittest.main()
