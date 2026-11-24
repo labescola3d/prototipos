@@ -75,11 +75,15 @@ class TestCatalogo(unittest.TestCase):
         self.assertNotIn('href="nao-existe/"', h)
 
     def test_numeros_contados_do_json(self):
-        self.assertEqual(numeros(carregar()), [("4 jogos", "para baixar e jogar"),
-                                               ("4 oficinas", "e formações para professores"),
-                                               ("3 materiais", "para preparar a aula"),
-                                               ("15 materiais", "no catálogo")])
-        self.assertIn("15 materiais", self.pc)
+        self.assertEqual(numeros(carregar()), [("4 jogos", "para baixar e jogar", "jogo"),
+                                               ("4 oficinas", "e formações para professores", "oficina"),
+                                               ("3 para o professor", "preparar a aula", "professor"),
+                                               ("15 no catálogo", "materiais gratuitos", None)])
+        self.assertIn('href="?tipo=jogo"', self.pc)
+        self.assertNotIn("15 materiais", self.pc)
+
+    def test_catalogo_aplica_o_filtro_do_endereco(self):
+        self.assertIn("URLSearchParams", self.html)
 
     def test_card_com_imagem_usa_img_e_sem_imagem_reserva(self):
         from gerar_paginas import card
@@ -112,6 +116,10 @@ class TestHome(unittest.TestCase):
     def test_home_tem_os_4_destaques(self):
         for t in ("Investigadoras do conhecimento", "Expedição Sonora", "Oficina de Gamificação", "Antropolojogo"):
             self.assertIn(t, self.pc)
+
+    def test_faixa_da_home_leva_ao_catalogo_filtrado(self):
+        self.assertIn('href="catalogo/?tipo=jogo"', self.pc)
+        self.assertIn('href="catalogo/"', self.pc)
 
     def test_menu_sem_itens_suspensos(self):
         self.assertNotIn("sub-menu", self.html)
