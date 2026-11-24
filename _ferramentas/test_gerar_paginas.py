@@ -5,7 +5,8 @@ import unittest
 
 sys.path.insert(0, os.path.dirname(__file__))
 from checar import checar  # noqa: E402
-from gerar_paginas import CARDS, gerar_catalogo, gerar_home  # noqa: E402
+from catalogo import carregar  # noqa: E402
+from gerar_paginas import gerar_catalogo, gerar_home, normalizar, numeros  # noqa: E402
 
 RAIZ = os.path.join(os.path.dirname(__file__), "..")
 
@@ -28,25 +29,54 @@ class TestCatalogo(unittest.TestCase):
     def test_catalogo_tem_duas_telas(self):
         self.assertEqual(self.html.count('data-document-role="page"'), 2)
 
-    def test_catalogo_tem_9_cards_por_tela(self):
-        self.assertEqual(len(CARDS), 9)
-        self.assertEqual(self.pc.count('<a class="card'), 9)
+    def test_catalogo_tem_15_cards_por_tela(self):
+        self.assertEqual(len(re.findall(r'<(?:a|div) class="card[ "]', self.pc)), 15)
 
-    def test_filtro_jogo_mostra_os_5_jogos(self):
+    def test_filtro_jogo_mostra_os_4_jogos(self):
         jogos = set(re.findall(r'data-tipo="jogo"[^>]*>.*?<h3>(.*?)</h3>', self.pc, re.S))
         self.assertEqual(jogos, {"Investigadoras do conhecimento", "Expedição Sonora", "Antropolojogo",
-                                 "Memórias da Maré / Consolidating Maré", "Através do Espelho"})
+                                 "Através do Espelho"})
 
     def test_card_externo_leva_a_ludopedia_com_credito(self):
         self.assertIn('data-autoria="Raiane"', self.pc)
         self.assertIn("https://ludopedia.com.br/jogo/atraves-do-espelho", self.pc)
 
-    def test_catalogo_leva_as_fichas_do_site(self):
-        self.assertIn("https://labescola3d.rio.br/fichas/", self.pc)
+    def test_filtros_tem_os_cinco_grupos(self):
+        for g in ("tipo", "disciplina", "tempo", "complexidade", "etapa"):
+            self.assertIn(f'data-grupo="{g}"', self.pc, g)
 
-    def test_numeros_a_vista(self):
-        for n in ("5 jogos", "2 formações", "9 atividades", "6 manuais"):
-            self.assertIn(n, self.pc)
+    def test_campo_de_busca(self):
+        self.assertIn('<input type="search"', self.pc)
+        self.assertIn('aria-label="Buscar no catálogo"', self.pc)
+
+    def test_busca_normalizada(self):
+        self.assertEqual(normalizar("Matemática ÇÃO"), "matematica cao")
+        m = re.search(r'data-busca="([^"]*)"[^>]*>(?:(?!</a>|</div></div>).)*?<h3>Oficina de Costura</h3>', self.pc, re.S)
+        self.assertIsNotNone(m)
+        self.assertIn("matematica", m.group(1))
+        self.assertIn("costura", m.group(1))
+
+    def test_a_confirmar_fica_fora_do_filtro(self):
+        m = re.search(r'<(?:a|div) class="card[^"]*"[^>]*data-slug="expedicao-sonora"[^>]*>', self.pc)
+        self.assertIsNotNone(m)
+        self.assertIn('data-tempo=""', m.group(0))
+        self.assertIn('data-disciplinas="Geografia|Arte"', m.group(0))
+
+    def test_estado_vazio(self):
+        self.assertIn("Nenhum material com esses filtros", self.pc)
+        self.assertIn("Limpar filtros", self.pc)
+        self.assertRegex(self.pc, r'class="vazio"[^>]*hidden')
+
+    def test_pagina_que_ainda_nao_existe_vira_card_sem_link(self):
+        self.assertRegex(self.pc, r'<div class="card em-breve"[^>]*data-slug="visitas-coppei"')
+        self.assertNotIn('href="visitas-coppei/"', self.pc)
+
+    def test_numeros_contados_do_json(self):
+        self.assertEqual(numeros(carregar()), [("4 jogos", "para baixar e jogar"),
+                                               ("4 oficinas", "e formações para professores"),
+                                               ("3 materiais", "para preparar a aula"),
+                                               ("15 materiais", "no catálogo")])
+        self.assertIn("15 materiais", self.pc)
 
 
 class TestHome(unittest.TestCase):
