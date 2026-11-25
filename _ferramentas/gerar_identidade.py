@@ -15,6 +15,8 @@ from gerar_produtos import cabecalho_simples  # noqa: E402
 
 E = html.escape
 
+URL_BASE_PUBLICA = "https://labescola3d.github.io/prototipos/"
+
 GOOGLE_FONTS_URL = (
     "https://fonts.googleapis.com/css2?"
     "family=Bebas+Neue&family=Big+Shoulders+Display:wght@700;900"
@@ -528,7 +530,7 @@ def _num_pg(num: int) -> str:
 
 def render_canva_manual(raiz: str | Path, embutir_svg: bool = False) -> str:
     r = Path(raiz)
-    pref = "../../"
+    pref = URL_BASE_PUBLICA
 
     def a(nome: str) -> str:
         return _asset_manual(r, nome, pref, embutir_svg)

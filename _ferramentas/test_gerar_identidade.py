@@ -123,11 +123,14 @@ class TestGerarIdentidade(unittest.TestCase):
         self.assertNotIn("<script", html)
         self.assertNotIn('class="alfa"', html)
 
-        pasta = os.path.join(RAIZ, "canva", "manual-da-marca")
+        base_pub = "https://labescola3d.github.io/prototipos/"
         for img in re.findall(r'<img\b[^>]*\bsrc="([^"]+)"', html):
-            if img.startswith(("http", "data:")):
-                continue
-            caminho = os.path.normpath(os.path.join(pasta, img))
+            self.assertTrue(
+                img.startswith(base_pub),
+                f"Espelho Canva exige URL absoluta pública (recebido: {img})",
+            )
+            rel = img[len(base_pub):]
+            caminho = os.path.normpath(os.path.join(RAIZ, rel))
             self.assertTrue(os.path.isfile(caminho), (img, caminho))
 
     def test_indice_canva_lista_manual_da_marca(self):
