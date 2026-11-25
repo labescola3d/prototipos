@@ -119,8 +119,9 @@ p { font-size: 16px; line-height: 29.71px; }
 .origem li { font-size: 15px; line-height: 26px; margin-left: 20px; }
 .creditos { font-size: 14px; line-height: 22px; color: var(--cinza); }
 
-.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; padding: 90px 160px 60px; }
-.tela--pc .heroi .reservada { height: 400px; }
+.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; align-items: center; padding: 90px 160px 60px; }
+.tela--pc .heroi .reservada { height: 292px; padding: 24px 20px; }
+.tela--pc .heroi .capa { display: block; width: 100%; height: 292px; object-fit: cover; border-radius: 20px; border: 1px solid var(--laranja); background: var(--roxo-claro); }
 .tela--pc .baixar-bloco { margin: 0 160px; padding: 40px 48px; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .tela--pc .baixar-bloco .botao { margin-top: 18px; }
 .tela--pc .secao { padding: 60px 160px 0; }
@@ -130,8 +131,10 @@ p { font-size: 16px; line-height: 29.71px; }
 .tela--pc .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
 .tela--pc .rodape { margin-top: 80px; padding: 32px 160px 48px; display: flex; justify-content: space-between; }
 
-.tela--cel .heroi { position: relative; padding: 60px 20px 32px; }
-.tela--cel .heroi .reservada { height: 220px; margin-top: 24px; }
+.tela--cel .heroi { position: relative; padding: 36px 20px 24px; }
+.tela--cel .midia-cel { padding: 24px 20px 0; }
+.tela--cel .midia-cel .capa { display: block; width: 100%; height: 188px; object-fit: cover; border-radius: 20px; border: 1px solid var(--laranja); background: var(--roxo-claro); }
+.tela--cel .midia-cel .reservada { height: 140px; padding: 24px 16px; }
 .tela--cel .baixar-bloco { margin: 0 20px; padding: 28px 24px; border-radius: 20px; }
 .tela--cel .baixar-bloco .botao { margin-top: 16px; }
 .tela--cel .secao { padding: 44px 20px 0; }
@@ -167,7 +170,7 @@ p { font-size: 16px; line-height: 29.71px; }
 <section class="tela tela--pc" data-document-role="page" data-label="Produto · Catálogo de Atividades · computador (1440)">
 <header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><nav class="menu"><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a><a href="../../em-obras/"><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no catálogo (em obras)"></a></nav></header>
 <div class="onda"></div>
-<div class="heroi"><div><span class="selo">Atividades</span><h1 style="margin-top:16px">Catálogo de Atividades</h1><p class="frase">Roteiros de aula maker alinhados à BNCC e à BNCC Computação, com filtros por ano e componente.</p></div><div class="reservada">Área reservada · uma ficha de atividade aberta<br>sem pessoas</div></div>
+<div class="heroi"><div><span class="selo">Atividades</span><h1 style="margin-top:16px">Catálogo de Atividades</h1><p class="frase">Roteiros de aula maker alinhados à BNCC e à BNCC Computação, com filtros por ano e componente.</p></div><div class="reservada">Imagem em preparação · uma ficha de atividade aberta</div></div>
 <div class="baixar-bloco"><div><h2>As fichas ficam no site do Lab</h2><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><p class="aviso">O Catálogo de Atividades tem filtros por ano e por componente curricular.</p><p class="meta" style="margin-top:12px"><a class="editor" href="https://labescola3d.rio.br/fichas/" style="color:inherit;font-weight:700">Abrir o Catálogo de Atividades →</a><br>Fichas gratuitas para ler, imprimir e adaptar</p></div></div>
 
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Roteiros</b><span>de aula prontos</span></div><div class="fato"><b>BNCC</b><span>e BNCC Computação</span></div><div class="fato"><b>Por ano</b><span>e por componente</span></div><div class="fato"><b>Gratuito</b><span>para usar</span></div></div></div>
@@ -179,8 +182,9 @@ p { font-size: 16px; line-height: 29.71px; }
 <section class="tela tela--cel" data-document-role="page" data-label="Produto · Catálogo de Atividades · celular (375)">
 <header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><details class="menu-cel"><summary><img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu"></summary><nav><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a></nav></details></header>
 <div class="onda"></div>
-<div class="heroi"><div><span class="selo">Atividades</span><h1 style="margin-top:16px">Catálogo de Atividades</h1><p class="frase">Roteiros de aula maker alinhados à BNCC e à BNCC Computação, com filtros por ano e componente.</p></div><div class="reservada">Área reservada · uma ficha de atividade aberta<br>sem pessoas</div></div>
+<div class="heroi"><div><span class="selo">Atividades</span><h1 style="margin-top:16px">Catálogo de Atividades</h1><p class="frase">Roteiros de aula maker alinhados à BNCC e à BNCC Computação, com filtros por ano e componente.</p></div></div>
 <div class="baixar-bloco"><div><h2>As fichas ficam no site do Lab</h2><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><p class="aviso">O Catálogo de Atividades tem filtros por ano e por componente curricular.</p><p class="meta" style="margin-top:12px"><a class="editor" href="https://labescola3d.rio.br/fichas/" style="color:inherit;font-weight:700">Abrir o Catálogo de Atividades →</a><br>Fichas gratuitas para ler, imprimir e adaptar</p></div></div>
+<div class="midia-cel"><div class="reservada">Imagem em preparação · uma ficha de atividade aberta</div></div>
 
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Roteiros</b><span>de aula prontos</span></div><div class="fato"><b>BNCC</b><span>e BNCC Computação</span></div><div class="fato"><b>Por ano</b><span>e por componente</span></div><div class="fato"><b>Gratuito</b><span>para usar</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Cada ficha é um roteiro de aula maker: diz o ano, o componente, as habilidades da BNCC, os pré-requisitos, as etapas da aula, os recursos e como avaliar. Serve para a professora planejar uma aula prática sem partir do zero, e pode ser adaptada à turma.</p></div><div><h2>Como usar</h2><ol class="passos"><li>Abra o catálogo e filtre pelo ano e pelo componente da sua turma.</li><li>Leia a ficha: habilidades, etapas e recursos.</li><li>Separe o material e ajuste a complexidade à turma.</li><li>Aplique e, se quiser, conte para o Lab como foi.</li></ol></div></div>

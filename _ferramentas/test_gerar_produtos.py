@@ -3,6 +3,7 @@ import sys
 import unittest
 
 sys.path.insert(0, os.path.dirname(__file__))
+from catalogo import carregar  # noqa: E402
 from checar import checar  # noqa: E402
 from gerar_produtos import PRODUTOS, gerar_todos  # noqa: E402
 
@@ -142,6 +143,42 @@ class TestGerarProdutos(unittest.TestCase):
         self.assertIn('href="peoes-tom-e-vit-pacote-c.zip"', html)
         self.assertTrue(os.path.isfile(os.path.join(RAIZ, "catalogo", "expedicao-sonora", "peoes-tom-e-vit-pacote-c.zip")))
         self.assertIn("Eduardo Cóser (responsável)", html)
+
+    def test_celular_mostra_baixar_antes_da_midia(self):
+        for p in PRODUTOS:
+            if p["slug"] == "manual-maker":
+                continue
+            html = self.ler(p["slug"])
+            pos_cel = html.index('class="tela tela--cel"')
+            trecho_cel = html[pos_cel:]
+            self.assertIn('class="baixar-bloco"', trecho_cel, p["slug"])
+            self.assertIn('class="midia-cel"', trecho_cel, p["slug"])
+            self.assertLess(
+                trecho_cel.index('class="baixar-bloco"'),
+                trecho_cel.index('class="midia-cel"'),
+                p["slug"],
+            )
+
+    def test_nenhuma_pagina_expoe_nota_interna_sem_pessoas(self):
+        for p in PRODUTOS:
+            self.assertNotIn("sem pessoas", self.ler(p["slug"]), p["slug"])
+
+    def test_produtos_com_capa_no_catalogo_usam_img_real(self):
+        capas = {item["slug"]: item["imagem"] for item in carregar() if item.get("imagem")}
+        for p in PRODUTOS:
+            if p["slug"] == "manual-maker":
+                continue
+            if p["slug"] in capas:
+                html = self.ler(p["slug"])
+                self.assertIn(f'src="../../{capas[p["slug"]]["arquivo"]}"', html, p["slug"])
+                self.assertNotIn('class="reservada"', html, p["slug"])
+
+    def test_produtos_sem_capa_mostram_imagem_em_preparacao(self):
+        capas = {item["slug"]: item["imagem"] for item in carregar() if item.get("imagem")}
+        for p in PRODUTOS:
+            if p["slug"] not in capas:
+                html = self.ler(p["slug"])
+                self.assertIn("Imagem em preparação ·", html, p["slug"])
 
 if __name__ == "__main__":
     unittest.main()

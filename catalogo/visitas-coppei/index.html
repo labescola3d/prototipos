@@ -119,8 +119,9 @@ p { font-size: 16px; line-height: 29.71px; }
 .origem li { font-size: 15px; line-height: 26px; margin-left: 20px; }
 .creditos { font-size: 14px; line-height: 22px; color: var(--cinza); }
 
-.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; padding: 90px 160px 60px; }
-.tela--pc .heroi .reservada { height: 400px; }
+.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; align-items: center; padding: 90px 160px 60px; }
+.tela--pc .heroi .reservada { height: 292px; padding: 24px 20px; }
+.tela--pc .heroi .capa { display: block; width: 100%; height: 292px; object-fit: cover; border-radius: 20px; border: 1px solid var(--laranja); background: var(--roxo-claro); }
 .tela--pc .baixar-bloco { margin: 0 160px; padding: 40px 48px; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .tela--pc .baixar-bloco .botao { margin-top: 18px; }
 .tela--pc .secao { padding: 60px 160px 0; }
@@ -130,8 +131,10 @@ p { font-size: 16px; line-height: 29.71px; }
 .tela--pc .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
 .tela--pc .rodape { margin-top: 80px; padding: 32px 160px 48px; display: flex; justify-content: space-between; }
 
-.tela--cel .heroi { position: relative; padding: 60px 20px 32px; }
-.tela--cel .heroi .reservada { height: 220px; margin-top: 24px; }
+.tela--cel .heroi { position: relative; padding: 36px 20px 24px; }
+.tela--cel .midia-cel { padding: 24px 20px 0; }
+.tela--cel .midia-cel .capa { display: block; width: 100%; height: 188px; object-fit: cover; border-radius: 20px; border: 1px solid var(--laranja); background: var(--roxo-claro); }
+.tela--cel .midia-cel .reservada { height: 140px; padding: 24px 16px; }
 .tela--cel .baixar-bloco { margin: 0 20px; padding: 28px 24px; border-radius: 20px; }
 .tela--cel .baixar-bloco .botao { margin-top: 16px; }
 .tela--cel .secao { padding: 44px 20px 0; }
@@ -167,7 +170,7 @@ p { font-size: 16px; line-height: 29.71px; }
 <section class="tela tela--pc" data-document-role="page" data-label="Produto · Visitas COPPEi · computador (1440)">
 <header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><nav class="menu"><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a><a href="../../em-obras/"><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no catálogo (em obras)"></a></nav></header>
 <div class="onda"></div>
-<div class="heroi"><div><span class="selo">Visita</span><h1 style="margin-top:16px">Visitas COPPEi</h1><p class="frase">Como é a visita ao Lab na COPPE: peças 3D, jogos de Humanas e de Exatas, e como a sua escola pode pedir a dela.</p></div><div class="reservada">Área reservada · a sala i118 montada com as três mesas<br>sem pessoas</div></div>
+<div class="heroi"><div><span class="selo">Visita</span><h1 style="margin-top:16px">Visitas COPPEi</h1><p class="frase">Como é a visita ao Lab na COPPE: peças 3D, jogos de Humanas e de Exatas, e como a sua escola pode pedir a dela.</p></div><div class="reservada">Imagem em preparação · a sala i118 montada com as três mesas</div></div>
 <div class="baixar-bloco"><div><h2>Quer levar a sua turma?</h2><p class="meta">A escola pode pedir uma visita à Diretoria de Extensão da COPPE/UFRJ. Contato: [a confirmar].</p></div><div class="lista"><a class="baixar-link" href="../antropolojogo/">Antropolojogo →</a><a class="baixar-link" href="../investigadoras-do-conhecimento/">Investigadoras do Conhecimento →</a><a class="baixar-link" href="../expedicao-sonora/">Expedição Sonora →</a><a class="baixar-link" href="https://ludopedia.com.br/jogo/atraves-do-espelho">Através do Espelho (na Ludopédia) →</a></div></div>
 
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Escolas</b><span>público</span></div><div class="fato"><b>3 mesas</b><span>de atividades</span></div><div class="fato"><b>4 jogos</b><span>para experimentar</span></div><div class="fato"><b>Sala i118</b><span>Centro de Tecnologia da UFRJ</span></div></div></div>
@@ -179,8 +182,9 @@ p { font-size: 16px; line-height: 29.71px; }
 <section class="tela tela--cel" data-document-role="page" data-label="Produto · Visitas COPPEi · celular (375)">
 <header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><details class="menu-cel"><summary><img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu"></summary><nav><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a></nav></details></header>
 <div class="onda"></div>
-<div class="heroi"><div><span class="selo">Visita</span><h1 style="margin-top:16px">Visitas COPPEi</h1><p class="frase">Como é a visita ao Lab na COPPE: peças 3D, jogos de Humanas e de Exatas, e como a sua escola pode pedir a dela.</p></div><div class="reservada">Área reservada · a sala i118 montada com as três mesas<br>sem pessoas</div></div>
+<div class="heroi"><div><span class="selo">Visita</span><h1 style="margin-top:16px">Visitas COPPEi</h1><p class="frase">Como é a visita ao Lab na COPPE: peças 3D, jogos de Humanas e de Exatas, e como a sua escola pode pedir a dela.</p></div></div>
 <div class="baixar-bloco"><div><h2>Quer levar a sua turma?</h2><p class="meta">A escola pode pedir uma visita à Diretoria de Extensão da COPPE/UFRJ. Contato: [a confirmar].</p></div><div class="lista"><a class="baixar-link" href="../antropolojogo/">Antropolojogo →</a><a class="baixar-link" href="../investigadoras-do-conhecimento/">Investigadoras do Conhecimento →</a><a class="baixar-link" href="../expedicao-sonora/">Expedição Sonora →</a><a class="baixar-link" href="https://ludopedia.com.br/jogo/atraves-do-espelho">Através do Espelho (na Ludopédia) →</a></div></div>
+<div class="midia-cel"><div class="reservada">Imagem em preparação · a sala i118 montada com as três mesas</div></div>
 
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Escolas</b><span>público</span></div><div class="fato"><b>3 mesas</b><span>de atividades</span></div><div class="fato"><b>4 jogos</b><span>para experimentar</span></div><div class="fato"><b>Sala i118</b><span>Centro de Tecnologia da UFRJ</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Nas Visitas COPPEi, turmas e professores conhecem o Lab Escola 3D numa sala montada com três mesas: peças impressas em 3D, jogos de Humanas e jogos de Exatas e Artes. Os visitantes jogam, perguntam e saem sabendo onde encontrar os materiais gratuitos.</p></div><div><h2>O percurso</h2><ol class="passos"><li>Recepção na mesa do Lab: apresentações e boas-vindas.</li><li>Peças em 3D: a Terra é plana? Onde fica o cérebro? Qual o lado de fora da fita de Möbius?</li><li>Jogos de Humanas: Antropolojogo e Investigadoras do Conhecimento.</li><li>Jogos de Exatas e Artes: Através do Espelho e Expedição Sonora.</li><li>Encerramento: os visitantes exploram livremente as mesas.</li></ol></div></div>

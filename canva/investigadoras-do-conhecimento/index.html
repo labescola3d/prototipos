@@ -119,8 +119,9 @@ p { font-size: 16px; line-height: 29.71px; }
 .origem li { font-size: 15px; line-height: 26px; margin-left: 20px; }
 .creditos { font-size: 14px; line-height: 22px; color: var(--cinza); }
 
-.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; padding: 90px 160px 60px; }
-.tela--pc .heroi .reservada { height: 400px; }
+.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; align-items: center; padding: 90px 160px 60px; }
+.tela--pc .heroi .reservada { height: 292px; padding: 24px 20px; }
+.tela--pc .heroi .capa { display: block; width: 100%; height: 292px; object-fit: cover; border-radius: 20px; border: 1px solid var(--laranja); background: var(--roxo-claro); }
 .tela--pc .baixar-bloco { margin: 0 160px; padding: 40px 48px; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .tela--pc .baixar-bloco .botao { margin-top: 18px; }
 .tela--pc .secao { padding: 60px 160px 0; }
@@ -130,8 +131,10 @@ p { font-size: 16px; line-height: 29.71px; }
 .tela--pc .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
 .tela--pc .rodape { margin-top: 80px; padding: 32px 160px 48px; display: flex; justify-content: space-between; }
 
-.tela--cel .heroi { position: relative; padding: 60px 20px 32px; }
-.tela--cel .heroi .reservada { height: 220px; margin-top: 24px; }
+.tela--cel .heroi { position: relative; padding: 36px 20px 24px; }
+.tela--cel .midia-cel { padding: 24px 20px 0; }
+.tela--cel .midia-cel .capa { display: block; width: 100%; height: 188px; object-fit: cover; border-radius: 20px; border: 1px solid var(--laranja); background: var(--roxo-claro); }
+.tela--cel .midia-cel .reservada { height: 140px; padding: 24px 16px; }
 .tela--cel .baixar-bloco { margin: 0 20px; padding: 28px 24px; border-radius: 20px; }
 .tela--cel .baixar-bloco .botao { margin-top: 16px; }
 .tela--cel .secao { padding: 44px 20px 0; }
@@ -161,7 +164,7 @@ p { font-size: 16px; line-height: 29.71px; }
 <section class="tela tela--pc" data-document-role="page" data-label="Produto · Investigadoras do conhecimento · computador (1440)">
 <header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><nav class="menu"><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a><a href="../../em-obras/"><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no catálogo (em obras)"></a></nav></header>
 <div class="onda"></div>
-<div class="heroi"><div><span class="selo">Jogo · 2026</span><h1 style="margin-top:16px">Investigadoras do conhecimento</h1><p class="frase">Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.</p></div><div class="reservada">Área reservada · foto do kit (cartas e dado)<br>sem pessoas</div></div>
+<div class="heroi"><div><span class="selo">Jogo · 2026</span><h1 style="margin-top:16px">Investigadoras do conhecimento</h1><p class="frase">Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.</p></div><img class="capa" src="../../_base/capas/investigadoras-do-conhecimento.jpg" alt="Arte do jogo Investigadoras do conhecimento: silhueta azul sobre explosão laranja e ponto de interrogação em fundo azul" width="800" height="450"></div>
 <div class="baixar-bloco"><div><h2>Baixe e jogue com a sua turma</h2><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div class="lista"><a class="baixar" href="https://labescola3d.rio.br/wp-content/uploads/2026/11/Investigadoras_do_Conhecimento_PnP_v0.pdf">Baixar o kit <span>· Kit para imprimir (print and play) · PDF · 5 páginas · 1 MB</span></a><a class="baixar" href="../../catalogo/investigadoras-do-conhecimento/consultor-de-campo.html">Abrir o Consultor de Campo <span>· As fichas no celular de quem conduz o jogo · HTML · 1 MB · funciona sem internet</span></a><p class="meta" style="margin-top:12px"><a class="editor" href="../../catalogo/investigadoras-do-conhecimento/editor/" style="color:inherit;font-weight:700">Crie sua investigadora →</a><br>Troque o perfil e as pistas e imprima o card no navegador</p></div></div>
 
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>[a confirmar]</b><span>ano escolar</span></div><div class="fato"><b>5 a 10 pessoas</b><span>por grupo</span></div><div class="fato"><b>5 a 10 min</b><span>por rodada</span></div><div class="fato"><b>6 eixos</b><span>31 fichas</span></div></div></div>
@@ -173,8 +176,9 @@ p { font-size: 16px; line-height: 29.71px; }
 <section class="tela tela--cel" data-document-role="page" data-label="Produto · Investigadoras do conhecimento · celular (375)">
 <header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><details class="menu-cel"><summary><img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu"></summary><nav><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a></nav></details></header>
 <div class="onda"></div>
-<div class="heroi"><div><span class="selo">Jogo · 2026</span><h1 style="margin-top:16px">Investigadoras do conhecimento</h1><p class="frase">Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.</p></div><div class="reservada">Área reservada · foto do kit (cartas e dado)<br>sem pessoas</div></div>
+<div class="heroi"><div><span class="selo">Jogo · 2026</span><h1 style="margin-top:16px">Investigadoras do conhecimento</h1><p class="frase">Um jogo de pistas para a turma descobrir as grandes mulheres brasileiras da ciência, da arte, da política e do esporte.</p></div></div>
 <div class="baixar-bloco"><div><h2>Baixe e jogue com a sua turma</h2><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div class="lista"><a class="baixar" href="https://labescola3d.rio.br/wp-content/uploads/2026/11/Investigadoras_do_Conhecimento_PnP_v0.pdf">Baixar o kit <span>· Kit para imprimir (print and play) · PDF · 5 páginas · 1 MB</span></a><a class="baixar" href="../../catalogo/investigadoras-do-conhecimento/consultor-de-campo.html">Abrir o Consultor de Campo <span>· As fichas no celular de quem conduz o jogo · HTML · 1 MB · funciona sem internet</span></a><p class="meta" style="margin-top:12px"><a class="editor" href="../../catalogo/investigadoras-do-conhecimento/editor/" style="color:inherit;font-weight:700">Crie sua investigadora →</a><br>Troque o perfil e as pistas e imprima o card no navegador</p></div></div>
+<div class="midia-cel"><img class="capa" src="../../_base/capas/investigadoras-do-conhecimento.jpg" alt="Arte do jogo Investigadoras do conhecimento: silhueta azul sobre explosão laranja e ponto de interrogação em fundo azul" width="800" height="450"></div>
 
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>[a confirmar]</b><span>ano escolar</span></div><div class="fato"><b>5 a 10 pessoas</b><span>por grupo</span></div><div class="fato"><b>5 a 10 min</b><span>por rodada</span></div><div class="fato"><b>6 eixos</b><span>31 fichas</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Um jogo que transforma o Método Científico em uma investigação. A figura de quem faz ciência não se resume ao “homem branco de jaleco”: com histórias reais, o jogo dá visibilidade às mulheres brasileiras que transformaram a ciência, a cultura e a sociedade, e fortalece a autoestima e a autonomia das estudantes.</p></div><div><h2>Como se joga</h2><ol class="passos"><li>O grupo rola o dado especial, que revela um eixo e a silhueta de uma homenageada.</li><li>A mediadora lê até três pistas, da mais difícil para a mais fácil.</li><li>O grupo junta as evidências e dá um palpite.</li><li>Todo mundo ganha um incentivo por participar; quem acerta leva um prêmio extra.</li></ol></div></div>

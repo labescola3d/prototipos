@@ -8,6 +8,10 @@ Fontes: inventário em site-le3d/docs/acervo/inventario.md.
 import html
 import os
 import posixpath
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from catalogo import carregar  # noqa: E402
 
 LOGO = "https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png"
 SITE = "https://labescola3d.rio.br/wp-content/uploads/"
@@ -470,19 +474,37 @@ def bloco_pecas(pecas: list[dict], tela: str, prefixo_local: str = "") -> str:
             f'<div class="pecas">{"".join(cartoes)}</div></div>')
 
 
+def _midia(p, raiz="../../") -> str:
+    """Devolve a capa real do catálogo ou o espaço reservado sem notas internas."""
+    capas = {item["slug"]: item["imagem"] for item in carregar() if item.get("imagem")}
+    img = capas.get(p["slug"])
+    if img:
+        return (f'<img class="capa" src="{E(raiz + img["arquivo"])}" '
+                f'alt="{E(img["alt"])}" width="800" height="450">')
+    return f'<div class="reservada">Imagem em preparação · {E(p["reservada"])}</div>'
+
+
 def _tela(p, tela, prefixo_local="", raiz="../../"):
     pc = tela == "pc"
     rotulo = "computador (1440)" if pc else "celular (375)"
     nav = menu(raiz, "Catálogo", cel=not pc)
     fatos = "".join(f'<div class="fato"><b>{E(b)}</b><span>{E(s)}</span></div>' for b, s in p["fatos"])
+    cabecalho_heroi = (
+        f'<div><span class="selo">{E(p["selo"])}</span>'
+        f'<h1 style="margin-top:16px">{E(p["titulo"])}</h1><p class="frase">{E(p["frase"])}</p></div>'
+    )
+    midia = _midia(p, raiz=raiz)
+    acao = (_contato(p, prefixo_local=prefixo_local) if "contato" in p
+            else _baixar(p, tela, prefixo_local=prefixo_local, raiz=raiz))
     partes = [
         f'<section class="tela tela--{tela}" data-document-role="page" data-label="Produto · {E(p["titulo"])} · {rotulo}">',
         f'<header class="topo"><a href="{raiz}"><img class="logo" src="{LOGO}" alt="Lab Escola 3D"></a>{nav}</header>',
         '<div class="onda"></div>',
-        f'<div class="heroi"><div><span class="selo">{E(p["selo"])}</span>'
-        f'<h1 style="margin-top:16px">{E(p["titulo"])}</h1><p class="frase">{E(p["frase"])}</p></div>'
-        f'<div class="reservada">Área reservada · {E(p["reservada"])}<br>sem pessoas</div></div>',
-        _contato(p, prefixo_local=prefixo_local) if "contato" in p else _baixar(p, tela, prefixo_local=prefixo_local, raiz=raiz),
+        *(
+            [f'<div class="heroi">{cabecalho_heroi}{midia}</div>', acao]
+            if pc
+            else [f'<div class="heroi">{cabecalho_heroi}</div>', acao, f'<div class="midia-cel">{midia}</div>']
+        ),
         bloco_pecas(p.get("pecas") or [], tela, prefixo_local=prefixo_local),
         f'<div class="secao"><h2>Para quem</h2><div class="fatos">{fatos}</div></div>',
     ]
