@@ -8,9 +8,10 @@ import html
 import os
 import re
 import sys
+from urllib.parse import urljoin
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from gerar_identidade import gerar_canva_manual  # noqa: E402
+from gerar_identidade import URL_BASE_PUBLICA, gerar_canva_manual  # noqa: E402
 from gerar_institucionais import CONTRIBUIR, CSS, CSS_OBRAS, EM_OBRAS, LICENCA, RODAPE  # noqa: E402
 from gerar_manuais import render_manuais  # noqa: E402
 from gerar_paginas import _escrever, render_catalogo, render_home  # noqa: E402
@@ -121,6 +122,24 @@ def _render_indice() -> str:
     )
 
 
+def _absolutizar_imagens_canva(html_doc: str, slug: str, base_url: str = URL_BASE_PUBLICA) -> str:
+    """Converte `<img src>` relativo para URL pública absoluta (o Canva não resolve `../`)."""
+    base_pagina = f"{base_url}canva/{slug}/"
+
+    def _trocar_img(m: re.Match) -> str:
+        tag = m.group(0)
+        return re.sub(
+            r'\bsrc="([^"]+)"',
+            lambda s: s.group(0)
+            if s.group(1).startswith(("http://", "https://", "data:", "//"))
+            else f'src="{E(urljoin(base_pagina, html.unescape(s.group(1))))}"',
+            tag,
+            count=1,
+        )
+
+    return re.sub(r"<img\b[^>]*>", _trocar_img, html_doc)
+
+
 def gerar_todos_canva(raiz: str) -> list[str]:
     """Gera o índice canva/index.html e as 7 telas espelho em canva/<slug>/index.html."""
     inv = next(p for p in PRODUTOS if p["slug"] == "investigadoras-do-conhecimento")
@@ -137,7 +156,9 @@ def gerar_todos_canva(raiz: str) -> list[str]:
     }
     saidas = [_escrever(os.path.join(raiz, "canva", "index.html"), _render_indice())]
     for slug in TELAS_CANVA:
-        saidas.append(_escrever(os.path.join(raiz, "canva", slug, "index.html"), paginas[slug]))
+        saidas.append(
+            _escrever(os.path.join(raiz, "canva", slug, "index.html"), _absolutizar_imagens_canva(paginas[slug], slug))
+        )
     saidas.append(gerar_canva_manual(raiz))
     return saidas
 

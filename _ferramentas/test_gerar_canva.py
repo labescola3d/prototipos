@@ -53,13 +53,17 @@ class TestGerarCanva(unittest.TestCase):
             self.assertIn("width: 375px", html, slug)
 
     def test_imagens_locais_existem_no_disco(self):
+        base_pub = "https://labescola3d.github.io/prototipos/"
         for slug in ESPERADAS:
-            pasta = os.path.join(RAIZ, "canva", slug)
             html = ler(os.path.join("canva", slug, "index.html"))
             for src in re.findall(r'<img\b[^>]*\bsrc="([^"]+)"', html):
-                if src.startswith("http"):
+                self.assertTrue(
+                    src.startswith("https://"),
+                    f"Espelho Canva /{slug}/ exige URL absoluta https:// (recebido: {src})",
+                )
+                if not src.startswith(base_pub):
                     continue
-                caminho = os.path.normpath(os.path.join(pasta, src))
+                caminho = os.path.normpath(os.path.join(RAIZ, src[len(base_pub):]))
                 self.assertTrue(os.path.isfile(caminho), (slug, src, caminho))
 
     def test_catalogo_espelho_tem_15_cards_e_filtros_sem_js(self):
@@ -86,8 +90,8 @@ class TestGerarCanva(unittest.TestCase):
         self.assertIn("labescola3d@gmail.com", contribuir)
 
         obras = ler(os.path.join("canva", "em-obras", "index.html"))
-        self.assertIn('src="../../em-obras/tom.jpg"', obras)
-        self.assertIn('src="../../em-obras/vit.jpg"', obras)
+        self.assertIn('src="https://labescola3d.github.io/prototipos/em-obras/tom.jpg"', obras)
+        self.assertIn('src="https://labescola3d.github.io/prototipos/em-obras/vit.jpg"', obras)
 
     def test_indice_canva_lista_as_7_telas(self):
         indice = ler(os.path.join("canva", "index.html"))
