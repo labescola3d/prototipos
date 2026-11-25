@@ -8,6 +8,7 @@ Requer Python 3 (sem bibliotecas extras). Rode a partir da raiz do repositório:
 python identidade/geradores/gerar_elementos_canva.py identidade/geradores identidade/elementos/canva-2026
 python identidade/geradores/gerar_elementos_canva_lote2.py identidade/elementos/canva-2026
 python identidade/geradores/gerar_gabaritos_professor.py identidade/geradores identidade/gabaritos-professor
+python identidade/geradores/gerar_manual_svgs.py
 ```
 
 | Arquivo | O que faz |
@@ -15,6 +16,7 @@ python identidade/geradores/gerar_gabaritos_professor.py identidade/geradores id
 | `gerar_elementos_canva.py` | lote 1 do Canva: padrão de ícones, retícula, mancha orgânica, ícone e cubo no canto, etiqueta, marca-texto, setas |
 | `gerar_elementos_canva_lote2.py` | lote 2: mosaico de triângulos, chevrons, faixas diagonais, máscara diagonal, linhas de circuito, explosão, geometria Bauhaus, ondas, brilho, retícula lilás |
 | `gerar_gabaritos_professor.py` | kit do professor em A4 (cabeçalho, ficha de pistas, dado, cartas, fichas, quebra-cabeça, tabuleiros) |
+| `gerar_manual_svgs.py` | SVGs do Manual da Marca 2024 em `identidade/manual/` (variações do logo/ícone, diagramas técnicos, usos indevidos, padrões e aplicações vetoriais) |
 | `extrair_elementos_site.py` | separa fita orgânica, quadrados e moldura a partir dos banners originais do site (`originais-site/`) |
 | `icone-le3d.json` · `cubo-le3d.json` | geometria do ícone e do cubo do logo, usada pelos geradores |
 
