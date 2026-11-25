@@ -119,8 +119,9 @@ p { font-size: 16px; line-height: 29.71px; }
 .origem li { font-size: 15px; line-height: 26px; margin-left: 20px; }
 .creditos { font-size: 14px; line-height: 22px; color: var(--cinza); }
 
-.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; padding: 90px 160px 60px; }
-.tela--pc .heroi .reservada { height: 400px; }
+.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; align-items: center; padding: 90px 160px 60px; }
+.tela--pc .heroi .reservada { height: 292px; padding: 24px 20px; }
+.tela--pc .heroi .capa { display: block; width: 100%; height: 292px; object-fit: cover; border-radius: 20px; border: 1px solid var(--laranja); background: var(--roxo-claro); }
 .tela--pc .baixar-bloco { margin: 0 160px; padding: 40px 48px; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .tela--pc .baixar-bloco .botao { margin-top: 18px; }
 .tela--pc .secao { padding: 60px 160px 0; }
@@ -130,8 +131,10 @@ p { font-size: 16px; line-height: 29.71px; }
 .tela--pc .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
 .tela--pc .rodape { margin-top: 80px; padding: 32px 160px 48px; display: flex; justify-content: space-between; }
 
-.tela--cel .heroi { position: relative; padding: 60px 20px 32px; }
-.tela--cel .heroi .reservada { height: 220px; margin-top: 24px; }
+.tela--cel .heroi { position: relative; padding: 36px 20px 24px; }
+.tela--cel .midia-cel { padding: 24px 20px 0; }
+.tela--cel .midia-cel .capa { display: block; width: 100%; height: 188px; object-fit: cover; border-radius: 20px; border: 1px solid var(--laranja); background: var(--roxo-claro); }
+.tela--cel .midia-cel .reservada { height: 140px; padding: 24px 16px; }
 .tela--cel .baixar-bloco { margin: 0 20px; padding: 28px 24px; border-radius: 20px; }
 .tela--cel .baixar-bloco .botao { margin-top: 16px; }
 .tela--cel .secao { padding: 44px 20px 0; }
@@ -167,7 +170,7 @@ p { font-size: 16px; line-height: 29.71px; }
 <section class="tela tela--pc" data-document-role="page" data-label="Produto · Oficina Makey Makey + impressão 3D · computador (1440)">
 <header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><nav class="menu"><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a><a href="../../em-obras/"><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no catálogo (em obras)"></a></nav></header>
 <div class="onda"></div>
-<div class="heroi"><div><span class="selo">Oficina · 2025</span><h1 style="margin-top:16px">Oficina Makey Makey + impressão 3D</h1><p class="frase">Duas estações para professores: uma caça aos órgãos com peças impressas em 3D e um jogo controlado por Makey Makey.</p></div><div class="reservada">Área reservada · ilustração do Bibo<br>sem pessoas</div></div>
+<div class="heroi"><div><span class="selo">Oficina · 2025</span><h1 style="margin-top:16px">Oficina Makey Makey + impressão 3D</h1><p class="frase">Duas estações para professores: uma caça aos órgãos com peças impressas em 3D e um jogo controlado por Makey Makey.</p></div><img class="capa" src="../../_base/capas/oficina-makey-makey-3d.jpg" alt="O Bibo, monstrinho azul com o esqueleto à mostra, personagem da caça aos órgãos" width="800" height="450"></div>
 <div class="baixar-bloco"><div><h2>Roteiro para aplicar</h2><p class="meta">PDF · estações, falas e anexo para imprimir</p><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><a class="botao botao--grande baixar" href="roteiro-da-oficina.pdf"><img src="../../_base/icones/baixar.svg" alt="">Roteiro da oficina com as fichas de charadas</a></div></div>
 
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Professores</b><span>público</span></div><div class="fato"><b>1 hora</b><span>3 estações de 15 min</span></div><div class="fato"><b>Ciências e Computação</b><span>impressão 3D e eletrônica</span></div><div class="fato"><b>EF01CI02</b><span>partes do corpo e suas funções</span></div></div></div>
@@ -179,8 +182,9 @@ p { font-size: 16px; line-height: 29.71px; }
 <section class="tela tela--cel" data-document-role="page" data-label="Produto · Oficina Makey Makey + impressão 3D · celular (375)">
 <header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><details class="menu-cel"><summary><img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu"></summary><nav><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a></nav></details></header>
 <div class="onda"></div>
-<div class="heroi"><div><span class="selo">Oficina · 2025</span><h1 style="margin-top:16px">Oficina Makey Makey + impressão 3D</h1><p class="frase">Duas estações para professores: uma caça aos órgãos com peças impressas em 3D e um jogo controlado por Makey Makey.</p></div><div class="reservada">Área reservada · ilustração do Bibo<br>sem pessoas</div></div>
+<div class="heroi"><div><span class="selo">Oficina · 2025</span><h1 style="margin-top:16px">Oficina Makey Makey + impressão 3D</h1><p class="frase">Duas estações para professores: uma caça aos órgãos com peças impressas em 3D e um jogo controlado por Makey Makey.</p></div></div>
 <div class="baixar-bloco"><div><h2>Roteiro para aplicar</h2><p class="meta">PDF · estações, falas e anexo para imprimir</p><p class="meta">Licença CC BY-NC-SA 4.0: uso não comercial em sala de aula, citando o LE3D e os autores. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div><a class="botao botao--grande baixar" href="roteiro-da-oficina.pdf"><img src="../../_base/icones/baixar.svg" alt="">Roteiro da oficina com as fichas de charadas</a></div></div>
+<div class="midia-cel"><img class="capa" src="../../_base/capas/oficina-makey-makey-3d.jpg" alt="O Bibo, monstrinho azul com o esqueleto à mostra, personagem da caça aos órgãos" width="800" height="450"></div>
 
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Professores</b><span>público</span></div><div class="fato"><b>1 hora</b><span>3 estações de 15 min</span></div><div class="fato"><b>Ciências e Computação</b><span>impressão 3D e eletrônica</span></div><div class="fato"><b>EF01CI02</b><span>partes do corpo e suas funções</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Uma oficina em estações para os professores experimentarem duas tecnologias do colaboratório no papel de alunos. Na caça aos órgãos, o Bibo desmontou e a turma resolve charadas para achar peças impressas em 3D e remontar o corpo. No jogo do dinossauro, um tapete ligado à Makey Makey controla um jogo feito em Scratch. Na terceira estação, todos pensam juntos em como levar isso para cada disciplina.</p></div><div><h2>Como foi aplicada</h2><ol class="passos"><li>Formação com professores de uma escola da rede municipal do Rio, em 2025.</li><li>Os professores se dividiram em dois grupos e trocaram de estação a cada 15 minutos.</li><li>Experimentaram as peças, as charadas, o circuito e o jogo.</li><li>Fecharam com uma conversa sobre usos em cada disciplina.</li></ol></div></div>

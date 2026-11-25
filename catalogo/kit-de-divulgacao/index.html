@@ -119,8 +119,9 @@ p { font-size: 16px; line-height: 29.71px; }
 .origem li { font-size: 15px; line-height: 26px; margin-left: 20px; }
 .creditos { font-size: 14px; line-height: 22px; color: var(--cinza); }
 
-.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; padding: 90px 160px 60px; }
-.tela--pc .heroi .reservada { height: 400px; }
+.tela--pc .heroi { position: relative; display: grid; grid-template-columns: 1fr 520px; gap: 60px; align-items: center; padding: 90px 160px 60px; }
+.tela--pc .heroi .reservada { height: 292px; padding: 24px 20px; }
+.tela--pc .heroi .capa { display: block; width: 100%; height: 292px; object-fit: cover; border-radius: 20px; border: 1px solid var(--laranja); background: var(--roxo-claro); }
 .tela--pc .baixar-bloco { margin: 0 160px; padding: 40px 48px; border-radius: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .tela--pc .baixar-bloco .botao { margin-top: 18px; }
 .tela--pc .secao { padding: 60px 160px 0; }
@@ -130,8 +131,10 @@ p { font-size: 16px; line-height: 29.71px; }
 .tela--pc .duas { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
 .tela--pc .rodape { margin-top: 80px; padding: 32px 160px 48px; display: flex; justify-content: space-between; }
 
-.tela--cel .heroi { position: relative; padding: 60px 20px 32px; }
-.tela--cel .heroi .reservada { height: 220px; margin-top: 24px; }
+.tela--cel .heroi { position: relative; padding: 36px 20px 24px; }
+.tela--cel .midia-cel { padding: 24px 20px 0; }
+.tela--cel .midia-cel .capa { display: block; width: 100%; height: 188px; object-fit: cover; border-radius: 20px; border: 1px solid var(--laranja); background: var(--roxo-claro); }
+.tela--cel .midia-cel .reservada { height: 140px; padding: 24px 16px; }
 .tela--cel .baixar-bloco { margin: 0 20px; padding: 28px 24px; border-radius: 20px; }
 .tela--cel .baixar-bloco .botao { margin-top: 16px; }
 .tela--cel .secao { padding: 44px 20px 0; }
@@ -167,7 +170,7 @@ p { font-size: 16px; line-height: 29.71px; }
 <section class="tela tela--pc" data-document-role="page" data-label="Produto · Kit de divulgação do Lab · computador (1440)">
 <header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><nav class="menu"><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a><a href="../../em-obras/"><img class="icone" src="../../_base/icones/lupa.svg" alt="Buscar no catálogo (em obras)"></a></nav></header>
 <div class="onda"></div>
-<div class="heroi"><div><span class="selo">Divulgação</span><h1 style="margin-top:16px">Kit de divulgação do Lab</h1><p class="frase">Logo, adesivos, bottons e crachás do Lab Escola 3D para imprimir, usar em aula e espalhar por aí.</p></div><div class="reservada">Área reservada · adesivos e bottons do Lab<br>sem pessoas</div></div>
+<div class="heroi"><div><span class="selo">Divulgação</span><h1 style="margin-top:16px">Kit de divulgação do Lab</h1><p class="frase">Logo, adesivos, bottons e crachás do Lab Escola 3D para imprimir, usar em aula e espalhar por aí.</p></div><img class="capa" src="../../_base/capas/kit-de-divulgacao.jpg" alt="Cartela de adesivos coloridos do Lab: peões, personagens dos jogos e ícones das áreas" width="800" height="450"></div>
 <div class="baixar-bloco"><div><h2>Baixe e espalhe</h2><p class="meta">A marca do Lab Escola 3D não é licenciada em CC. Use a logo, os adesivos e os bottons à vontade para dar aula e divulgar o Lab, sem alterá-los. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div class="lista"><a class="baixar" href="logo-lab-escola-3d-horizontal.svg">Logo horizontal <span>· SVG · vetor, qualquer tamanho</span></a><a class="baixar" href="logo-lab-escola-3d-vertical.svg">Logo vertical <span>· SVG · vetor, qualquer tamanho</span></a><a class="baixar" href="adesivos-lab-escola-3d.pdf">Adesivos <span>· PDF · A4 · 1,6 MB · para papel adesivo</span></a><a class="baixar" href="bottons-lab-escola-3d.pdf">Bottons <span>· PDF · 2 modelos</span></a><a class="baixar" href="cracha-lab-escola-3d.pdf">Crachás <span>· PDF · 2 modelos de 70 × 100 mm com espaço para o nome</span></a></div></div>
 
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Logo em vetor</b><span>horizontal e vertical</span></div><div class="fato"><b>Adesivos</b><span>para imprimir</span></div><div class="fato"><b>Bottons e crachás</b><span>modelos prontos</span></div><div class="fato"><b>Gratuito</b><span>para divulgar</span></div></div></div>
@@ -178,8 +181,9 @@ p { font-size: 16px; line-height: 29.71px; }
 <section class="tela tela--cel" data-document-role="page" data-label="Produto · Kit de divulgação do Lab · celular (375)">
 <header class="topo"><a href="../../"><img class="logo" src="https://labescola3d.rio.br/wp-content/uploads/2023/09/cropped-cropped-02_simbolo-300x213.png" alt="Lab Escola 3D"></a><details class="menu-cel"><summary><img class="icone" src="../../_base/icones/menu.svg" alt="Abrir o menu"></summary><nav><a class="ativo" href="../../catalogo/">Catálogo</a><a href="../../licenca/">Como usar</a><a href="../../contribuir/">Contribuir</a><a href="../../em-obras/">Sobre o Lab</a></nav></details></header>
 <div class="onda"></div>
-<div class="heroi"><div><span class="selo">Divulgação</span><h1 style="margin-top:16px">Kit de divulgação do Lab</h1><p class="frase">Logo, adesivos, bottons e crachás do Lab Escola 3D para imprimir, usar em aula e espalhar por aí.</p></div><div class="reservada">Área reservada · adesivos e bottons do Lab<br>sem pessoas</div></div>
+<div class="heroi"><div><span class="selo">Divulgação</span><h1 style="margin-top:16px">Kit de divulgação do Lab</h1><p class="frase">Logo, adesivos, bottons e crachás do Lab Escola 3D para imprimir, usar em aula e espalhar por aí.</p></div></div>
 <div class="baixar-bloco"><div><h2>Baixe e espalhe</h2><p class="meta">A marca do Lab Escola 3D não é licenciada em CC. Use a logo, os adesivos e os bottons à vontade para dar aula e divulgar o Lab, sem alterá-los. <a href="../../licenca/" style="color:inherit">Como usar →</a></p></div><div class="lista"><a class="baixar" href="logo-lab-escola-3d-horizontal.svg">Logo horizontal <span>· SVG · vetor, qualquer tamanho</span></a><a class="baixar" href="logo-lab-escola-3d-vertical.svg">Logo vertical <span>· SVG · vetor, qualquer tamanho</span></a><a class="baixar" href="adesivos-lab-escola-3d.pdf">Adesivos <span>· PDF · A4 · 1,6 MB · para papel adesivo</span></a><a class="baixar" href="bottons-lab-escola-3d.pdf">Bottons <span>· PDF · 2 modelos</span></a><a class="baixar" href="cracha-lab-escola-3d.pdf">Crachás <span>· PDF · 2 modelos de 70 × 100 mm com espaço para o nome</span></a></div></div>
+<div class="midia-cel"><img class="capa" src="../../_base/capas/kit-de-divulgacao.jpg" alt="Cartela de adesivos coloridos do Lab: peões, personagens dos jogos e ícones das áreas" width="800" height="450"></div>
 
 <div class="secao"><h2>Para quem</h2><div class="fatos"><div class="fato"><b>Logo em vetor</b><span>horizontal e vertical</span></div><div class="fato"><b>Adesivos</b><span>para imprimir</span></div><div class="fato"><b>Bottons e crachás</b><span>modelos prontos</span></div><div class="fato"><b>Gratuito</b><span>para divulgar</span></div></div></div>
 <div class="secao duas"><div><h2>O que é</h2><p>Como os adesivos das rádios, a marca do Lab circula de mão em mão. Use a logo nos seus slides e atividades, imprima adesivos para a turma, monte bottons e crachás para a feira de ciências. Cada vez que o Lab aparece, mais professoras descobrem os materiais gratuitos.</p></div><div><h2>Como usar</h2><ol class="passos"><li>Baixe a logo e use em slides, fichas e cartazes da aula.</li><li>Imprima os adesivos em papel adesivo e distribua para a turma.</li><li>Monte bottons e crachás para eventos e feiras da escola.</li><li>Marque o Lab nas redes quando postar.</li></ol></div></div>
