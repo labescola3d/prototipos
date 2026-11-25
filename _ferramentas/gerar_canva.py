@@ -10,6 +10,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from gerar_identidade import gerar_canva_manual  # noqa: E402
 from gerar_institucionais import CONTRIBUIR, CSS, CSS_OBRAS, EM_OBRAS, LICENCA, RODAPE  # noqa: E402
 from gerar_manuais import render_manuais  # noqa: E402
 from gerar_paginas import _escrever, render_catalogo, render_home  # noqa: E402
@@ -101,6 +102,12 @@ def _render_indice() -> str:
         f'<a class="btn btn--claro" href="{E(site)}">Ver no site</a></div></div>'
         for slug, nome, desc, site in itens_meta
     )
+    cartoes += (
+        '<div class="item"><div><b>Manual da Marca (16:9 · 33 slides)</b>'
+        '<span>Espelho 1920 × 1080 do Manual da Marca 2024 (sem fotos de pessoas)</span></div>'
+        '<div class="acoes"><a class="btn" href="manual-da-marca/">Abrir espelho Canva</a>'
+        '<a class="btn btn--claro" href="../identidade/">Ver no site</a></div></div>'
+    )
     return (
         '<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex">\n'
@@ -131,6 +138,7 @@ def gerar_todos_canva(raiz: str) -> list[str]:
     saidas = [_escrever(os.path.join(raiz, "canva", "index.html"), _render_indice())]
     for slug in TELAS_CANVA:
         saidas.append(_escrever(os.path.join(raiz, "canva", slug, "index.html"), paginas[slug]))
+    saidas.append(gerar_canva_manual(raiz))
     return saidas
 
 
